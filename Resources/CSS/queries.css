@@ -1,0 +1,326 @@
+@media only screen and (max-width: 1500px) {
+  /*-----HEADER-----*/
+  .search {
+    width: 425px;
+  }
+  .btn-filter {
+    width: 180px;
+    padding-left: 25px;
+  }
+  .btn-add {
+    width: 150px;
+    padding-top: 2px;
+    font-weight: 400;
+    margin-left: 50px;
+  }
+  /*-----FORM-----*/
+  .modal-form {
+    height: 700px;
+  }
+  .new-form form div label {
+    font-size: 150%;
+  }
+  .new-form form div input {
+    height: 55px;
+    padding-left: 20px;
+    padding-bottom: 5px;
+  }
+  .new-form form div input::placeholder {
+    font-size: 100%;
+  }
+  .date {
+    width: 27.5%;
+    float: left;
+    font-size: 90%;
+    margin-bottom: 40px;
+  }
+  /*-----SEARCH RESULTS-----*/
+  .country-details li {
+    padding-bottom: 6px;
+  }
+  /*-----LOCACTION RESULTS-----*/
+  .location-details li,
+  .location-details .media {
+    font-size: 110%;
+    margin-top: 4px;
+  }
+}
+
+@media only screen and (max-width: 1300px) {
+  /*-----HEADER-----*/
+  .search {
+    width: 360px;
+  }
+  .btn-filter {
+    width: 150px;
+    padding-left: 15px;
+  }
+  .btn-add {
+    width: 125px;
+    margin-left: 30px;
+  }
+  /*-----FORM-----*/
+  .modal-form {
+    height: 670px;
+  }
+  .new-form form div label {
+    font-size: 130%;
+  }
+  .center {
+    padding-top: 12px;
+  }
+
+  .new-form form div input {
+    height: 55px;
+    padding-left: 20px;
+  }
+  .new-form form div input::placeholder {
+    font-size: 80%;
+  }
+  .choose-media {
+    height: 50px;
+    padding: 10px 10px;
+    font-size: 110%;
+  }
+  .post-media {
+    margin-top: 15px;
+    margin-left: 42.5%;
+    width: 15%;
+    height: 50px;
+    font-size: 110%;
+  }
+  .date {
+    width: 27.5%;
+    font-size: 75%;
+    margin-bottom: 30px;
+  }
+  .date .start,
+  .date .end {
+    font-size: 165%;
+  }
+
+  /*-----SEARCH RESULTS-----*/
+
+  /*-----LOCACTION RESULTS-----*/
+  .location h2,
+  .location-address,
+  .date-visit,
+  .location-details .media {
+    padding-left: 15px;
+  }
+  .location h2 {
+    padding-top: 7px;
+    text-decoration: underline 2px;
+    font-size: 180%;
+  }
+  .location-details li,
+  .location-details .media {
+    font-size: 100%;
+    font-weight: 590;
+  }
+}
+
+@media only screen and (max-width: 1100px) {
+  /*-----HEADER-----*/
+  .search,
+  .btn-search,
+  .btn-filter,
+  .btn-add {
+    height: 45px;
+    font-size: 95%;
+  }
+  .search {
+    width: 285px;
+  }
+  .btn-search {
+    width: 45px;
+  }
+  .btn-filter {
+    width: 130px;
+    padding-left: 10px;
+    margin-left: 40px;
+  }
+  .btn-add {
+    width: 125px;
+    margin-left: 20px;
+  }
+  .logo {
+    height: 50px;
+    width: 50px;
+  }
+  /*-----FORM-----*/
+  .modal-form {
+    height: 700px;
+  }
+  .new-form form {
+    margin-top: 5px;
+  }
+  .form-type div {
+    padding-left: 20px;
+  }
+  .form-type h4 {
+    font-size: 100%;
+    padding-right: 20px;
+  }
+  .new-form form div label {
+    font-size: 130%;
+  }
+  .center {
+    padding-bottom: 12px;
+    text-align: center;
+  }
+  .input {
+    padding-bottom: 10px;
+  }
+  .new-form form div input {
+    height: 55px;
+    padding-left: 10px;
+    padding-bottom: 5px;
+    margin-bottom: 0px;
+    font-size: 110%;
+  }
+  .choose-media {
+    height: 45px;
+    padding: 10px 10px;
+    margin-top: 20px;
+    font-size: 100%;
+    width: 70%;
+    margin-left: 15%;
+  }
+  .post-media {
+    margin-top: 30px;
+    margin-left: 30%;
+    width: 40%;
+    height: 45px;
+    font-size: 100%;
+  }
+  .date {
+    font-size: 75%;
+    width: 40%;
+    margin-left: 5%;
+  }
+  .date .start,
+  .date .end {
+    font-size: 165%;
+    padding-top: 10px;
+  }
+  .date input {
+    padding-top: 6px;
+  }
+
+  .wide {
+    width: 100%;
+  }
+
+  /*-----SEARCH RESULTS-----*/
+  .country-details li {
+    font-weight: 400;
+    font-size: 130%;
+  }
+  .country-details li i {
+    margin-right: 6px;
+  }
+  .times-visit {
+    font-weight: 598;
+  }
+  /*-----LOCACTION RESULTS-----*/
+  .location h2,
+  .location-address,
+  .date-visit,
+  .location-details .media {
+    padding-left: 10px;
+  }
+  .location h2 {
+    padding-top: 5px;
+    font-size: 160%;
+  }
+  .location-details li,
+  .location-details .media {
+    font-size: 90%;
+    font-weight: 600;
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  /*-----HEADER-----*/
+  .search,
+  .btn-search,
+  .btn-filter,
+  .btn-add,
+  .logo {
+    height: 40px;
+  }
+
+  .search {
+    width: 190px;
+    font-size: 90%;
+    margin-left: 30px;
+  }
+  .btn-search {
+    width: 40px;
+  }
+  .btn-filter {
+    width: 115px;
+    padding-left: 10px;
+    margin-left: 20px;
+    font-size: 80%;
+  }
+  .btn-add {
+    width: 100px;
+    font-size: 80%;
+    margin-left: -10px;
+  }
+  .logo {
+    width: 40px;
+    margin-top: 0px;
+  }
+  /*-----FORM-----*/
+  .modal-form {
+    height: 725px;
+  }
+  .input {
+    padding-bottom: 10px;
+  }
+  .date {
+    font-size: 65%;
+    width: 35%;
+  }
+  .date .start,
+  .date .end {
+    font-size: 140%;
+    padding-top: 10px;
+  }
+  .date input {
+    padding-top: 6px;
+  }
+
+  /*-----SEARCH RESULTS-----*/
+  .country {
+    font-size: 90%;
+  }
+  .country-details li {
+    font-weight: 400;
+    font-size: 120%;
+  }
+  .country-details li i {
+    margin-right: 6px;
+  }
+  .times-visit {
+    font-weight: 650;
+  }
+  /*-----LOCACTION RESULTS-----*/
+  .location h2,
+  .location-address,
+  .date-visit,
+  .location-details .media {
+    padding-left: 3px;
+  }
+  .location h2 {
+    padding-top: 1px;
+    font-size: 140%;
+  }
+  .location-details li,
+  .location-details .media {
+    margin-top: 8px;
+  }
+}

@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Holidays/Travels Memory Application</title>
+
+    <link rel="stylesheet" type="text/css" href="Resources/CSS/normalize.css" />
+    <link rel="stylesheet" type="text/css" href="Vendors/CSS/grid.css" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="Vendors/CSS/ionicons.min.css"
+    />
+    <link rel="stylesheet" type="text/css" href="Resources/CSS/styles.css" /> 
+    <link rel="stylesheet" type="text/css" href="Resources/CSS/queries.css" />  
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;1,300&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="overlay hidden"></div>
+    <div class="modal-form">
+      <div class="close">
+        <button class="btn-close"><i class="ion-close-round"></i></button>
+      </div>
+      <div class="form">
+          <div class="form-type clearfix">
+            <div class="type active">
+                <h4>New Location</h4>
+            </div>
+            <div class="type">
+                <h4>Existing Location</h4>
+            </div>
+          </div>
+          <div class="new-form">
+            <form>
+           <div class="input">   
+            <div class="col span-1-of-5 center wide">
+                <label>Country:</label>
+              </div>
+              <div class="col span-4-of-5 wide">
+                <input type="text" name="country" id="country" placeholder="Visited country name" required>
+              </div>
+            </div>        
+            
+            <div class="input">
+              <div class="col span-1-of-5 center wide">
+                <label>Name-Tag:</label>
+              </div>
+              <div class="col span-4-of-5 wide">
+                <input type="text" name="name-tag" id="name-tag" placeholder="Give a personal name for your visit (optional)">
+              </div>
+            </div> 
+
+            <div class="input">
+              <div class="col span-1-of-5 center wide">
+                <label>Location:</label>
+              </div>
+              <div class="col span-4-of-5 wide">
+                <input type="text" name="location" id="location" placeholder="Location address" required>
+              </div>
+            </div>
+            <div class="dates">
+            <div class="date">
+              <label class="start">Start Date:</label>
+              <input type="date" id="start" name="start" value="2021-06-19" min="1980-01-01" max="2100-12-31">
+            </div>
+            <div class="date">
+              <label class="end">End Date:</label>
+              <input type="date" id="end" name="end" value="2021-06-30" min="1980-01-01" max="2100-12-31">
+            </div>
+            </div>
+          
+            <div>
+              <button class="choose-media">Choose Photos / Videos</button>
+            </div>
+              <div>
+              <button class="post-media">POST</button>
+            </div>
+            </form>
+          </div>
+    </div>
+    </div>
+    <header>
+      <div class="col span-1-of-4 main">
+        <form>
+          <select name="sort" id="sort" class="field btn-filter">
+            <option value="frequency" selected>Frequency</option>
+            <option value="recency">Recency</option>
+            <option value="photos">Most Photos</option>
+            <option value="videos">Most Videos</option>
+          </select>
+        </form>
+      </div>
+      <div class="col span-2-of-4 main">
+        <form>
+          <input
+            type="text"
+            name="search"
+            id="search"
+            placeholder="Search for country"
+            class="field search"
+          />
+          <button type="submit" class="field btn-search">
+            <i class="ion-ios-search"></i>
+          </button>
+        </form>
+      </div>
+      <div class="col span-1-of-4 main">
+          <button class="field btn-add">Add Media</button>
+          <a href="http://127.0.0.1:5500/index.html"
+            ><img src="Resources/Images/Logo-Test.jpg" class="logo"
+          /></a>
+
+      </div>
+    </header>
+    <section class="search-results">
+      <div class="col span-1-of-4">
+        <div class="result-container">
+        <div class="entry country">
+          <h2 class="country-name">Portugal</h2>
+          <p class="times-visit">Visited 15 Times</p>
+          <ul class="country-details clearfix">
+            <li>
+              <i class="ion-images"></i>58</li>
+            <li>
+              <i class="ion-film-marker"></i>12</li>
+          </ul>
+        </div>
+        <div class="entry country">
+          <h2 class="country-name">Borocay</h2>
+          <p class="times-visit">Visited 8 Times</p>
+          <ul class="country-details clearfix">
+            <li>
+              <i class="ion-images"></i>49</li>
+            <li>
+              <i class="ion-film-marker"></i>28</li>
+          </ul>
+        </div>
+        <!---
+        <div class="entry country-details">
+          <h2 class="country">Portugal</h2>
+          <p class="times-visit">Visited 15 Times</p>
+          <ul class="clearfix">
+            <li>
+              <i class="ion-images"></i>58</li>
+            <li>
+              <i class="ion-film-marker"></i>12</li>
+          </ul>
+        </div>
+        -->
+        <div class="entry location">
+          <h2>Ramiro Restaurant</h2>
+          <ul class="location-details clearfix">
+            <li>
+              <p class="location-address"><i class="ion-location"></i>Av. Alm. Reis 1, 1150-038 Lisboa, Portugal</p>
+            </li>
+            <li>
+              <p class="date-visit"><i class="ion-calendar"></i>15/07/21 &mdash; 30/07/21</p>
+            </li>
+            <li class="media">
+              <i class="ion-images"></i>14<i class="ion-film-marker"></i>6</li>
+          </ul>
+        </div>
+      </div>
+      </div>
+      <div class="col span-3-of-4">
+        <div class="world-map">
+        </div>
+      </div>
+
+      <script src="Resources/Javascript/viewMain.js"></script>
+  </body>
+</html>

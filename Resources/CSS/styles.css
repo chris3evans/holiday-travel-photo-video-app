@@ -1,0 +1,414 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  background-image: linear-gradient(
+    to right,
+    rgb(255, 168, 37),
+    rgb(250, 40, 127)
+  );
+  color: black;
+  font-family: "Lato", "Arial", sans-serif;
+  font-size: 20px;
+  font-weight: 300;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+}
+
+.row {
+  width: 1140px;
+  margin: 0 auto;
+}
+
+.col {
+  margin: 0;
+  padding: 0;
+}
+
+.clearfix {
+  zoom: 1;
+}
+.clearfix:after {
+  content: ".";
+  clear: both;
+  display: block;
+  height: 0;
+  visibility: hidden;
+}
+
+.btn-filter,
+.btn-search,
+.btn-add,
+.entry {
+  cursor: pointer;
+}
+
+/*-------REUSABLE COMPONENTS-----------*/
+
+.entry {
+  background-image: linear-gradient(
+    to right,
+    rgb(255, 204, 37, 1),
+    rgb(253, 159, 37)
+  );
+  color: rgb(255, 84, 68);
+  margin-bottom: 5px;
+  border-radius: 8px;
+}
+
+.entry:first-child {
+  margin-top: 4px;
+}
+
+.field {
+  height: 50px;
+  border-radius: 30px;
+  border: 1px solid rgb(255, 136, 68);
+  background-color: rgb(253, 238, 186);
+  font-size: 100%;
+}
+
+.field:hover,
+.field:active {
+  background-color: rgb(255, 226, 122);
+  transition: background-color 0.5s;
+}
+
+.hidden {
+  display: none;
+}
+
+.overlay {
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.415);
+  z-index: 5;
+  width: 100%;
+  height: 100%;
+}
+
+/*-------------------------------------------------*/
+/*--------MAIN NAVIGATION----------*/
+/*-------------------------------------------------*/
+
+header {
+  background-image: linear-gradient(to top, rgb(182, 92, 193), rgb(255, 60, 0));
+  overflow: auto;
+  border: 1px solid rgb(255, 136, 68);
+}
+
+.main {
+  margin: 40px 0;
+}
+
+.btn-filter {
+  color: rgb(90, 87, 86);
+  width: 60%;
+  margin-left: 20%;
+  padding-left: 25px;
+}
+
+.search {
+  font-weight: 500;
+  padding-left: 20px;
+  width: 500px;
+  margin-left: 20%;
+  vertical-align: middle;
+}
+
+.search::placeholder {
+  font-weight: 300;
+}
+
+.btn-search {
+  width: 50px;
+  vertical-align: middle;
+}
+
+.btn-add {
+  color: rgb(90, 87, 86);
+  vertical-align: middle;
+  margin-left: 20px;
+  width: 175px;
+  font-weight: 500;
+}
+
+.btn-add i {
+  padding-left: 10px;
+  vertical-align: middle;
+}
+
+.logo {
+  width: 50px;
+  height: auto;
+  float: right;
+}
+
+*:focus {
+  outline: none;
+}
+
+/*-------------------------------------------------*/
+/*--------SEARCH RESULTS----------*/
+/*-------------------------------------------------*/
+
+.result-container {
+  border: 1px solid rgb(255, 136, 68);
+  width: 100%;
+  height: 100vh;
+  background-image: linear-gradient(
+    to right,
+    rgb(255, 87, 20),
+    rgb(250, 124, 40)
+  );
+}
+
+.country-name {
+  text-align: center;
+  padding-top: 8px;
+  text-decoration: underline 2px;
+  font-size: 200%;
+}
+
+.country-details li {
+  color: rgb(90, 87, 86);
+  font-weight: 400;
+  float: left;
+  list-style: none;
+  padding: 10px 0 6px 0;
+  width: 50%;
+  text-align: center;
+  font-size: 160%;
+}
+
+.country-details li i {
+  margin-right: 6px;
+}
+
+.times-visit {
+  text-align: center;
+  display: block;
+  font-size: 70%;
+  margin: 10px 0;
+  font-weight: 590;
+}
+
+/*-------------------------------------------------*/
+/*--------LOCATION RESULTS----------*/
+/*-------------------------------------------------*/
+
+.location h2 {
+  padding-top: 10px;
+  text-decoration: underline 3px;
+  font-size: 200%;
+}
+
+.location h2,
+.location-address,
+.date-visit,
+.location-details .media {
+  padding-left: 20px;
+}
+
+.location-details li,
+.location-details .media {
+  font-size: 120%;
+  font-weight: 575;
+  margin-left: 4px;
+  margin-top: 6px;
+  vertical-align: middle;
+}
+
+.location-details li i {
+  font-size: 125%;
+  margin-right: 5px;
+}
+
+.location-details .media {
+  padding-bottom: 5px;
+}
+
+.location-details .media i {
+  font-size: 150%;
+}
+.location-details .media i:last-child {
+  padding-left: 20px;
+}
+
+/*-------------------------------------------------*/
+/*--------WORLD MAP----------*/
+/*-------------------------------------------------*/
+
+.world-map {
+  border: 1px solid rgb(255, 136, 68);
+  width: 100%;
+  height: 100vh;
+  background-color: rgb(194, 194, 194);
+}
+
+/*-------------------------------------------------*/
+/*--------ADD MEDIA FORM----------*/
+/*-------------------------------------------------*/
+
+.modal-form {
+  z-index: 10;
+  position: fixed;
+  height: 725px;
+  width: 70%;
+  margin-left: 15%;
+  margin-top: 80px;
+  border: black solid 1px;
+  border-radius: 15px;
+  background-color: rgb(255, 249, 236);
+  box-shadow: 3px 3px 5px rgb(94, 94, 94);
+}
+
+.btn-close {
+  float: right;
+  display: block;
+  border: none;
+  background-color: white;
+  margin-right: 13px;
+  margin-top: 10px;
+  margin-bottom: 5px;
+}
+
+.btn-close i {
+  background-color: rgb(255, 249, 236);
+  font-size: 125%;
+  cursor: pointer;
+}
+
+.form-type {
+  border-bottom: black 1px solid;
+}
+
+.form-type div {
+  padding: 10px 0px 10px 50px;
+  overflow: auto;
+  float: left;
+}
+
+.form-type h4 {
+  color: black;
+  font-size: 120%;
+  font-weight: 500;
+  padding-right: 50px;
+  cursor: pointer;
+}
+
+.active {
+  border: black solid 1px;
+  border-top-right-radius: 15px;
+  border-top-left-radius: 15px;
+  background-image: linear-gradient(
+    to right,
+    rgba(255, 247, 0, 0.802),
+    rgba(255, 208, 0, 0.802)
+  );
+}
+
+.new-form {
+  width: 90%;
+  margin-left: 5%;
+}
+
+.new-form form {
+  overflow: auto;
+  margin-top: 45px;
+}
+
+.input {
+  overflow: auto;
+  padding-bottom: 45px;
+}
+
+.center {
+  padding-top: 6px;
+}
+
+.new-form form div label {
+  font-size: 170%;
+  color: black;
+  font-weight: 500;
+  width: 100%;
+}
+
+.new-form form div input {
+  height: 60px;
+  width: 100%;
+  border: black 1px solid;
+  border-radius: 25px;
+  font-size: 125%;
+  font-weight: 500;
+  padding-left: 20px;
+  box-shadow: 1px 1px 1px rgb(94, 94, 94);
+}
+
+.new-form form div input::placeholder {
+  font-weight: 300;
+}
+
+.dates {
+  width: 100%;
+  overflow: auto;
+}
+
+.date {
+  width: 25%;
+  float: left;
+  font-size: 95%;
+  margin-bottom: 40px;
+}
+
+.date:first-child {
+  margin-right: 50px;
+}
+
+.date .start,
+.date .end {
+  color: black;
+  display: block;
+  margin-bottom: 15px;
+}
+
+.date input {
+  padding-right: 10px;
+  cursor: pointer;
+  transition: 0.25s;
+}
+
+.date input:hover {
+  background-color: rgb(248, 248, 248);
+}
+
+.choose-media,
+.post-media {
+  font-size: 125%;
+  cursor: pointer;
+  height: 60px;
+  border-radius: 5px;
+  box-shadow: 2px 2px 2px rgb(94, 94, 94);
+  background-color: rgba(255, 208, 0, 0.802);
+  transition: background-color 0.25s;
+}
+
+.choose-media:hover,
+.post-media:hover {
+  background-color: rgba(255, 174, 0, 0.802);
+}
+
+.choose-media {
+  margin-top: 0px;
+  border: black solid 1px;
+  padding: 15px 15px;
+}
+
+.post-media {
+  margin: 15px 0;
+  margin-left: 42.5%;
+  width: 15%;
+}

@@ -61,7 +61,7 @@
   }
   /*-----FORM-----*/
   .modal-form {
-    height: 670px;
+    height: 675px;
   }
   .new-form form div label {
     font-size: 130%;
@@ -150,10 +150,10 @@
   }
   /*-----FORM-----*/
   .modal-form {
-    height: 700px;
+    height: 775px;
   }
   .new-form form {
-    margin-top: 5px;
+    margin-top: 10px;
   }
   .form-type div {
     padding-left: 20px;
@@ -163,14 +163,14 @@
     padding-right: 20px;
   }
   .new-form form div label {
-    font-size: 130%;
+    font-size: 110%;
   }
   .center {
     padding-bottom: 12px;
     text-align: center;
   }
   .input {
-    padding-bottom: 10px;
+    padding-bottom: 30px;
   }
   .new-form form div input {
     height: 55px;
@@ -276,7 +276,7 @@
   }
   /*-----FORM-----*/
   .modal-form {
-    height: 725px;
+    height: 700px;
   }
   .input {
     padding-bottom: 10px;

@@ -13,7 +13,7 @@
       href="Vendors/CSS/ionicons.min.css"
     />
     <link rel="stylesheet" type="text/css" href="Resources/CSS/styles.css" /> 
-    <link rel="stylesheet" type="text/css" href="Resources/CSS/queries.css" />  
+    <link rel="stylesheet" type="text/css" href="Resources/CSS/queries.css" />
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link
       href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;1,300&display=swap"
@@ -35,6 +35,60 @@
                 <h4>Existing Location</h4>
             </div>
           </div>
+
+          <div class="existing-form hidden">
+            <div class="separator">
+                <div class="col span-2-of-5 finder">              
+                  <form autocomplete="on">
+                    <input class="find-name" type="text" name="search-name" id="search-name" placeholder="Search for name-tag" required>
+                  </form>
+              </div>
+                <div class="col span-3-of-5 finder">         
+                  <form autocomplete="on">
+                    <input class="find-location" type="text" name="search-location" id="search-location" placeholder="Search for address" required>
+                  </form>               
+              </div>
+            </div>
+             
+              <div class="separator">
+              <div class="existing-results">
+
+                <div class="existing-result">
+                  <div class="col span-2-of-5">
+                    <div class="result-name">
+                      <p>Blue Dog Bar - Netherlands, Amsterdam</p>
+                    </div>
+                  </div>
+                  <div class="col span-2-of-5">
+                    <input class="date2" type="date" id="start" name="start" value="2021-06-19" min="1980-01-01" max="2100-12-31">
+                    <input  class="date2" type="date" id="end" name="end" value="2021-06-30" min="1980-01-01" max="2100-12-31">
+                  </div>
+                  <div class="col span-1-of-5">
+                    <button class="form-btn add"><i class="ion-plus-round"></i></button>
+                  </div>
+                </div>
+
+                <div class="existing-result">
+                  <div class="col span-2-of-5">
+                    <div class="result-name">
+                      <p>Restaurant - England, London, AL10 9XG</p>
+                    </div>
+                  </div>
+                  <div class="col span-2-of-5">
+                    <input class="date2" type="date" id="start" name="start" value="2020-05-12" min="1980-01-01" max="2100-12-31">
+                    <input  class="date2" type="date" id="end" name="end" value="2020-05-20" min="1980-01-01" max="2100-12-31">
+                  </div>
+                  <div class="col span-1-of-5">
+                    <button class="form-btn add"><i class="ion-plus-round"></i></button>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+            
+          </div>
+
+          
           <div class="new-form">
             <form>
            <div class="input">   
@@ -42,7 +96,7 @@
                 <label>Country:</label>
               </div>
               <div class="col span-4-of-5 wide">
-                <input type="text" name="country" id="country" placeholder="Visited country name" required>
+                <input class="js--input-selector" type="text" name="country" id="country" placeholder="Visited country name" required>
               </div>
             </div>        
             
@@ -51,7 +105,7 @@
                 <label>Name-Tag:</label>
               </div>
               <div class="col span-4-of-5 wide">
-                <input type="text" name="name-tag" id="name-tag" placeholder="Give a personal name for your visit (optional)">
+                <input class="js--input-selector" type="text" name="name-tag" id="name-tag" placeholder="Give a personal name for your visit (optional)">
               </div>
             </div> 
 
@@ -60,7 +114,7 @@
                 <label>Location:</label>
               </div>
               <div class="col span-4-of-5 wide">
-                <input type="text" name="location" id="location" placeholder="Location address" required>
+                <input class="js--input-selector" type="text" name="location" id="location" placeholder="Location address" required>
               </div>
             </div>
             <div class="dates">
@@ -75,13 +129,15 @@
             </div>
           
             <div>
-              <button class="choose-media">Choose Photos / Videos</button>
+              <button class="form-btn choose-media">Choose Photos / Videos</button>
             </div>
               <div>
-              <button class="post-media">POST</button>
+              <button class="form-btn post-media">POST</button>
             </div>
             </form>
           </div>
+        
+
     </div>
     </div>
     <header>
@@ -172,6 +228,6 @@
         </div>
       </div>
 
-      <script src="Resources/Javascript/viewMain.js"></script>
+      <script src="Resources/Javascript/viewForm.js"></script>
   </body>
 </html>

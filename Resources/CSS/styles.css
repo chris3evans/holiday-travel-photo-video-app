@@ -6,10 +6,12 @@
 
 html,
 body {
+  /*background-color: rgb(255, 181, 20);*/
+  /*rgb(250, 40, 127)*/
   background-image: linear-gradient(
     to right,
-    rgb(255, 168, 37),
-    rgb(250, 40, 127)
+    rgb(255, 181, 20),
+    rgb(250, 211, 40)
   );
   color: black;
   font-family: "Lato", "Arial", sans-serif;
@@ -50,24 +52,27 @@ body {
 /*-------REUSABLE COMPONENTS-----------*/
 
 .entry {
-  background-image: linear-gradient(
-    to right,
-    rgb(255, 204, 37, 1),
-    rgb(253, 159, 37)
-  );
-  color: rgb(255, 84, 68);
-  margin-bottom: 5px;
-  border-radius: 8px;
+  background-color: rgb(255, 60, 0);
+  color: rgb(rgb(0, 0, 0));
+  margin-bottom: 3px;
+  margin-left: 2px;
+  margin-right: 2px;
+  border-radius: 5px;
+  transition: 1s;
+}
+
+.entry:hover {
+  background-color: rgb(255, 0, 93);
 }
 
 .entry:first-child {
-  margin-top: 4px;
+  margin-top: 1px;
 }
 
 .field {
   height: 50px;
   border-radius: 30px;
-  border: 1px solid rgb(255, 136, 68);
+  border: 1px solid rgb(255, 180, 68);
   background-color: rgb(253, 238, 186);
   font-size: 100%;
 }
@@ -95,9 +100,9 @@ body {
 /*-------------------------------------------------*/
 
 header {
-  background-image: linear-gradient(to top, rgb(182, 92, 193), rgb(255, 60, 0));
+  background-image: linear-gradient(to right, rgb(255, 0, 64), rgb(255, 60, 0));
   overflow: auto;
-  border: 1px solid rgb(255, 136, 68);
+  border: 1px solid rgb(255, 180, 68);
 }
 
 .main {
@@ -156,14 +161,10 @@ header {
 /*-------------------------------------------------*/
 
 .result-container {
-  border: 1px solid rgb(255, 136, 68);
+  border: 1px solid rgb(255, 180, 68);
   width: 100%;
   height: 100vh;
-  background-image: linear-gradient(
-    to right,
-    rgb(255, 87, 20),
-    rgb(250, 124, 40)
-  );
+  background-color: transparent;
 }
 
 .country-name {
@@ -171,10 +172,11 @@ header {
   padding-top: 8px;
   text-decoration: underline 2px;
   font-size: 200%;
+  font-weight: 600;
 }
 
 .country-details li {
-  color: rgb(90, 87, 86);
+  color: black;
   font-weight: 400;
   float: left;
   list-style: none;
@@ -191,9 +193,9 @@ header {
 .times-visit {
   text-align: center;
   display: block;
-  font-size: 70%;
+  font-size: 100%;
   margin: 10px 0;
-  font-weight: 590;
+  font-weight: 400;
 }
 
 /*-------------------------------------------------*/
@@ -243,29 +245,27 @@ header {
 /*-------------------------------------------------*/
 
 .world-map {
-  border: 1px solid rgb(255, 136, 68);
+  border: 1px solid rgb(255, 180, 68);
   width: 100%;
   height: 100vh;
   background-color: rgb(194, 194, 194);
 }
 
 /*-------------------------------------------------*/
-/*--------ADD MEDIA FORM----------*/
+/*--------FORMS----------*/
 /*-------------------------------------------------*/
-
 .modal-form {
   z-index: 10;
   position: fixed;
-  height: 725px;
+  height: 750px;
   width: 70%;
   margin-left: 15%;
-  margin-top: 80px;
+  margin-top: 70px;
   border: black solid 1px;
   border-radius: 15px;
   background-color: rgb(255, 249, 236);
   box-shadow: 3px 3px 5px rgb(94, 94, 94);
 }
-
 .btn-close {
   float: right;
   display: block;
@@ -275,23 +275,19 @@ header {
   margin-top: 10px;
   margin-bottom: 5px;
 }
-
 .btn-close i {
   background-color: rgb(255, 249, 236);
   font-size: 125%;
   cursor: pointer;
 }
-
 .form-type {
   border-bottom: black 1px solid;
 }
-
 .form-type div {
   padding: 10px 0px 10px 50px;
   overflow: auto;
   float: left;
 }
-
 .form-type h4 {
   color: black;
   font-size: 120%;
@@ -299,7 +295,6 @@ header {
   padding-right: 50px;
   cursor: pointer;
 }
-
 .active {
   border: black solid 1px;
   border-top-right-radius: 15px;
@@ -311,15 +306,33 @@ header {
   );
 }
 
-.new-form {
+/*-------REUSABLE FORM COMPONENTS-------*/
+.new-form,
+.existing-form {
   width: 90%;
   margin-left: 5%;
 }
-
 .new-form form {
   overflow: auto;
   margin-top: 45px;
 }
+.form-btn {
+  font-size: 125%;
+  cursor: pointer;
+  height: 60px;
+  border-radius: 5px;
+  box-shadow: 2px 2px 2px rgb(94, 94, 94);
+  background-color: rgba(255, 208, 0, 0.802);
+  transition: background-color 0.25s;
+}
+.form-btn:hover,
+.form-btn:hover {
+  background-color: rgba(255, 174, 0, 0.802);
+}
+
+/*-------------------------------------------------*/
+/*--------ADD MEDIA FORM----------*/
+/*-------------------------------------------------*/
 
 .input {
   overflow: auto;
@@ -337,7 +350,8 @@ header {
   width: 100%;
 }
 
-.new-form form div input {
+.new-form form div input,
+.finder form input {
   height: 60px;
   width: 100%;
   border: black 1px solid;
@@ -385,22 +399,6 @@ header {
   background-color: rgb(248, 248, 248);
 }
 
-.choose-media,
-.post-media {
-  font-size: 125%;
-  cursor: pointer;
-  height: 60px;
-  border-radius: 5px;
-  box-shadow: 2px 2px 2px rgb(94, 94, 94);
-  background-color: rgba(255, 208, 0, 0.802);
-  transition: background-color 0.25s;
-}
-
-.choose-media:hover,
-.post-media:hover {
-  background-color: rgba(255, 174, 0, 0.802);
-}
-
 .choose-media {
   margin-top: 0px;
   border: black solid 1px;
@@ -411,4 +409,85 @@ header {
   margin: 15px 0;
   margin-left: 42.5%;
   width: 15%;
+}
+
+/*-------------------------------------------------*/
+/*--------EXISTING MEDIA FORM----------*/
+/*-------------------------------------------------*/
+
+.existing-form {
+  margin-top: 45px;
+}
+
+.existing-form div {
+  overflow: auto;
+}
+
+.separator {
+  padding-bottom: 10px;
+  margin-bottom: 80px;
+}
+
+.finder {
+  padding-bottom: 5px;
+}
+
+.finder:first-child {
+  float: left;
+}
+.finder:last-child {
+  float: right;
+}
+
+.finder form input {
+  width: 99%;
+}
+
+.find-name,
+.find-location {
+  height: 50px;
+  padding-left: 15px;
+  box-shadow: 2px 2px 2px rgb(94, 94, 94);
+}
+
+.existing-results {
+  border: black 2px solid;
+  border-radius: 5px;
+  height: 400px;
+  background-color: rgb(255, 255, 255);
+}
+
+.existing-result {
+  margin-bottom: 5px;
+  padding: 15px;
+  vertical-align: middle;
+  background-color: rgb(245, 245, 245);
+  border-radius: 5px;
+}
+
+.existing-result .result-name {
+  font-weight: 400;
+  padding-top: 7px;
+  padding-left: 7px;
+}
+
+.date2 {
+  padding-right: 10px;
+  padding-left: 10px;
+  cursor: pointer;
+  transition: 0.25s;
+  border-radius: 25px;
+  height: 40px;
+  border: black 1px solid;
+  margin-right: 20px;
+}
+
+.date2:hover {
+  background-color: rgb(248, 248, 248);
+}
+
+.add {
+  width: 100px;
+  height: 40px;
+  float: right;
 }

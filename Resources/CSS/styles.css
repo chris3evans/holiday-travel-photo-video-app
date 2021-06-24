@@ -92,7 +92,7 @@ body {
   background-color: rgba(0, 0, 0, 0.415);
   z-index: 5;
   width: 100%;
-  height: 100%;
+  height: 100vh;
 }
 
 /*-------------------------------------------------*/
@@ -256,43 +256,50 @@ header {
 /*-------------------------------------------------*/
 .modal-form {
   z-index: 10;
-  position: fixed;
-  height: 750px;
-  width: 70%;
-  margin-left: 15%;
-  margin-top: 70px;
+  position: absolute;
+  height: 90vh;
+  width: 80%;
+  margin-left: 10%;
+  margin-top: 2%;
+  margin-bottom: auto;
   border: black solid 1px;
   border-radius: 15px;
   background-color: rgb(255, 249, 236);
   box-shadow: 3px 3px 5px rgb(94, 94, 94);
 }
-.btn-close {
-  float: right;
-  display: block;
-  border: none;
-  background-color: white;
-  margin-right: 13px;
-  margin-top: 10px;
-  margin-bottom: 5px;
-}
-.btn-close i {
-  background-color: rgb(255, 249, 236);
-  font-size: 125%;
-  cursor: pointer;
-}
-.form-type {
+
+.menu {
+  display: flex;
+  width: 100%;
   border-bottom: black 1px solid;
 }
-.form-type div {
-  padding: 10px 0px 10px 50px;
-  overflow: auto;
-  float: left;
+.form-type {
+  display: flex;
+  width: 100%;
 }
-.form-type h4 {
+.type {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  flex: 0 0 40%;
+}
+.type h4 {
   color: black;
   font-size: 120%;
-  font-weight: 500;
-  padding-right: 50px;
+  font-weight: 400;
+  cursor: pointer;
+}
+
+.form--close {
+  border: none;
+  margin-left: auto;
+  background-color: rgb(255, 249, 236);
+  margin-right: 15px;
+}
+.form--close i {
+  background-color: rgb(255, 249, 236);
+  font-size: 120%;
   cursor: pointer;
 }
 .active {
@@ -305,21 +312,20 @@ header {
     rgba(255, 208, 0, 0.802)
   );
 }
+.form {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  height: 90vh;
+}
 
 /*-------REUSABLE FORM COMPONENTS-------*/
-.new-form,
-.existing-form {
-  width: 90%;
-  margin-left: 5%;
-}
-.new-form form {
-  overflow: auto;
-  margin-top: 45px;
-}
 .form-btn {
-  font-size: 125%;
+  font-size: 100%;
   cursor: pointer;
-  height: 60px;
+  height: 50px;
   border-radius: 5px;
   box-shadow: 2px 2px 2px rgb(94, 94, 94);
   background-color: rgba(255, 208, 0, 0.802);
@@ -333,80 +339,92 @@ header {
 /*-------------------------------------------------*/
 /*--------ADD MEDIA FORM----------*/
 /*-------------------------------------------------*/
-
-.input {
-  overflow: auto;
-  padding-bottom: 45px;
+.new--form,
+.existing--form {
+  width: 100%;
+  margin-top: 5%;
 }
 
-.center {
-  padding-top: 6px;
+.form--field {
+  display: flex;
+  align-items: center;
+  margin: 30px 0;
 }
-
-.new-form form div label {
-  font-size: 170%;
+.field--label {
+  flex: 0 0 20%;
+}
+.field--input {
+  flex: 0 0 75%;
+  margin-left: auto;
+}
+.field--label__label {
+  font-size: 140%;
   color: black;
   font-weight: 500;
   width: 100%;
 }
-
-.new-form form div input,
-.finder form input {
+.field--input__input {
   height: 60px;
   width: 100%;
   border: black 1px solid;
   border-radius: 25px;
-  font-size: 125%;
+  font-size: 100%;
   font-weight: 500;
   padding-left: 20px;
   box-shadow: 1px 1px 1px rgb(94, 94, 94);
 }
 
-.new-form form div input::placeholder {
+.field--input__input::placeholder {
   font-weight: 300;
 }
 
 .dates {
-  width: 100%;
-  overflow: auto;
+  display: flex;
+  margin-bottom: 35px;
 }
 
-.date {
-  width: 25%;
-  float: left;
-  font-size: 95%;
-  margin-bottom: 40px;
+.date--start,
+.date--end {
+  flex: 0 0 30%;
 }
 
-.date:first-child {
-  margin-right: 50px;
+.date--end {
+  margin-left: 50px;
 }
 
-.date .start,
-.date .end {
+.date--title {
   color: black;
   display: block;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
+  font-size: 140%;
+  font-weight: 500;
 }
 
-.date input {
+.date--input {
   padding-right: 10px;
   cursor: pointer;
   transition: 0.25s;
+  height: 50px;
+  width: 100%;
+  border: black 1px solid;
+  border-radius: 25px;
+  font-size: 100%;
+  font-weight: 500;
+  padding-left: 20px;
+  box-shadow: 1px 1px 1px rgb(94, 94, 94);
 }
 
-.date input:hover {
+.date--input:hover {
   background-color: rgb(248, 248, 248);
 }
 
 .choose-media {
-  margin-top: 0px;
   border: black solid 1px;
-  padding: 15px 15px;
+  padding: 5px 50px;
 }
 
 .post-media {
-  margin: 15px 0;
+  margin-top: 30px;
   margin-left: 42.5%;
   width: 15%;
 }
@@ -414,80 +432,90 @@ header {
 /*-------------------------------------------------*/
 /*--------EXISTING MEDIA FORM----------*/
 /*-------------------------------------------------*/
-
-.existing-form {
+.existing--form {
   margin-top: 45px;
 }
 
-.existing-form div {
-  overflow: auto;
-}
-
-.separator {
-  padding-bottom: 10px;
-  margin-bottom: 80px;
-}
-
-.finder {
-  padding-bottom: 5px;
-}
-
-.finder:first-child {
-  float: left;
-}
-.finder:last-child {
-  float: right;
-}
-
-.finder form input {
-  width: 99%;
-}
-
-.find-name,
-.find-location {
+.name--field,
+.location--field {
+  width: 100%;
   height: 50px;
-  padding-left: 15px;
-  box-shadow: 2px 2px 2px rgb(94, 94, 94);
 }
 
-.existing-results {
+.name--field {
+  flex: 0 0 32.5%;
+}
+
+.location--field {
+  flex: 0 0 65%;
+  margin-left: auto;
+}
+
+.name--field__input,
+.location--field__input {
+  padding-left: 20px;
+  font-weight: 300;
+}
+
+.existing--results {
+  display: flex;
+  overflow: auto;
+  flex-direction: column;
   border: black 2px solid;
   border-radius: 5px;
   height: 400px;
   background-color: rgb(255, 255, 255);
 }
 
-.existing-result {
-  margin-bottom: 5px;
-  padding: 15px;
-  vertical-align: middle;
-  background-color: rgb(245, 245, 245);
-  border-radius: 5px;
+.existing--result {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 0px;
+  padding: 15px 15px;
+  background-color: rgb(241, 241, 241);
+  border-bottom: rgb(49, 33, 33) 1px solid;
 }
 
-.existing-result .result-name {
+.existing--result__name {
+  flex: 0 0 40%;
   font-weight: 400;
-  padding-top: 7px;
-  padding-left: 7px;
+  margin-right: auto;
 }
 
-.date2 {
-  padding-right: 10px;
-  padding-left: 10px;
+.existing--result__date-container {
+  display: flex;
+  justify-content: space-around;
+  flex: 0 0 40%;
+}
+
+.existing--result__date-start,
+.existing--result__date-end {
+  display: flex;
+  justify-content: center;
   cursor: pointer;
   transition: 0.25s;
-  border-radius: 25px;
   height: 40px;
+  width: 42.5%;
   border: black 1px solid;
-  margin-right: 20px;
+  border-radius: 25px;
+  background: white;
+  font-size: 70%;
+  padding-left: 5px;
+  padding-right: 5px;
 }
 
-.date2:hover {
-  background-color: rgb(248, 248, 248);
+.existing--result__date-start:hover,
+.existing--result__date-end:hover {
+  background-color: rgb(241, 241, 241);
 }
 
-.add {
-  width: 100px;
+.existing--result__add {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 0 0 10%;
+  width: 100%;
   height: 40px;
-  float: right;
+  background-color: rgba(255, 208, 0, 0.802);
 }

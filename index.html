@@ -21,126 +21,136 @@
     />
   </head>
   <body>
+             <!--START OF FORM HTML CODE-->
     <div class="overlay hidden"></div>
     <div class="modal-form hidden">
-      <div class="close">
-        <button class="btn-close"><i class="ion-close-round"></i></button>
-      </div>
-      <div class="form">
-          <div class="form-type clearfix">
-            <div class="type active">
-                <h4>New Location</h4>
-            </div>
-            <div class="type">
-                <h4>Existing Location</h4>
-            </div>
+      
+      <div class="menu">
+        <div class="form-type">
+          <div class="type active">
+            <h4>New Location</h4>
           </div>
-
-          <div class="existing-form hidden">
-            <div class="separator">
-                <div class="col span-2-of-5 finder">              
+          <div class="type">
+            <h4>Existing Location</h4>
+          </div>
+        </div>
+          <button class="form--close"><i class="ion-close-round"></i></button>
+        </div>
+        
+        <div class="form">
+          <div class="existing--form hidden">
+            <div class="form--field">
+                <div class="name--field">              
                   <form autocomplete="on">
-                    <input class="find-name" type="text" name="search-name" id="search-name" placeholder="Search for name-tag" required>
+                    <input class="name--field name--field__input" type="text" name="search-name" id="search-name" placeholder="Search for name-tag" required>
                   </form>
               </div>
-                <div class="col span-3-of-5 finder">         
+                <div class="location--field">         
                   <form autocomplete="on">
-                    <input class="find-location" type="text" name="search-location" id="search-location" placeholder="Search for address" required>
+                    <input class="location--field location--field__input" type="text" name="search-location" id="search-location" placeholder="Search for address" required>
                   </form>               
               </div>
-            </div>
-             
-              <div class="separator">
-              <div class="existing-results">
-
-                <div class="existing-result">
-                  <div class="col span-2-of-5">
-                    <div class="result-name">
-                      <p>Blue Dog Bar - Netherlands, Amsterdam</p>
-                    </div>
-                  </div>
-                  <div class="col span-2-of-5">
-                    <input class="date2" type="date" id="start" name="start" value="2021-06-19" min="1980-01-01" max="2100-12-31">
-                    <input  class="date2" type="date" id="end" name="end" value="2021-06-30" min="1980-01-01" max="2100-12-31">
-                  </div>
-                  <div class="col span-1-of-5">
-                    <button class="form-btn add"><i class="ion-plus-round"></i></button>
-                  </div>
-                </div>
-
-                <div class="existing-result">
-                  <div class="col span-2-of-5">
-                    <div class="result-name">
-                      <p>Restaurant - England, London, AL10 9XG</p>
-                    </div>
-                  </div>
-                  <div class="col span-2-of-5">
-                    <input class="date2" type="date" id="start" name="start" value="2020-05-12" min="1980-01-01" max="2100-12-31">
-                    <input  class="date2" type="date" id="end" name="end" value="2020-05-20" min="1980-01-01" max="2100-12-31">
-                  </div>
-                  <div class="col span-1-of-5">
-                    <button class="form-btn add"><i class="ion-plus-round"></i></button>
-                  </div>
-                </div>
-
               </div>
-            </div>
             
+              <div class="existing--results">
+
+                <div class="existing--result">
+                  <div class="existing--result__name">
+                    <p>Blue Dog Bar - Netherlands, Amsterdam</p>
+                  </div>
+                  
+                  <div class="existing--result__date-container">
+                    <input class="existing--result__date-start" type="date" id="start" name="start" value="2021-06-19" min="1980-01-01" max="2100-12-31">           
+                    <input class="existing--result__date-end" type="date" id="end" name="end" value="2021-06-30" min="1980-01-01" max="2100-12-31">    
+                  </div>
+
+                  <button class="form-btn existing--result__add"><i class="ion-plus-round"></i></button>
+                </div>
+
+                <div class="existing--result">
+                  <div class="existing--result__name">
+                    <p>Restaurant - England, London, AL10 9XG</p>
+                  </div>
+                  
+                  <div class="existing--result__date-container">
+                    <input class="existing--result__date-start" type="date" id="start" name="start" value="2020-05-12" min="1980-01-01" max="2100-12-31">
+
+                    <input  class="existing--result__date-end" type="date" id="end" name="end" value="2020-05-20" min="1980-01-01" max="2100-12-31">
+                  </div>
+                  
+                  <button class="form-btn existing--result__add"><i class="ion-plus-round"></i></button>
+                 </div>
+
+                 <div class="existing--result">
+                  <div class="existing--result__name">
+                    <p>Restaurant - England, London, AL10 9XG</p>
+                  </div>
+                  
+                  <div class="existing--result__date-container">
+                    <input class="existing--result__date-start" type="date" id="start" name="start" value="2020-05-12" min="1980-01-01" max="2100-12-31">
+
+                    <input  class="existing--result__date-end" type="date" id="end" name="end" value="2020-05-20" min="1980-01-01" max="2100-12-31">
+                  </div>
+                  
+                  <button class="form-btn existing--result__add"><i class="ion-plus-round"></i></button>
+                 </div>
+                </div>
+              </div>
+
+          <form class="new--form">
+
+           <div class="form--field">  
+             <div class="field--label"> 
+              <label class="field--label field--label__label">Country:</label>
+            </div>
+            <div class="field--input">
+              <input class="field--input field--input__input js--input-selector" type="text" name="country" id="country" placeholder="Visited country name" required>
+            </div>
+          </div>       
+            
+          <div class="form--field">
+            <div class="field--label">
+              <label class="field--label field--label__label">Name-Tag:</label>
+            </div>
+            <div class="field--input">
+              <input class="field--input field--input__input js--input-selector" type="text" name="name-tag" id="name-tag" placeholder="Give a personal name for your visit (optional)">
+            </div>
+          </div> 
+
+          <div class="form--field">
+            <div class="field--label">
+              <label class="field--label field--label__label">Location:</label>
+            </div>
+            <div class="field--input">
+              <input class="field--input field--input__input js--input-selector" type="text" name="location" id="location" placeholder="Location address" required>
+            </div>
           </div>
 
+          <div class="dates">
+            <div class="date--start">
+              <label class="date--title">Start Date:</label>
+              <input class="date--input" type="date" id="start" name="start" value="2021-06-19" min="1980-01-01" max="2100-12-31">
+            </div>
+            <div class="date--end">
+              <label class="date--title">End Date:</label>
+              <input class="date--input" type="date" id="end" name="end" value="2021-06-30" min="1980-01-01" max="2100-12-31">
+            </div>
+          </div>
           
-          <div class="new-form">
-            <form>
-           <div class="input">   
-            <div class="col span-1-of-5 center wide">
-                <label>Country:</label>
-              </div>
-              <div class="col span-4-of-5 wide">
-                <input class="js--input-selector" type="text" name="country" id="country" placeholder="Visited country name" required>
-              </div>
-            </div>        
-            
-            <div class="input">
-              <div class="col span-1-of-5 center wide">
-                <label>Name-Tag:</label>
-              </div>
-              <div class="col span-4-of-5 wide">
-                <input class="js--input-selector" type="text" name="name-tag" id="name-tag" placeholder="Give a personal name for your visit (optional)">
-              </div>
-            </div> 
-
-            <div class="input">
-              <div class="col span-1-of-5 center wide">
-                <label>Location:</label>
-              </div>
-              <div class="col span-4-of-5 wide">
-                <input class="js--input-selector" type="text" name="location" id="location" placeholder="Location address" required>
-              </div>
-            </div>
-            <div class="dates">
-            <div class="date">
-              <label class="start">Start Date:</label>
-              <input type="date" id="start" name="start" value="2021-06-19" min="1980-01-01" max="2100-12-31">
-            </div>
-            <div class="date">
-              <label class="end">End Date:</label>
-              <input type="date" id="end" name="end" value="2021-06-30" min="1980-01-01" max="2100-12-31">
-            </div>
-            </div>
-          
-            <div>
+          <div class="form--btns">
+            <div class="media">
               <button class="form-btn choose-media">Choose Photos / Videos</button>
+              </div>
+              <div class="post">
+                <button class="form-btn post-media">POST</button>
+              </div>
             </div>
-              <div>
-              <button class="form-btn post-media">POST</button>
-            </div>
-            </form>
-          </div>
-        
-
-    </div>
-    </div>
+          </form>
+        </div>
+      </div>
+             <!--END OF FORM HTML CODE-->
     <header>
+
       <div class="col span-1-of-4 main">
         <form>
           <select name="sort" id="sort" class="field btn-filter">

@@ -1,18 +1,13 @@
 @media only screen and (max-width: 1500px) {
   /*-----HEADER-----*/
-  .search {
-    width: 425px;
+  .search--filter__filters {
+    padding-left: 30px;
   }
-  .btn-filter {
-    width: 180px;
-    padding-left: 25px;
+  .search--bar__field {
+    flex: 0 0 90%;
+    margin-right: auto;
   }
-  .btn-add {
-    width: 150px;
-    padding-top: 2px;
-    font-weight: 400;
-    margin-left: 50px;
-  }
+
   /*-----NEW - FORM-----*/
   .form {
     width: 90%;
@@ -21,30 +16,35 @@
   /*-----EXISTING - FORM-----*/
 
   /*-----SEARCH RESULTS-----*/
-  .country-details li {
-    padding-bottom: 6px;
-  }
+
   /*-----LOCACTION RESULTS-----*/
-  .location-details li,
-  .location-details .media {
-    font-size: 110%;
-    margin-top: 4px;
+
+  /*-----WORLD MAP-----*/
+  .world-map {
+    background-color: yellow;
   }
 }
 
 @media only screen and (max-width: 1300px) {
   /*-----HEADER-----*/
-  .search {
-    width: 360px;
+  .search--filter__filters {
+    padding-left: 20px;
+    font-size: 85%;
   }
-  .btn-filter {
-    width: 150px;
-    padding-left: 15px;
+  .search--bar__btn {
+    width: 45px;
   }
-  .btn-add {
-    width: 125px;
-    margin-left: 30px;
+  .search--add__btn {
+    font-size: 85%;
   }
+  .field {
+    height: 45px;
+  }
+  .search--logo__img {
+    width: 45px;
+    height: 45px;
+  }
+
   /*-----NEW - FORM-----*/
   .field--input__input {
     height: 55px;
@@ -60,53 +60,58 @@
 
   /*-----SEARCH RESULTS-----*/
 
+  .country--name {
+    font-size: 165%;
+  }
+  .country--details {
+    font-size: 120%;
+  }
+  .country--visited {
+    font-size: 90%;
+  }
+
   /*-----LOCACTION RESULTS-----*/
-  .location h2,
-  .location-address,
-  .date-visit,
-  .location-details .media {
-    padding-left: 15px;
-  }
-  .location h2 {
-    padding-top: 7px;
-    text-decoration: underline 2px;
-    font-size: 180%;
-  }
-  .location-details li,
-  .location-details .media {
+  .location--details__address-text {
     font-size: 100%;
-    font-weight: 590;
+  }
+  .location--details__address-icon {
+    font-size: 185%;
+  }
+  .location--details__date {
+    font-size: 90%;
+  }
+  .location--details__media {
+    font-size: 100%;
+  }
+  /*-----WORLD MAP-----*/
+
+  .world-map {
+    background-color: blue;
   }
 }
 
 @media only screen and (max-width: 1100px) {
   /*-----HEADER-----*/
-  .search,
-  .btn-search,
-  .btn-filter,
-  .btn-add {
-    height: 45px;
-    font-size: 95%;
+  .search--filter__filters {
+    width: 62.5%;
+    padding-left: 15px;
+    font-size: 75%;
+    height: 40px;
   }
-  .search {
-    width: 285px;
+  .search--bar__field {
+    flex: 0 0 89%;
+    font-size: 80%;
+    height: 40px;
   }
-  .btn-search {
-    width: 45px;
+  .search--bar__btn {
+    height: 40px;
   }
-  .btn-filter {
-    width: 130px;
-    padding-left: 10px;
-    margin-left: 40px;
-  }
-  .btn-add {
+  .search--add__btn {
     width: 125px;
-    margin-left: 20px;
+    font-size: 75%;
+    height: 40px;
   }
-  .logo {
-    height: 50px;
-    width: 50px;
-  }
+
   /*-----NEW - FORM-----*/
   .modal-form {
     margin-top: 3.5%;
@@ -147,67 +152,100 @@
   }
 
   /*-----SEARCH RESULTS-----*/
-  .country-details li {
-    font-weight: 400;
-    font-size: 130%;
-  }
-  .country-details li i {
-    margin-right: 6px;
-  }
-  .times-visit {
-    font-weight: 598;
-  }
+
   /*-----LOCACTION RESULTS-----*/
-  .location h2,
-  .location-address,
-  .date-visit,
-  .location-details .media {
-    padding-left: 10px;
+  .location--name {
+    margin-left: 4%;
+    font-size: 120%;
   }
-  .location h2 {
-    padding-top: 5px;
-    font-size: 160%;
-  }
-  .location-details li,
-  .location-details .media {
+  .location--details__address-text {
     font-size: 90%;
-    font-weight: 600;
+  }
+  .location--details__address-icon {
+    font-size: 165%;
+  }
+  .location--details__date {
+    font-size: 85%;
+  }
+  .location--details__media {
+    font-size: 90%;
+  }
+
+  /*-----WORLD MAP-----*/
+  .world-map {
+    background-color: green;
   }
 }
 
 @media only screen and (max-width: 900px) {
   /*-----HEADER-----*/
-  .search,
-  .btn-search,
-  .btn-filter,
-  .btn-add,
-  .logo {
-    height: 40px;
+
+  header {
+    justify-content: space-between;
+    padding: 10px 0;
+  }
+
+  .main--nav {
+    margin: 20px 0;
+    flex: 0 0 60%;
+    align-items: center;
   }
 
   .search {
-    width: 190px;
-    font-size: 90%;
-    margin-left: 30px;
+    display: flex;
+    flex-direction: column;
+    flex: 0 0 95%;
+    justify-content: center;
+    margin-right: 2.5%;
   }
-  .btn-search {
-    width: 40px;
+
+  .search--filter {
+    display: block;
   }
-  .btn-filter {
-    width: 115px;
-    padding-left: 10px;
-    margin-left: 20px;
-    font-size: 80%;
+
+  .search--bar {
+    display: flex;
+    width: 100%;
+    height: 40px;
   }
-  .btn-add {
-    width: 100px;
-    font-size: 80%;
-    margin-left: -10px;
+
+  .search--add {
+    display: flex;
   }
-  .logo {
-    width: 40px;
-    margin-top: 0px;
+
+  .search--filter__filters {
+    width: 100%;
+    height: 40px;
   }
+
+  .search--bar__field {
+    flex: 0 0 100%;
+    font-size: 85%;
+    height: 40px;
+  }
+
+  .search--bar__btn {
+    display: none;
+  }
+
+  .search--add__btn {
+    flex: 0 0 100%;
+    height: 40px;
+    margin-left: 0px;
+  }
+
+  .search--logo {
+    flex: 0 0 15%;
+  }
+
+  /*-----MOBILE NAV-----*/
+
+  .mob-nav-icon {
+    display: flex;
+    flex: 0 0 25%;
+    justify-content: center;
+  }
+
   /*-----NEW - FORM-----*/
   .form-btn {
     font-size: 80%;
@@ -316,32 +354,132 @@
   }
 
   /*-----SEARCH RESULTS-----*/
-  .country {
-    font-size: 90%;
+  .country--name {
+    font-size: 150%;
   }
-  .country-details li {
-    font-weight: 400;
-    font-size: 120%;
+  .country--details {
+    font-size: 100%;
   }
-  .country-details li i {
-    margin-right: 6px;
+  .country--visited {
+    font-size: 80%;
   }
-  .times-visit {
-    font-weight: 650;
-  }
+
   /*-----LOCACTION RESULTS-----*/
-  .location h2,
-  .location-address,
-  .date-visit,
-  .location-details .media {
-    padding-left: 3px;
+  .location--name {
+    margin-left: 4%;
   }
-  .location h2 {
-    padding-top: 1px;
+  .location--details {
+    margin-left: 4%;
+  }
+  .location--details__address-text {
+    font-size: 80%;
+  }
+  .location--details__address-icon {
+    font-size: 150%;
+  }
+  .location--details__date {
+    font-size: 75%;
+  }
+  .location--details__media {
+    font-size: 80%;
+  }
+
+  /*-----WORLD MAP-----*/
+  .world-map {
+    background-color: orange;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  /*-----MAIN USER INTERFACE-----*/
+  .main--interface {
+    display: block;
+  }
+
+  /*-----RESULTS CONTAINER-----*/
+
+  /*-----SEARCH RESULTS-----*/
+
+  .country--name {
+    padding-bottom: 0px;
+  }
+  .country--info {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+  }
+  .country--visited {
+    font-size: 100%;
+  }
+  .country--details {
+    font-size: 110%;
+  }
+  .country--details__photos,
+  .country--details__videos {
+    margin-right: 8px;
+  }
+  .country--details__videos {
+    margin: 0 8px;
+  }
+
+  /*-----LOCATION RESULTS-----*/
+
+  .location--info {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-around;
+    margin-bottom: 4px;
+  }
+  .location--name {
+    width: 90%;
     font-size: 140%;
+    justify-content: center;
+    padding: 4px 0;
   }
-  .location-details li,
-  .location-details .media {
-    margin-top: 8px;
+  .location--details {
+    width: 100%;
+    margin-left: 0px;
+  }
+  .location--details__address {
+    display: flex;
+    width: 100%;
+  }
+  .location--details__address-text {
+    display: flex;
+    align-items: center;
+    font-size: 90%;
+    width: 100%;
+    margin-left: 7.5%;
+  }
+  .location--detais__date0 {
+    display: flex;
+    flex: 0 0 50%;
+  }
+  .location--details__date {
+    padding: 4px 0;
+    flex: 0 0 100%;
+    justify-content: center;
+  }
+  .location--details__media {
+    justify-content: center;
+    flex: 0 0 50%;
+    padding-bottom: 0px;
+  }
+  .location--details__address-icon {
+    font-size: 180%;
+  }
+  .location--details__address-icon,
+  .location--details__date-icon,
+  .location--details__media-icon {
+    margin-right: 2%;
+  }
+  .location--details__media-icon:last-child {
+    margin: 0 2%;
+  }
+
+  /*-----WORLD MAP-----*/
+  .world-map {
+    background-color: rgb(0, 0, 0);
   }
 }

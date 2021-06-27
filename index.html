@@ -150,94 +150,85 @@
       </div>
              <!--END OF FORM HTML CODE-->
     <header>
+      <a class="mob-nav-icon js--nav-icon"><i class="ion-close-round"></i></a>
 
-      <div class="col span-1-of-4 main">
-        <form>
-          <select name="sort" id="sort" class="field btn-filter">
-            <option value="frequency" selected>Frequency</option>
-            <option value="recency">Recency</option>
-            <option value="photos">Most Photos</option>
-            <option value="videos">Most Videos</option>
-          </select>
-        </form>
-      </div>
-      <div class="col span-2-of-4 main">
-        <form>
-          <input
-            type="text"
-            name="search"
-            id="search"
-            placeholder="Search for country"
-            class="field search"
-          />
-          <button type="submit" class="field btn-search">
-            <i class="ion-ios-search"></i>
-          </button>
-        </form>
-      </div>
-      <div class="col span-1-of-4 main">
-          <button class="field btn-add">Add Media</button>
-          <a href="http://127.0.0.1:5500/index.html"
-            ><img src="Resources/Images/Logo-Test.jpg" class="logo"
-          /></a>
+      <div class="main--nav js--main-nav">
 
+        <div class="search">
+          <form class="search--filter">
+            <select class="field  search--filter__filters" name="sort" id="sort">
+              <option value="frequency" selected>Frequency</option>
+              <option value="recency">Recency</option>
+              <option value="photos">Most Photos</option>
+              <option value="videos">Most Videos</option>
+            </select>
+          </form>
+         
+          <form class="search--bar">
+            <input
+              class="search--bar__field field"
+              type="text"
+              name="search"
+              id="search"
+              placeholder="Search for country"
+            />
+            <button type="submit"   class="search--bar__btn field">
+              <i class="ion-ios-search search--bar__btn-icon"></i>
+            </button>
+          </form>
+          <form class=search--add>
+            <button class="search--add__btn field">Add Media</button>
+          </form>
+          </div>
+        </div>
+
+        <a  class="search--logo" href="http://127.0.0.1:5500/index.html"
+          ><img src="Resources/Images/Logo-Test.jpg" class="search--logo__img"
+        /></a>
       </div>
     </header>
-    <section class="search-results">
-      <div class="col span-1-of-4">
-        <div class="result-container">
-        <div class="entry country">
-          <h2 class="country-name">Portugal</h2>
-          <p class="times-visit">Visited 15 Times</p>
-          <ul class="country-details clearfix">
-            <li>
-              <i class="ion-images"></i>58</li>
-            <li>
-              <i class="ion-film-marker"></i>12</li>
-          </ul>
-        </div>
-        <div class="entry country">
-          <h2 class="country-name">Borocay</h2>
-          <p class="times-visit">Visited 8 Times</p>
-          <ul class="country-details clearfix">
-            <li>
-              <i class="ion-images"></i>49</li>
-            <li>
-              <i class="ion-film-marker"></i>28</li>
-          </ul>
-        </div>
-        <!---
-        <div class="entry country-details">
-          <h2 class="country">Portugal</h2>
-          <p class="times-visit">Visited 15 Times</p>
-          <ul class="clearfix">
-            <li>
-              <i class="ion-images"></i>58</li>
-            <li>
-              <i class="ion-film-marker"></i>12</li>
-          </ul>
-        </div>
-        -->
-        <div class="entry location">
-          <h2>Ramiro Restaurant</h2>
-          <ul class="location-details clearfix">
-            <li>
-              <p class="location-address"><i class="ion-location"></i>Av. Alm. Reis 1, 1150-038 Lisboa, Portugal</p>
-            </li>
-            <li>
-              <p class="date-visit"><i class="ion-calendar"></i>15/07/21 &mdash; 30/07/21</p>
-            </li>
-            <li class="media">
-              <i class="ion-images"></i>14<i class="ion-film-marker"></i>6</li>
-          </ul>
-        </div>
-      </div>
-      </div>
-      <div class="col span-3-of-4">
-        <div class="world-map">
-        </div>
-      </div>
 
+    <section class="main--interface">
+
+        <div class="results--container">
+
+          <div class="country entry">
+           <h2 class="country--name">Portugal</h2>
+           <div class="country--info">
+            <p class="country--visited">Visited 15 Times</p>
+            <ul class="country--details">
+              <li>
+                <i class="ion-images country--details__photos"></i>58</li>
+              <li>
+                <i class="ion-film-marker country--details__videos"></i>12</li>
+            </ul>
+          </div>
+          </div>
+        
+          <div class="location entry">
+            <h2 class="location--name">Ramiro Restaurant</h2>
+
+            <ul class="location--details">
+              <li class="location--details__address">
+                <p class="location--details__address-text"><i class="ion-location location--details__address-icon"></i>Av. Alm. Reis 1, 1150-038 Lisboa, Portugal</p>
+              </li>
+              <div class="location--info">
+              <li class="location--detais__date0">
+                <p class="location--details__date"><i class="ion-calendar location--details__date-icon"></i>15/07/21 &mdash; 30/07/21</p>
+              </li>
+              <li class="location--details__media">
+                <i class="ion-images location--details__media-icon"></i>14<i class="ion-film-marker location--details__media-icon"></i>6</li>
+            </ul>
+
+          </div>
+        </div>
+
+        <div class="world-map">
+      </div>
+      </section>
+
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
       <script src="Resources/Javascript/viewForm.js"></script>
+      <script src="Resources/Javascript/viewMain.js"></script>
   </body>
 </html>

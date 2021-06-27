@@ -1,4 +1,4 @@
-const btnAdd = document.querySelector(".btn-add");
+const btnAdd = document.querySelector(".search--add");
 const btnClose = document.querySelector(".form--close");
 const form = document.querySelector(".modal-form");
 const formType = document.querySelector(".form-type");
@@ -25,7 +25,8 @@ const hide = function () {
   overlay.classList.add("hidden");
 };
 
-btnAdd.addEventListener("click", function () {
+btnAdd.addEventListener("click", function (e) {
+  e.preventDefault();
   form.classList.remove("hidden");
   overlay.classList.remove("hidden");
 });

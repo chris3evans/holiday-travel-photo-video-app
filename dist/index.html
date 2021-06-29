@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Holidays/Travels Memory Application</title>
+
+    <link rel="stylesheet" type="text/css" href="/index.b05eac82.css">
+    <link rel="stylesheet" type="text/css" href="/index.ee9efdff.css">
+    <link rel="stylesheet" type="text/css" href="/index.daceb360.css">
+    <link rel="stylesheet" type="text/css" href="/index.cc6ee285.css"> 
+    <link rel="stylesheet" type="text/css" href="/index.076ee950.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;1,300&display=swap" rel="stylesheet">
+  </head>
+  <body>
+             <!--START OF FORM HTML CODE-->
+    <div class="overlay hidden"></div>
+    <div class="modal-form hidden">
+      
+      <div class="menu">
+        <div class="form-type">
+          <div class="type active">
+            <h4>New Location</h4>
+          </div>
+          <div class="type">
+            <h4>Existing Location</h4>
+          </div>
+        </div>
+          <button class="form--close"><i class="ion-close-round"></i></button>
+        </div>
+        
+        <div class="form">
+          <div class="existing--form hidden">
+            <div class="form--field">
+                <div class="name--field">              
+                  <form autocomplete="on">
+                    <input class="name--field name--field__input" type="text" name="search-name" id="search-name" placeholder="Search for name-tag" required="">
+                  </form>
+              </div>
+                <div class="location--field">         
+                  <form autocomplete="on">
+                    <input class="location--field location--field__input" type="text" name="search-location" id="search-location" placeholder="Search for address" required="">
+                  </form>               
+              </div>
+              </div>
+            
+              <div class="existing--results">
+
+                <div class="existing--result">
+                  <div class="existing--result__name">
+                    <p>Blue Dog Bar - Netherlands, Amsterdam</p>
+                  </div>
+                  
+                  <div class="existing--result__date-container">
+                    <input class="existing--result__date-start" type="date" id="start" name="start" value="2021-06-19" min="1980-01-01" max="2100-12-31">           
+                    <input class="existing--result__date-end" type="date" id="end" name="end" value="2021-06-30" min="1980-01-01" max="2100-12-31">    
+                  </div>
+
+                  <button class="form-btn existing--result__add"><i class="ion-plus-round"></i></button>
+                </div>
+
+                <div class="existing--result">
+                  <div class="existing--result__name">
+                    <p>Restaurant - England, London, AL10 9XG</p>
+                  </div>
+                  
+                  <div class="existing--result__date-container">
+                    <input class="existing--result__date-start" type="date" id="start" name="start" value="2020-05-12" min="1980-01-01" max="2100-12-31">
+
+                    <input class="existing--result__date-end" type="date" id="end" name="end" value="2020-05-20" min="1980-01-01" max="2100-12-31">
+                  </div>
+                  
+                  <button class="form-btn existing--result__add"><i class="ion-plus-round"></i></button>
+                 </div>
+
+                 <div class="existing--result">
+                  <div class="existing--result__name">
+                    <p>Restaurant - England, London, AL10 9XG</p>
+                  </div>
+                  
+                  <div class="existing--result__date-container">
+                    <input class="existing--result__date-start" type="date" id="start" name="start" value="2020-05-12" min="1980-01-01" max="2100-12-31">
+
+                    <input class="existing--result__date-end" type="date" id="end" name="end" value="2020-05-20" min="1980-01-01" max="2100-12-31">
+                  </div>
+                  
+                  <button class="form-btn existing--result__add"><i class="ion-plus-round"></i></button>
+                 </div>
+                </div>
+              </div>
+
+          <form class="new--form">
+
+           <div class="form--field">  
+             <div class="field--label"> 
+              <label class="field--label field--label__label">Country:</label>
+            </div>
+            <div class="field--input">
+              <input class="field--input field--input__input js--input-selector" type="text" name="country" id="country" placeholder="Visited country name" required="">
+            </div>
+          </div>       
+            
+          <div class="form--field">
+            <div class="field--label">
+              <label class="field--label field--label__label">Name-Tag:</label>
+            </div>
+            <div class="field--input">
+              <input class="field--input field--input__input js--input-selector" type="text" name="name-tag" id="name-tag" placeholder="Give a personal name for your visit (optional)">
+            </div>
+          </div> 
+
+          <div class="form--field">
+            <div class="field--label">
+              <label class="field--label field--label__label">Location:</label>
+            </div>
+            <div class="field--input">
+              <input class="field--input field--input__input js--input-selector" type="text" name="location" id="location" placeholder="Location address" required="">
+            </div>
+          </div>
+
+          <div class="dates">
+            <div class="date--start">
+              <label class="date--title">Start Date:</label>
+              <input class="date--input" type="date" id="start" name="start" value="2021-06-19" min="1980-01-01" max="2100-12-31">
+            </div>
+            <div class="date--end">
+              <label class="date--title">End Date:</label>
+              <input class="date--input" type="date" id="end" name="end" value="2021-06-30" min="1980-01-01" max="2100-12-31">
+            </div>
+          </div>
+          
+          <div class="form--btns">
+            <div class="media">
+              <button class="form-btn choose-media">Choose Photos / Videos</button>
+              </div>
+              <div class="post">
+                <button class="form-btn post-media">POST</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+             <!--END OF FORM HTML CODE-->
+    <header>
+      <a class="mob-nav-icon js--nav-icon"><i class="ion-close-round"></i></a>
+
+      <div class="main--nav js--main-nav">
+
+        <div class="search">
+          <form class="search--filter">
+            <select class="field  search--filter__filters" name="sort" id="sort">
+              <option value="frequency" selected="">Frequency</option>
+              <option value="recency">Recency</option>
+              <option value="photos">Most Photos</option>
+              <option value="videos">Most Videos</option>
+            </select>
+          </form>
+         
+          <form class="search--bar">
+            <input class="search--bar__field field" type="text" name="search" id="search" placeholder="Search for country">
+            <button type="submit" class="search--bar__btn field">
+              <i class="ion-ios-search search--bar__btn-icon"></i>
+            </button>
+          </form>
+          <form class="search--add">
+            <button class="search--add__btn field">Add Media</button>
+          </form>
+          </div>
+        </div>
+
+        <a class="search--logo" href="http://127.0.0.1:5500/index.html"><img src="/Logo-Test.55e10675.jpg" class="search--logo__img"></a>
+      
+    </header>
+
+    <section class="main--interface">
+
+        <div class="results--container">
+
+          <div class="country entry">
+           <h2 class="country--name">Portugal</h2>
+           <div class="country--info">
+            <p class="country--visited">Visited 15 Times</p>
+            <ul class="country--details">
+              <li>
+                <i class="ion-images country--details__photos"></i>58</li>
+              <li>
+                <i class="ion-film-marker country--details__videos"></i>12</li>
+            </ul>
+          </div>
+          </div>
+        
+          <!--<div class="location entry">
+            <h2 class="location--name">Ramiro Restaurant</h2>
+
+            <ul class="location--details">
+              <li class="location--details__address">
+                <i class="ion-location location--details__address-icon"></i>
+                <p class="location--details__address-text">Av. Alm. Reis 1, 1150-038 Lisboa, Portugal</p>
+              </li>
+              <div class="location--info">
+              <li class="location--detais__date0">
+                <p class="location--details__date"><i class="ion-calendar location--details__date-icon"></i>15/07/21 &mdash; 30/07/21</p>
+              </li>
+              <li class="location--details__media">
+                <i class="ion-images location--details__media-icon"></i>14<i class="ion-film-marker location--details__media-icon"></i>6</li>
+            </ul>
+          </div>-->
+
+        </div>
+
+        <div class="world-map">
+      </div>
+      </section>
+
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+      <script src="/index.bc9fec05.js"></script>
+      <script src="/index.76d2e7ee.js"></script>
+      <script src="/index.9c02cbb5.js"></script>
+  </body>
+</html>

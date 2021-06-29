@@ -1,0 +1,471 @@
+@media only screen and (max-width: 1500px) {
+  /*-----HEADER-----*/
+  .search--filter__filters {
+    padding-left: 30px;
+  }
+  .search--bar__field {
+    flex: 0 0 90%;
+    margin-right: auto;
+  }
+
+  /*-----NEW - FORM-----*/
+  .form {
+    width: 90%;
+  }
+
+  /*-----EXISTING - FORM-----*/
+
+  /*-----SEARCH RESULTS-----*/
+
+  /*-----LOCACTION RESULTS-----*/
+}
+
+@media only screen and (max-width: 1300px) {
+  /*-----HEADER-----*/
+  .search--filter__filters {
+    padding-left: 20px;
+    font-size: 85%;
+  }
+  .search--bar__btn {
+    width: 45px;
+  }
+  .search--add__btn {
+    font-size: 85%;
+  }
+  .field {
+    height: 45px;
+  }
+  .search--logo__img {
+    width: 45px;
+    height: 45px;
+  }
+
+  /*-----NEW - FORM-----*/
+  .field--input__input {
+    height: 55px;
+  }
+
+  /*-----EXISTING - FORM-----*/
+  .existing--result__name {
+    font-size: 90%;
+  }
+  .existing--result__date-end {
+    margin-left: 0px;
+  }
+
+  /*-----SEARCH RESULTS-----*/
+
+  .country--name {
+    font-size: 165%;
+  }
+  .country--details {
+    font-size: 120%;
+  }
+  .country--visited {
+    font-size: 90%;
+  }
+
+  /*-----LOCACTION RESULTS-----*/
+  .location--details__address-text {
+    font-size: 100%;
+  }
+  .location--details__address-icon {
+    font-size: 185%;
+  }
+  .location--details__date {
+    font-size: 90%;
+  }
+  .location--details__media {
+    font-size: 100%;
+  }
+
+}
+
+@media only screen and (max-width: 1100px) {
+  /*-----HEADER-----*/
+  .search--filter__filters {
+    width: 62.5%;
+    padding-left: 15px;
+    font-size: 75%;
+    height: 40px;
+  }
+  .search--bar__field {
+    flex: 0 0 89%;
+    font-size: 80%;
+    height: 40px;
+  }
+  .search--bar__btn {
+    height: 40px;
+  }
+  .search--add__btn {
+    width: 125px;
+    font-size: 75%;
+    height: 40px;
+  }
+
+  /*-----NEW - FORM-----*/
+  .modal-form {
+    margin-top: 3.5%;
+  }
+  .field--label__label {
+    font-size: 120%;
+  }
+  .field--input__input {
+    height: 50px;
+    font-size: 90%;
+  }
+  .dates {
+    margin-top: 40px;
+    margin-bottom: 40px;
+  }
+  .date--title {
+    font-size: 120%;
+  }
+  .choose-media {
+    margin-top: 10px;
+    padding: 5px 25px;
+  }
+  .post-media {
+    margin-top: 30px;
+  }
+
+  /*-----EXISTING - FORM-----*/
+  .name--field,
+  .location--field {
+    height: 45px;
+  }
+  .name--field__input,
+  .location--field__input {
+    font-size: 90%;
+  }
+  .existing--result__name {
+    font-size: 80%;
+  }
+
+  /*-----SEARCH RESULTS-----*/
+
+  /*-----LOCACTION RESULTS-----*/
+  .location--name {
+    margin-left: 4%;
+    font-size: 120%;
+  }
+  .location--details__address-text {
+    font-size: 90%;
+  }
+  .location--details__address-icon {
+    font-size: 165%;
+  }
+  .location--details__date {
+    font-size: 85%;
+  }
+  .location--details__media {
+    font-size: 90%;
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  /*-----HEADER-----*/
+
+  header {
+    justify-content: space-between;
+    padding: 10px 0;
+  }
+
+  .main--nav {
+    margin: 20px 0;
+    flex: 0 0 60%;
+    align-items: center;
+  }
+
+  .search {
+    display: flex;
+    flex-direction: column;
+    flex: 0 0 95%;
+    justify-content: center;
+    margin-right: 2.5%;
+  }
+
+  .search--filter {
+    display: block;
+  }
+
+  .search--bar {
+    display: flex;
+    width: 100%;
+    height: 40px;
+  }
+
+  .search--add {
+    display: flex;
+  }
+
+  .search--filter__filters {
+    width: 100%;
+    height: 40px;
+  }
+
+  .search--bar__field {
+    flex: 0 0 100%;
+    font-size: 85%;
+    height: 40px;
+  }
+
+  .search--bar__btn {
+    display: none;
+  }
+
+  .search--add__btn {
+    flex: 0 0 100%;
+    height: 40px;
+    margin-left: 0px;
+    text-align: left;
+    padding-left: 4%;
+  }
+
+  .search--logo {
+    flex: 0 0 15%;
+  }
+
+  /*-----MOBILE NAV-----*/
+
+  .mob-nav-icon {
+    display: flex;
+    flex: 0 0 25%;
+    justify-content: center;
+  }
+
+  /*-----NEW - FORM-----*/
+  .form-btn {
+    font-size: 80%;
+    height: 45px;
+  }
+  .type h4 {
+    font-size: 90%;
+  }
+  .form--close i {
+    font-size: 100%;
+  }
+  .form--field {
+    flex-direction: column;
+    margin: 18px 0;
+  }
+  .field--input {
+    width: 100%;
+  }
+  .field--label {
+    margin-bottom: 5px;
+  }
+  .field--label__label {
+    font-size: 100%;
+  }
+  .field--input__input {
+    height: 45px;
+    font-size: 70%;
+    padding-left: 10px;
+  }
+  .dates {
+    margin-top: 30px;
+    margin-bottom: 20px;
+    flex-direction: column;
+  }
+  .date--end {
+    margin-left: 0px;
+    margin-top: 15px;
+  }
+  .date--title {
+    margin-bottom: 10px;
+    font-size: 100%;
+  }
+  .date--input {
+    height: 45px;
+    width: 60%;
+    margin-left: 0%;
+    font-size: 80%;
+    font-weight: 500;
+    padding-left: 20px;
+  }
+  .form--btns {
+    display: flex;
+    margin-top: 40px;
+  }
+  .media {
+    flex: 0 0 60%;
+  }
+  .post {
+    flex: 0 0 35%;
+    margin-left: auto;
+  }
+  .choose-media {
+    font-size: 90%;
+    display: flex;
+    align-items: center;
+    margin-top: 0;
+  }
+
+  .post-media {
+    margin-top: 0;
+    width: 100%;
+    margin-left: 0;
+  }
+
+  /*-----EXISTING - FORM-----*/
+  .existing--form {
+    margin-top: 35px;
+  }
+  .name--field,
+  .location--field {
+    height: 40px;
+    margin-bottom: 5px;
+    font-size: 90%;
+  }
+  .existing--result {
+    flex-direction: column;
+  }
+  .existing--result__name {
+    justify-content: center;
+    margin-right: 0;
+    margin-bottom: 15px;
+  }
+  .existing--result__date-container {
+    display: flex;
+    justify-content: space-between;
+  }
+  .existing--result__date-start,
+  .existing--result__date-end {
+    width: 50%;
+  }
+  .existing--result__add {
+    width: 35%;
+    margin-top: 15px;
+    padding: 5px;
+    height: 60px;
+  }
+
+  /*-----SEARCH RESULTS-----*/
+  .country--name {
+    font-size: 150%;
+  }
+  .country--details {
+    font-size: 100%;
+  }
+  .country--visited {
+    font-size: 80%;
+  }
+
+  /*-----LOCACTION RESULTS-----*/
+  .location--name {
+    margin-left: 4%;
+  }
+  .location--details {
+    margin-left: 4%;
+  }
+  .location--details__address-text {
+    font-size: 80%;
+  }
+  .location--details__address-icon {
+    font-size: 150%;
+  }
+  .location--details__date {
+    font-size: 75%;
+  }
+  .location--details__media {
+    font-size: 80%;
+  }
+}
+
+@media only screen and (max-width: 665px) {
+  /*-----MAIN USER INTERFACE-----*/
+  .main--interface {
+    display: block;
+  }
+
+  /*-----RESULTS CONTAINER-----*/
+
+  .results--container {
+    height: 300px;
+  }
+
+  /*-----SEARCH RESULTS-----*/
+
+  .country--name {
+    padding-bottom: 0px;
+  }
+  .country--info {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+  }
+  .country--visited {
+    font-size: 100%;
+  }
+  .country--details {
+    font-size: 110%;
+  }
+  .country--details__photos,
+  .country--details__videos {
+    margin-right: 8px;
+  }
+  .country--details__videos {
+    margin: 0 8px;
+  }
+
+  /*-----LOCATION RESULTS-----*/
+
+  .location--info {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-around;
+    margin-bottom: 4px;
+  }
+  .location--name {
+    width: 90%;
+    font-size: 140%;
+    justify-content: center;
+    padding: 4px 0;
+  }
+  .location--details {
+    width: 100%;
+    margin-left: 0px;
+  }
+  .location--details__address {
+    display: flex;
+    width: 100%;
+  }
+  .location--details__address-text {
+    display: flex;
+    align-items: center;
+    font-size: 90%;
+    width: 100%;
+    margin-left: 0%;
+  }
+  .location--detais__date0 {
+    display: flex;
+    flex: 0 0 50%;
+  }
+  .location--details__date {
+    padding: 4px 0;
+    flex: 0 0 100%;
+    justify-content: center;
+  }
+  .location--details__media {
+    justify-content: center;
+    flex: 0 0 50%;
+    padding-bottom: 0px;
+  }
+  .location--details__address-icon {
+    font-size: 180%;
+    margin-left: 2%;
+    margin-right: 0%;
+  }
+  .location--details__address-icon,
+  .location--details__date-icon,
+  .location--details__media-icon {
+    margin-right: 2%;
+  }
+  .location--details__media-icon:last-child {
+    margin: 0 2%;
+  }
+}
+
+/*# sourceMappingURL=index.HASH_REF_bee42991c873ae07522c22d9076ee950.css.map */

@@ -1,0 +1,64 @@
+var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+_parcelHelpers.defineInteropFlag(exports);
+class ViewForm {
+  _btnAdd = document.querySelector(".search--add");
+  _btnClose = document.querySelector(".form--close");
+  _form = document.querySelector(".modal-form");
+  _formType = document.querySelector(".form-type");
+  _newForm = document.querySelector(".new--form");
+  _existingForm = document.querySelector(".existing--form");
+  _overlay = document.querySelector(".overlay");
+  _type = document.querySelectorAll(".type");
+  _inputs = document.querySelectorAll(".js--input-selector");
+  constructor() {
+    this._addHandlerCloseForm();
+    this._addHandlerOpenForm();
+    this._addHandlerSwitchForm();
+  }
+  _hide() {
+    this._form.classList.add("hidden");
+    this._overlay.classList.add("hidden");
+  }
+  _resetForm() {
+    this._hide();
+    this._inputs.forEach(function (input) {
+      input.value = "";
+    });
+    this._formType.firstElementChild.classList.add("active");
+    this._formType.lastElementChild.classList.remove("active");
+    this._existingForm.classList.add("hidden");
+    this._newForm.classList.remove("hidden");
+  }
+  _addHandlerOpenForm() {
+    this._btnAdd.addEventListener("click", function (e) {
+      e.preventDefault();
+      this._form.classList.remove("hidden");
+      this._overlay.classList.remove("hidden");
+      console.log('Hello');
+    });
+  }
+  _addHandlerCloseForm() {
+    this.btnClose.addEventListener("click", this._resetForm);
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape") _resetForm();
+    });
+    window.addEventListener("click", function (e) {
+      const targ = e.target;
+      if (targ.classList.contains("overlay")) _resetForm();
+    });
+  }
+  _addHandlerSwitchForm() {
+    this._formType.addEventListener("click", function (e) {
+      const typeForm = e.target.closest(".type");
+      if (typeForm) {
+        _type.forEach(function (el) {
+          el.classList.remove("active");
+        });
+        _typeForm.classList.toggle("active");
+        _newForm.classList.toggle("hidden");
+        _existingForm.classList.toggle("hidden");
+      }
+    });
+  }
+}
+exports.default = new ViewForm();

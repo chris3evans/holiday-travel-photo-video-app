@@ -1,5 +1,6 @@
 import * as viewForm from './viewForm.js';
-
+import * as model from './model.js';
+import * as viewResults from './viewResults.js';
 /*import '/.core-js/stable'
 import '/.regenerator-runtime/runtime'*/
 
@@ -7,21 +8,24 @@ import '/.regenerator-runtime/runtime'*/
     module.hot.accept();
 }*/
 
-const controlAddEntry = async function (newEntry) {
-    try {
-        // Upload new entry
+const controlSubmitEntry = function (newEntry) {
+    // Upload new country entry (newEntry = newData object from view)
+    model.formatNewEntry(newEntry);
+    // Render new country entry
+    viewResults.renderCountryResults(model.state) 
+}
 
-        // Render new entry
-        
-    }
-    catch  (err) {
-        console.error(err.message);
-    }
+const controlLoadEntries = function (data) {
+    model.loadLocalStorage(data);
+    
+    viewResults.renderCountryResults(model.state) 
 }
 
 const init = function () {
     viewForm.addHandlerOpenForm();
     viewForm.addHandlerCloseForm();
-    viewForm.addHandlerSwitchForm()
+    viewForm.addHandlerSwitchForm();
+    viewForm.addHandlerSubmitNewForm(controlSubmitEntry);
+    viewResults.addHandlerPageLoad(controlLoadEntries);
 }
 init();

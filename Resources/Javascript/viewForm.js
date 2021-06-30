@@ -1,6 +1,7 @@
 
   const btnAdd = document.querySelector(".search--add");
   const btnClose = document.querySelector(".form--close");
+  const btnPost = document.querySelector('.post-media')
   const form = document.querySelector(".modal-form");
   const formType = document.querySelector(".form-type");
   const newForm = document.querySelector(".new--form");
@@ -26,16 +27,12 @@
     newForm.classList.remove("hidden");
   };
 
-  export const addHandlerOpenForm = function (subscriber) {
+  export const addHandlerOpenForm = function () {
     btnAdd.addEventListener("click", function (e) {
       e.preventDefault();
-      console.log('Hello');
-      console.log(form.classlist);
 
       form.classList.remove("hidden");
       overlay.classList.remove("hidden");
-
-      subscriber();
     });
   }
 
@@ -66,6 +63,15 @@
     });
   }
 
-  /*const addHandlerSubmitNew = function() {
+  export const addHandlerSubmitNewForm = function(subscriber) {
+      btnPost.addEventListener('click', function (e) {
+        e.preventDefault();
 
-  }*/
+        const newDataArr = [...new FormData(newForm)]
+        const newData = Object.fromEntries(newDataArr);
+
+        subscriber(newData);
+
+        resetForm();
+      });
+  }

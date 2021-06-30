@@ -113,7 +113,7 @@
               <label class="field--label field--label__label">Name-Tag:</label>
             </div>
             <div class="field--input">
-              <input class="field--input field--input__input js--input-selector" type="text" name="name-tag" id="name-tag" placeholder="Give a personal name for your visit (optional)">
+              <input class="field--input field--input__input js--input-selector" type="text" name="nameTag" id="name-tag" placeholder="Give a personal name for your visit (optional)">
             </div>
           </div> 
 
@@ -122,18 +122,18 @@
               <label class="field--label field--label__label">Location:</label>
             </div>
             <div class="field--input">
-              <input class="field--input field--input__input js--input-selector" type="text" name="location" id="location" placeholder="Location address" required>
+              <input class="field--input field--input__input js--input-selector" type="text" name="address" id="location" placeholder="Location address" required>
             </div>
           </div>
 
           <div class="dates">
             <div class="date--start">
               <label class="date--title">Start Date:</label>
-              <input class="date--input" type="date" id="start" name="start" value="2021-06-19" min="1980-01-01" max="2100-12-31">
+              <input class="date--input" type="date" id="start" name="startDate" value="2021-06-19" min="1980-01-01" max="2100-12-31">
             </div>
             <div class="date--end">
               <label class="date--title">End Date:</label>
-              <input class="date--input" type="date" id="end" name="end" value="2021-06-30" min="1980-01-01" max="2100-12-31">
+              <input class="date--input" type="date" id="end" name="endDate" value="2021-06-30" min="1980-01-01" max="2100-12-31">
             </div>
           </div>
           
@@ -229,9 +229,10 @@
       </section>
 
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+      <script type="module" src="Resources/Javascript/model.js"></script>
       <script type="module" defer src="Resources/Javascript/controller.js"></script>
       <script type="module" src="Resources/Javascript/viewForm.js"></script>
       <script src="Resources/Javascript/viewMain.js"></script>
-      <script src="Resources/Javascript/model.js"></script>
+      <script type="module" src="Resources/Javascript/viewResults.js"></script>
   </body>
 </html>

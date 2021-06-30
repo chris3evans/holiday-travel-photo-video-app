@@ -1,79 +1,43 @@
+export let state = [];
 
-/*const Location = class {
-    constructor (country, nameTag, locationAddress, dateStart, dateEnd) {
-        this.country = country;
-        this.nameTag = nameTag;
-        this.locationAddress = locationAddress;
-        this.dateStart = dateStart;
-        this.dateEnd = dateEnd;
-    }
-
-
-}*/
-
-const mockLocationArr = [{
-    country: 'Portugal',
-    nameTag: 'Ramiro Beach',
-    location: 'Av. Alm. Reis 1, 1150-038 Lisboa, Portugal',
-    startDate: '15/07/2021',
-    endDate: '31/07/2021',
-    numPhotos: 20,
-    numVideos: 12,
-}, {
-    country: 'Thailand',
-    nameTag: 'Bangkok City',
-    location: '99 Panya Indra Rd, Sam Wa Tawan Tok, Khlong Sam Wa, Bangkok 10510',
-    startDate: '20/04/2021',
-    endDate: '12/05/2021',
-    numPhotos: 43,
-    numVideos: 21,
-}, {
-    country: 'Indonesia',
-    nameTag: 'Bali Resort',
-    location: 'Jl. Bisma, Ubud, Kecamatan Ubud, Kabupaten Gianyar, Bali 80571',
-    startDate: '01/08/2020',
-    endDate: '25/08/2020',
-    numPhotos: 28,
-    numVideos: 34,
-}, {
-    country: 'Vietnam',
-    nameTag: 'Tam Chau Hotel',
-    location: '288 Trần Phú, Lộc Sơn, Bảo Lộc, Lâm Đồng',
-    startDate: '31/09/2020',
-    endDate: '14/10/2020',
-    numPhotos: 51,
-    numVideos: 30,
-}]
-
-const state = {
-  
+export const getLocalStorage = function () {
+  const storage = localStorage.getItem('Country Entries')
+  if (storage) state = JSON.parse(storage);
 }
 
+export const setLocalStorage = function () {
+  localStorage.setItem('Country Entries', JSON.stringify(state))
+}
 
+export const formatNewEntry = function (newEntry) {
+  // Formats form data object
+  let newEntryFormat = {
+    country: newEntry.country,
+    locations: [{
+      nameTag: newEntry.nameTag,
+        locationAddress: newEntry.address,
+        startDate: newEntry.startDate,
+        endDate: newEntry.endDate,
+    }],
+  }
 
-const countryEntry = document.querySelector('.country')
-const resultsContainer = document.querySelector('.results--container')
+  newEntryFormat.timesVisited = newEntryFormat.locations.length;
+  console.log(newEntryFormat);
 
-countryEntry.addEventListener('click', function () {
-    console.log('Hello');
-    resultsContainer.innerHTML = '';
+  // Moves new country to state
+  // Needs to be done after entry data is entered
 
-    mockLocationArr.forEach(function (location) {
-        resultsContainer.insertAdjacentHTML("afterbegin" , `<div class="location entry">
-        <h2 class="location--name">${location.nameTag}</h2>
+  state.push(newEntryFormat);
+  console.log(state);
+  
+ // Moves new location to locations array within country entry
+ //newEntryFormatted.locations.push(newEntry.locations);
 
-        <ul class="location--details">
-          <li class="location--details__address">
-            <i class="ion-location location--details__address-icon"></i>
-            <p class="location--details__address-text">${location.location}</p>
-          </li>
-          <div class="location--info">
-          <li class="location--detais__date0">
-            <p class="location--details__date"><i class="ion-calendar location--details__date-icon"></i>${location.startDate} &mdash; ${location.endDate}</p>
-          </li>
-          <li class="location--details__media">
-            <i class="ion-images location--details__media-icon"></i>${location.numPhotos}<i class="ion-film-marker location--details__media-icon"></i>${location.numVideos}</li>
-        </ul>
-      </div>`)
-    })
-})
+ // Stores this data in the browsers local storage
+  setLocalStorage();
+}
+
+export const loadLocalStorage = function () {
+  getLocalStorage();
+  console.log(state);
+}

@@ -198,13 +198,23 @@ header {
 /*--------RESULTS CONTAINER----------*/
 /*-------------------------------------------------*/
 
-.results--container {
+.results {
   flex: 0 0 25%;
+}
+
+.results--container {
   overflow: auto;
   border: 1px solid rgb(255, 180, 68);
   width: 100%;
   height: 100vh;
   background-color: transparent;
+}
+
+.results--navigation i{
+  margin-left: 7%;
+  font-size: 120%;
+  font-weight: 700;
+  cursor: pointer;
 }
 
 /*-------------------------------------------------*/

@@ -41,5 +41,6 @@ const init = function () {
     viewResults.addHandlerPageLoad(controlLoadCountryEntries);
     viewMain.addHandlerClearStorage(controlClearStorage);
     viewResults.addHandlerLocationResults(controlLoadLocationsEntries);
+    viewResults.addHandlerGoBack(controlLoadCountryEntries);
 }
 init();

@@ -1,5 +1,6 @@
 const countryEntry = document.querySelector('.country')
 const resultsContainer = document.querySelector('.results--container')
+const backBtn = document.querySelector('.results--navigation')
 
 export const renderCountryResults = function (countryData) {
     //Need to use data from state in a HTML feature we can render
@@ -24,15 +25,9 @@ export const renderCountryResults = function (countryData) {
 
 let target
 
-export const addHandlerLocationResults = function (subscriber) {
-  resultsContainer.addEventListener('click', function (e) {
-    target = e.target.closest('.country');
-    subscriber();
-  })
-}
-
 export const renderLocationResults = function (locationData) {
   resultsContainer.innerHTML = '';
+  backBtn.classList.remove('hidden');
 
     console.log(locationData);
 
@@ -63,4 +58,18 @@ export const renderLocationResults = function (locationData) {
 
 export const addHandlerPageLoad = function (subscriber) {
   window.addEventListener('load', subscriber)
+}
+
+export const addHandlerLocationResults = function (subscriber) {
+  resultsContainer.addEventListener('click', function (e) {
+    target = e.target.closest('.country');
+    if (target.classList.contains('country')) subscriber();
+  })
+}
+
+export const addHandlerGoBack = function (subscriber) {
+  backBtn.addEventListener('click', function () {
+    backBtn.classList.add('hidden');
+    subscriber();
+  })
 }

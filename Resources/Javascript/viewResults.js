@@ -6,7 +6,7 @@ export const renderCountryResults = function (countryData) {
     resultsContainer.innerHTML = '';
     countryData.forEach(function (country) {
         resultsContainer.insertAdjacentHTML('afterbegin', `
-        <div class="country entry">
+        <div class="country entry" data-id=${country.country}>
         <h2 class="country--name">${country.country}</h2>
         <div class="country--info">
          <p class="country--visited">Visited ${country.timesVisited} Times</p>
@@ -22,33 +22,45 @@ export const renderCountryResults = function (countryData) {
     })
 }
 
-export const addHandlerPageLoad = function (subscriber) {
-    window.addEventListener('load', subscriber)
+let target
+
+export const addHandlerLocationResults = function (subscriber) {
+  resultsContainer.addEventListener('click', function (e) {
+    target = e.target.closest('.country');
+    subscriber();
+  })
 }
 
-/*export const renderLocationResults = function () {
+export const renderLocationResults = function (locationData) {
+  resultsContainer.innerHTML = '';
 
-countryEntry.addEventListener('click', function () {
-    console.log('Hello');
-    resultsContainer.innerHTML = '';
+    console.log(locationData);
 
-    state.countries.forEach(function (country) {
+    const selectedCountry = locationData.find(function (country) {
+      return country.country === target.dataset.id;
+    })
+    console.log(selectedCountry);
+
+    selectedCountry.locations.forEach(function (location) {
         resultsContainer.insertAdjacentHTML("afterbegin" , `<div class="location entry">
-        <h2 class="location--name">${country.locations.nameTag}</h2>
+        <h2 class="location--name">${location.nameTag}</h2>
 
         <ul class="location--details">
           <li class="location--details__address">
             <i class="ion-location location--details__address-icon"></i>
-            <p class="location--details__address-text">${country.locations.locationAddress}</p>
+            <p class="location--details__address-text">${location.locationAddress}</p>
           </li>
           <div class="location--info">
           <li class="location--detais__date0">
-            <p class="location--details__date"><i class="ion-calendar location--details__date-icon"></i>${country.locations.startDate} &mdash; ${country.locations.endDate}</p>
+            <p class="location--details__date"><i class="ion-calendar location--details__date-icon"></i>${location.startDate} &mdash; ${location.endDate}</p>
           </li>
           <li class="location--details__media">
-            <i class="ion-images location--details__media-icon"></i>${location.numPhotos}<i class="ion-film-marker location--details__media-icon"></i>${location.numVideos}</li>
+            <i class="ion-images location--details__media-icon"></i>14<i class="ion-film-marker location--details__media-icon"></i>6</li>
         </ul>
       </div>`)
     })
-})
-}*/
+}
+
+export const addHandlerPageLoad = function (subscriber) {
+  window.addEventListener('load', subscriber)
+}

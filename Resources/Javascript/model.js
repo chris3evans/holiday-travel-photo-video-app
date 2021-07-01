@@ -9,6 +9,10 @@ export const setLocalStorage = function () {
   localStorage.setItem('Country Entries', JSON.stringify(state))
 }
 
+export const deleteLocalStorage = function () {
+  localStorage.removeItem('Country Entries');
+}
+
 export const formatNewEntry = function (newEntry) {
   // Formats form data object
   let newEntryFormat = {
@@ -25,13 +29,8 @@ export const formatNewEntry = function (newEntry) {
   console.log(newEntryFormat);
 
   // Moves new country to state
-  // Needs to be done after entry data is entered
-
   state.push(newEntryFormat);
   console.log(state);
-  
- // Moves new location to locations array within country entry
- //newEntryFormatted.locations.push(newEntry.locations);
 
  // Stores this data in the browsers local storage
   setLocalStorage();

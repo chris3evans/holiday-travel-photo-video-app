@@ -1,3 +1,5 @@
+const searchBtn = document.querySelector('.search--bar__btn');
+
 $(document).ready(function () {
   $(".js--nav-icon").click(function () {
     const nav = $(".js--main-nav");
@@ -14,3 +16,10 @@ $(document).ready(function () {
     }
   });
 });
+
+export const addHandlerClearStorage = function (subscriber) {
+  searchBtn.addEventListener('click', function (e) {
+    e.preventDefault();
+    subscriber();
+  })
+}

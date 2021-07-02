@@ -10,7 +10,7 @@ export const renderCountryResults = function (countryData) {
         <div class="country entry" data-id=${country.country}>
         <h2 class="country--name">${country.country}</h2>
         <div class="country--info">
-         <p class="country--visited">Visited ${country.timesVisited} Times</p>
+         <p class="country--visited">Visited ${country.timesVisited} Time${country.timesVisited === 1 ? '' : 's'}</p>
          <ul class="country--details">
            <li>
              <i class="ion-images country--details__photos"></i>58</li>
@@ -29,12 +29,9 @@ export const renderLocationResults = function (locationData) {
   resultsContainer.innerHTML = '';
   backBtn.classList.remove('hidden');
 
-    console.log(locationData);
-
     const selectedCountry = locationData.find(function (country) {
       return country.country === target.dataset.id;
     })
-    console.log(selectedCountry);
 
     selectedCountry.locations.forEach(function (location) {
         resultsContainer.insertAdjacentHTML("afterbegin" , `<div class="location entry">

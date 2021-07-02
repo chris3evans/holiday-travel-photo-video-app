@@ -11,7 +11,7 @@ import '/.regenerator-runtime/runtime'*/
 
 const controlSubmitEntry = function (newEntry) {
     // Format data from form and push to state and local storage
-    model.formatNewEntry(newEntry);
+    model.formatNewEntry(newEntry, model.state);
  
     // Render new country with other results in results container
     viewResults.renderCountryResults(model.state)

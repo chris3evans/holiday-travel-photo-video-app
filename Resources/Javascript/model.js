@@ -18,39 +18,46 @@ export const deleteLocalStorage = function () {
 }
 
 export const formatNewEntry = function (newEntry, countryData) {
-  // Formats form data object
-  let newEntryFormat = {
-    country: newEntry.country,
-    locations: [{
-      nameTag: newEntry.nameTag,
-        locationAddress: newEntry.address,
-        startDate: newEntry.startDate,
-        endDate: newEntry.endDate,
-    }],
-  }
+  // Checks data was actually entered
+  if (newEntry.country === '' || newEntry.nameTag === '' || newEntry.address === '') {
+    console.log('Please fill out all form fields');
+  } else {
+    // Checks input data is correct
+    const newEntryNormal = normalizeFormInputs(newEntry);
 
-  newEntryFormat.timesVisited = newEntryFormat.locations.length;
+    // Formats form data object
+    let newEntryFormat = {
+      country: newEntryNormal.country,
+      locations: [{
+        nameTag: newEntryNormal.nameTag,
+        locationAddress: newEntryNormal.address,
+        startDate: newEntryNormal.startDate,
+        endDate: newEntryNormal.endDate,
+      }],
+    }
 
-  // Check if country entry already exists
-  const match = countryData.find(function (country) {
-    return country.country === newEntryFormat.country;
-  });
+    newEntryFormat.timesVisited = newEntryFormat.locations.length;
 
-  // If country entry does exist and there is data in the state
-  if (match && state.length !== 0) {
-      // Nested object containing specific location data
-      const newData = formatForExistingEntry(newEntryFormat);
+    // Check if country entry already exists
+    const match = countryData.find(function (country) {
+      return country.country === newEntryFormat.country;
+    });
 
-      // Push this data to the country's location array
-      match.locations.push(newData);
+    // If country entry does exist and there is data in the state
+    if (match && state.length !== 0) {
+        // Nested object containing specific location data
+        const newData = formatForExistingEntry(newEntryFormat);
 
-      // Update times visited value
-      match.timesVisited = match.locations.length;
+        // Push this data to the country's location array
+        match.locations.push(newData);
+
+        // Update times visited value
+        match.timesVisited = match.locations.length;
       
-      // Save to local storage
-      setLocalStorage();
+        // Save to local storage
+        setLocalStorage();
 
-  // If country entry does NOT exist
+    // If country entry does NOT exist
     } else {
       // Push entire new country object to state
       state.push(newEntryFormat);
@@ -59,6 +66,7 @@ export const formatNewEntry = function (newEntry, countryData) {
       setLocalStorage();
     }
     console.log(state);
+  }
 }
 
 const formatForExistingEntry = function (newEntry) {
@@ -71,4 +79,25 @@ const formatForExistingEntry = function (newEntry) {
   const locationDataArr = location.pop();
   const [locationData] = locationDataArr
   return locationData;
+}
+
+const normalizeFormInputs = function (inputData) {
+  // inputData = initial object from form data
+  if (inputData.country.length !== 0 && inputData.nameTag.length !== 0) {
+    // Normalize country name input
+    const countryCapitalised = capitalise(inputData.country)
+    const nameTagCapitalised = capitalise(inputData.nameTag);
+    inputData.nameTag = nameTagCapitalised;
+    inputData.country = countryCapitalised;
+    return inputData;
+  }
+}
+
+// Capitalisation functionality
+const capitalise = function (string) {
+  const words = string.split(' ');
+  return words.map(function(word) {
+    return word[0].toUpperCase() + word.toLowerCase().slice(1);
+  })
+  .join(' ');
 }

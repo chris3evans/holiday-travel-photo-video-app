@@ -1,13 +1,15 @@
-const countryEntry = document.querySelector('.country')
 const resultsContainer = document.querySelector('.results--container')
 const backBtn = document.querySelector('.results--navigation')
 
 export const renderCountryResults = function (countryData) {
     //Need to use data from state in a HTML feature we can render
+
     resultsContainer.innerHTML = '';
     countryData.forEach(function (country) {
+    const uniqueID = country.country.split(' ').shift();
+
         resultsContainer.insertAdjacentHTML('afterbegin', `
-        <div class="country entry" data-id=${country.country}>
+        <div class="country entry" data-id=${uniqueID}>
         <h2 class="country--name">${country.country}</h2>
         <div class="country--info">
          <p class="country--visited">Visited ${country.timesVisited} Time${country.timesVisited === 1 ? '' : 's'}</p>
@@ -23,14 +25,15 @@ export const renderCountryResults = function (countryData) {
     })
 }
 
-let target
+let target;
 
 export const renderLocationResults = function (locationData) {
   resultsContainer.innerHTML = '';
   backBtn.classList.remove('hidden');
 
     const selectedCountry = locationData.find(function (country) {
-      return country.country === target.dataset.id;
+      const countryMatch = country.country.split(' ').shift();
+      return countryMatch === target.dataset.id;
     })
 
     selectedCountry.locations.forEach(function (location) {

@@ -37,7 +37,8 @@ const init = function () {
     viewForm.addHandlerOpenForm();
     viewForm.addHandlerCloseForm();
     viewForm.addHandlerSwitchForm();
-    viewForm.addHandlerSubmitNewForm(controlSubmitEntry);
+    viewForm.addHandlerSubmitNewFormClick(controlSubmitEntry);
+    viewForm.addHandlerSubmitNewFormKey(controlSubmitEntry)
     viewResults.addHandlerPageLoad(controlLoadCountryEntries);
     viewMain.addHandlerClearStorage(controlClearStorage);
     viewResults.addHandlerLocationResults(controlLoadLocationsEntries);

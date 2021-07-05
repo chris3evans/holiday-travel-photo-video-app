@@ -27,6 +27,8 @@
     newForm.classList.remove("hidden");
   };
 
+
+
   export const addHandlerOpenForm = function () {
     btnAdd.addEventListener("click", function (e) {
       e.preventDefault();
@@ -63,15 +65,25 @@
     });
   }
 
-  export const addHandlerSubmitNewForm = function(subscriber) {
+  const getFormData = function () {
+    const newDataArr = [...new FormData(newForm)]
+    const newData = Object.fromEntries(newDataArr);
+    return newData;
+  }
+
+  export const addHandlerSubmitNewFormClick = function(subscriber) {
       btnPost.addEventListener('click', function (e) {
         e.preventDefault();
-
-        const newDataArr = [...new FormData(newForm)]
-        const newData = Object.fromEntries(newDataArr);
-
-        subscriber(newData);
-
+        subscriber(getFormData());
         resetForm();
       });
+  }
+
+  export const addHandlerSubmitNewFormKey = function (subscriber) {
+     document.addEventListener('keydown', function (e) {
+      if (!form.classList.contains('hidden') && e.key === 'Enter') {
+        e.preventDefault();
+        subscriber(getFormData());
+        resetForm();
+    }})
   }

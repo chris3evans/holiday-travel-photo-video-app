@@ -1,0 +1,44 @@
+.photos--view {
+  background-image: linear-gradient(
+    to left bottom,
+    rgb(255, 174, 0),
+    rgb(255, 0, 93)
+  );
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  .collection {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    margin-left: 5%;
+
+    &--date {
+      display: flex;
+      align-items: center;
+      height: 4rem;
+      margin-top: 3rem;
+      margin-bottom: 1rem;
+
+      p {
+        font-size: 2.5rem;
+        font-weight: 400;
+      }
+    }
+
+    &--photos {
+      display: flex;
+      height: 40rem;
+      width: 120rem;
+    }
+
+    &--photo {
+      .photo {
+        height: 20rem;
+        width: 20rem;
+        cursor: pointer;
+      }
+    }
+  }
+}

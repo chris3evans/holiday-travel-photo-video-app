@@ -1,23 +1,23 @@
 .country {
-    cursor: pointer;
+  cursor: pointer;
 
-    &--name {
+  &--name {
     display: flex;
     justify-content: center;
     padding: 0.8rem 0;
     text-decoration: underline 0.2rem;
     font-size: 350%;
     font-weight: 600;
-    }
+  }
 
-    &--visited {
+  &--visited {
     display: flex;
     justify-content: center;
     font-weight: 400;
     font-size: 200%;
-    }
+  }
 
-    &--details {
+  &--details {
     display: flex;
     list-style: none;
     font-size: 280%;
@@ -25,9 +25,9 @@
     justify-content: space-around;
     padding: 0.8rem 0;
 
-        &__photos,
-        &__videos {
-        margin-right: 0.5rem;
+    &__photos,
+    &__videos {
+      margin-right: 0.5rem;
     }
   }
 }

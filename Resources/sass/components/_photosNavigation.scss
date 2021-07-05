@@ -1,0 +1,41 @@
+.photos--navigation {
+  display: flex;
+  background-image: linear-gradient(to top, #fff, rgb(245, 245, 245));
+
+  &__back,
+  &__add {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin: 1rem 0;
+    font-size: 2rem;
+    height: 4rem;
+    background-color: rgb(240, 240, 240);
+    border: 0.2rem solid rgb(208, 208, 208);
+    border-radius: 100rem;
+    transition: 0.3s;
+    cursor: pointer;
+
+    &:hover {
+      background-color: rgb(145, 145, 145);
+      color: #fff;
+    }
+  }
+
+  &__back {
+    flex: 0 0 5%;
+    margin-left: 2rem;
+    margin-right: auto;
+
+    i {
+      font-size: 1.8rem;
+    }
+  }
+
+  &__add {
+    flex: 0 0 12.5%;
+    margin-right: 2rem;
+    margin-left: auto;
+  }
+}

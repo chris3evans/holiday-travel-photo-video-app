@@ -9,232 +9,239 @@
 
 @import "components/countryEntry";
 @import "components/locationEntry";
+@import "components/photosNavigation";
+@import "components/photosView";
 @import "components/resultsContainer";
 @import "components/searchBar";
-  
-  /*-------REUSABLE COMPONENTS-----------*/
-  
-  .entry {
-    background-color: rgb(255, 60, 0);
-    color: $color-black;
-    margin-bottom: 0.3rem;
-    margin-left: 0.2rem;
-    margin-right: 0.2rem;
-    border-radius: 0.5rem;
-    transition: 1s;
 
-    &:hover {
-        background-color: rgb(255, 0, 93);
-    }
-    &:first-child {
-        margin-top: 0.1rem;
-    }
-  }
-  
-  .field {
-    height: 5rem;
-    border-radius: 10rem;
-    border: 0.1rem solid rgb(255, 180, 68);
-    background-color: rgb(253, 238, 186);
-    font-size: 200%;
+@import "layout/photos";
 
-    &:hover,
-    &:active {
-    background-color: rgb(255, 226, 122);
-    transition: background-color 0.5s;
-    }
-  }
-  
-  .hidden {
-    display: none;
-  }
-  
-  .overlay {
-    position: absolute;
-    background-color: rgba($color-black, 0.415);
-    z-index: 5;
-    width: 100%;
-    height: 100vh;
-  }
-  
-  /*-------------------------------------------------*/
-  /*--------MAIN NAVIGATION----------*/
-  /*-------------------------------------------------*/
-  
-  header {
-    background-image: linear-gradient(to right, rgb(255, 0, 64), rgb(255, 60, 0));
-    border: 0.1rem solid rgb(255, 180, 68);
-    display: flex;
-  }
-  
-  .main--nav {
-    display: flex;
-    flex: 0 0 90%;
-    margin: 2rem 0;
-    justify-content: center;
-  }
-  
-  *:focus {
-    outline: none;
-  }
-  
-  /*-------------------------------------------------*/
-  /*--------MOBILE NAVIGATION----------*/
-  /*-------------------------------------------------*/
-  
-  .mob-nav-icon {
-    display: flex;
-    align-items: center;
-    cursor: pointer;
-    display: none;
-  }
-  
-  .mob-nav-icon i {
-    font-size: 300%;
-  }
-  
-  /*-------------------------------------------------*/
-  /*--------MAIN USER INTERFACE----------*/
-  /*-------------------------------------------------*/
-  
-  .main--interface {
-    display: flex;
-  }
-  
-  /*-------------------------------------------------*/
-  /*--------WORLD MAP----------*/
-  /*-------------------------------------------------*/
-  
-  .world-map {
-    border: 0.1rem solid rgb(255, 180, 68);
-    width: 100%;
-    height: 100vh;
-    background-color: rgb(194, 194, 194);
-  }
-  
-  /*-------------------------------------------------*/
-  /*--------FORMS----------*/
-  /*-------------------------------------------------*/
-  .modal-form {
-    z-index: 10;
-    position: absolute;
-    width: 80%;
-    margin-left: 10%;
-    top: 50%;
-    left: 50%;
-    transform: translate(-62.5%, -50%);
-    border: $color-black solid 0.1rem;
-    border-radius: 1.5rem;
-    background-color: rgb(255, 249, 236);
-    box-shadow: 0.3rem 0.3rem 0.5rem rgb(94, 94, 94);
-  }
-  
-  .menu {
-    display: flex;
-    width: 100%;
-    border-bottom: $color-black 0.1rem solid;
-  }
-  
-  .form--container {
-    height: 100%;
-  }
-  
-  .form {
-    display: flex;
-    width: 80%;
-    margin-left: 10%;
-    position: relative;
-    align-items: center;
-  }
-  
-  .form-type {
-    display: flex;
-    width: 100%;
-  }
-  .type {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 1rem 0;
-    flex: 0 0 40%;
-  }
-  .type h4 {
-    color: $color-black;
-    font-size: 240%;
-    font-weight: 400;
-    cursor: pointer;
-  }
-  
-  .form--close {
-    border: none;
-    margin-left: auto;
-    background-color: rgb(255, 249, 236);
-    margin-right: 1.5rem;
-  }
-  .form--close i {
-    background-color: rgb(255, 249, 236);
-    font-size: 240%;
-    cursor: pointer;
-  }
-  .active {
-    border: $color-black solid 0.1rem;
-    border-top-right-radius: 1.5rem;
-    border-top-left-radius: 1.5rem;
-    background-image: linear-gradient(
-      to right,
-      rgba(255, 247, 0, 0.802),
-      rgba(255, 208, 0, 0.802)
-    );
-  }
-  
-  /*-------REUSABLE FORM COMPONENTS-------*/
-  .form-btn {
-    font-size: 200%;
-    cursor: pointer;
-    height: 5rem;
-    border-radius: 0.5rem;
-    box-shadow: 0.2rem 0.2rem 0.2rem rgb(94, 94, 94);
-    background-color: rgba(255, 208, 0, 0.802);
-    transition: background-color 0.25s;
+/*-------REUSABLE COMPONENTS-----------*/
 
-    &:hover {
-      background-color: rgba(255, 174, 0, 0.802);
-    }
+.entry {
+  background-color: rgb(255, 60, 0);
+  color: $color-black;
+  margin-bottom: 0.3rem;
+  margin-left: 0.2rem;
+  margin-right: 0.2rem;
+  border-radius: 0.5rem;
+  transition: 1s;
+
+  &:hover {
+    background-color: rgb(255, 0, 93);
   }
-  
-  /*-------------------------------------------------*/
-  /*--------EXISTING MEDIA FORM----------*/
-  /*-------------------------------------------------*/
-  
-  .name--field,
-  .location--field {
-    width: 100%;
-    height: 5rem;
+  &:first-child {
+    margin-top: 0.1rem;
   }
-  
-  .name--field {
-    flex: 0 0 32.5%;
+}
+
+.field {
+  height: 5rem;
+  border-radius: 10rem;
+  color: white;
+  border: 0.1rem solid $btn-main-border;
+  background-color: $btn-main-yellow;
+  font-size: 200%;
+
+  &:hover,
+  &:active {
+    background-color: $btn-main-hover;
+    border: 0.05rem solid black;
+    transition: 0.5s;
+    color: black;
   }
-  
-  .location--field {
-    flex: 0 0 65%;
-    margin-left: auto;
+}
+
+.hidden {
+  display: none;
+}
+
+.overlay {
+  position: absolute;
+  background-color: rgba($color-black, 0.415);
+  z-index: 5;
+  width: 100%;
+  height: 100vh;
+}
+
+/*-------------------------------------------------*/
+/*--------MAIN NAVIGATION----------*/
+/*-------------------------------------------------*/
+
+header {
+  background-image: linear-gradient(to right, rgb(255, 0, 64), rgb(255, 60, 0));
+  border: 0.1rem solid rgb(255, 180, 68);
+  display: flex;
+}
+
+.main--nav {
+  display: flex;
+  flex: 0 0 90%;
+  margin: 2rem 0;
+  justify-content: center;
+}
+
+*:focus {
+  outline: none;
+}
+
+/*-------------------------------------------------*/
+/*--------MOBILE NAVIGATION----------*/
+/*-------------------------------------------------*/
+
+.mob-nav-icon {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  display: none;
+}
+
+.mob-nav-icon i {
+  font-size: 300%;
+}
+
+/*-------------------------------------------------*/
+/*--------MAIN USER INTERFACE----------*/
+/*-------------------------------------------------*/
+
+.main--interface {
+  display: flex;
+}
+
+/*-------------------------------------------------*/
+/*--------WORLD MAP----------*/
+/*-------------------------------------------------*/
+
+.world-map {
+  border: 0.1rem solid rgb(255, 180, 68);
+  width: 100%;
+  height: 100vh;
+  background-color: rgb(194, 194, 194);
+}
+
+/*-------------------------------------------------*/
+/*--------FORMS----------*/
+/*-------------------------------------------------*/
+.modal-form {
+  z-index: 10;
+  position: absolute;
+  width: 80%;
+  margin-left: 10%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-62.5%, -50%);
+  border: $color-black solid 0.1rem;
+  border-radius: 1.5rem;
+  background-color: rgb(255, 249, 236);
+  box-shadow: 0.3rem 0.3rem 0.5rem rgb(94, 94, 94);
+}
+
+.menu {
+  display: flex;
+  width: 100%;
+  border-bottom: $color-black 0.1rem solid;
+}
+
+.form--container {
+  height: 100%;
+}
+
+.form {
+  display: flex;
+  width: 80%;
+  margin-left: 10%;
+  position: relative;
+  align-items: center;
+}
+
+.form-type {
+  display: flex;
+  width: 100%;
+}
+.type {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 0;
+  flex: 0 0 40%;
+}
+.type h4 {
+  color: $color-black;
+  font-size: 240%;
+  font-weight: 400;
+  cursor: pointer;
+}
+
+.form--close {
+  border: none;
+  margin-left: auto;
+  background-color: rgb(255, 249, 236);
+  margin-right: 1.5rem;
+}
+.form--close i {
+  background-color: rgb(255, 249, 236);
+  font-size: 240%;
+  cursor: pointer;
+}
+.active {
+  border: $color-black solid 0.1rem;
+  border-top-right-radius: 1.5rem;
+  border-top-left-radius: 1.5rem;
+  background-image: linear-gradient(
+    to right,
+    rgba(255, 247, 0, 0.802),
+    rgba(255, 208, 0, 0.802)
+  );
+}
+
+/*-------REUSABLE FORM COMPONENTS-------*/
+.form-btn {
+  font-size: 200%;
+  cursor: pointer;
+  height: 5rem;
+  border-radius: 0.5rem;
+  box-shadow: 0.2rem 0.2rem 0.2rem rgb(94, 94, 94);
+  background-color: rgba(255, 208, 0, 0.802);
+  transition: background-color 0.25s;
+
+  &:hover {
+    background-color: rgba(255, 174, 0, 0.802);
   }
-  
-  .name--field__input,
-  .location--field__input {
-    padding-left: 2rem;
-    font-weight: 300;
-    font-size: 200%;
-  }
-  
-  .existing--results {
-    display: flex;
-    overflow: auto;
-    flex-direction: column;
-    border: $color-black 0.2rem solid;
-    border-radius: 0.5rem;
-    height: 40rem;
-    background-color: rgb(255, 255, 255);
-    margin-bottom: 3.5%;
-  }
+}
+
+/*-------------------------------------------------*/
+/*--------EXISTING MEDIA FORM----------*/
+/*-------------------------------------------------*/
+
+.name--field,
+.location--field {
+  width: 100%;
+  height: 5rem;
+}
+
+.name--field {
+  flex: 0 0 32.5%;
+}
+
+.location--field {
+  flex: 0 0 65%;
+  margin-left: auto;
+}
+
+.name--field__input,
+.location--field__input {
+  padding-left: 2rem;
+  font-weight: 300;
+  font-size: 200%;
+}
+
+.existing--results {
+  display: flex;
+  overflow: auto;
+  flex-direction: column;
+  border: $color-black 0.2rem solid;
+  border-radius: 0.5rem;
+  height: 40rem;
+  background-color: rgb(255, 255, 255);
+  margin-bottom: 3.5%;
+}

@@ -1,63 +1,64 @@
 .search {
-    display: flex;
-    flex: 0 0 90%;
-    justify-content: space-between;
+  display: flex;
+  flex: 0 0 90%;
+  justify-content: space-between;
 
-    &--filter {
+  &--filter {
     display: flex;
     flex: 0 0 25%;
     justify-content: center;
     align-items: center;
-    color: rgb(90, 87, 86);
+    color: gray;
     width: 100%;
 
-        &__filters {
-        padding-left: 2.5rem;
-        width: 60%;
-        cursor: pointer;
-        }
+    &__filters {
+      padding-left: 2.5rem;
+      width: 60%;
+      cursor: pointer;
     }
+  }
 
-    &--bar {
+  &--bar {
     display: flex;
     flex: 0 0 50%;
     width: 100%;
     justify-content: space-between;
 
-        &__field {
-            flex: 0 0 91%;
-            margin-right: auto;
-            padding-left: 4%;
-        }
-
-        &__field::placeholder {
-            font-weight: 300;
-        }
-
-        &__btn {
-            width: 5rem;
-            cursor: pointer;
-        }
+    &__field {
+      flex: 0 0 91%;
+      margin-right: auto;
+      padding-left: 4%;
     }
 
-    &--add__btn {
+    &__field::placeholder {
+      font-weight: 300;
+      color: white;
+    }
+
+    &__btn {
+      width: 5rem;
+      cursor: pointer;
+    }
+  }
+
+  &--add__btn {
     flex: 0 0 10%;
     color: $color-black;
     margin-left: 2rem;
     width: 15rem;
     font-weight: 500;
     cursor: pointer;
-    }
+  }
 
-    &--logo {
+  &--logo {
     display: flex;
     flex: 0 0 10%;
     justify-content: space-around;
     align-items: center;
     height: auto;
 
-        &__img {
-        width: 5rem;
-        }
+    &__img {
+      width: 5rem;
     }
   }
+}

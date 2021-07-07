@@ -13,6 +13,8 @@
 @import "components/photosView";
 @import "components/resultsContainer";
 @import "components/searchBar";
+@import "components/newForm";
+@import "components/existingForm";
 
 @import "layout/photos";
 
@@ -39,8 +41,8 @@
   height: 5rem;
   border-radius: 10rem;
   color: white;
-  border: 0.1rem solid $btn-main-border;
-  background-color: $btn-main-yellow;
+  border: none;
+  background-color: $btn-main-purple;
   font-size: 200%;
 
   &:hover,

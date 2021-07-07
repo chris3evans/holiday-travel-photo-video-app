@@ -1,105 +1,108 @@
 .new--form {
+  flex: 0 0 100%;
+}
+.existing--form {
+  width: 100%;
+}
+
+.form--field {
+  display: flex;
+  align-items: center;
+  margin: 2rem 0;
+
+  &:first-child {
+    margin-top: 3%;
+  }
+
+  .field--label {
+    flex: 0 0 20%;
+
+    &__label {
+      font-size: 280%;
+      color: $color-black;
+      font-weight: 500;
+      width: 100%;
+    }
+  }
+
+  .field--input {
+    flex: 0 0 75%;
+    margin-left: auto;
+
+    &__input {
+      height: 6rem;
+      width: 100%;
+      border: $color-black 0.1rem solid;
+      border-radius: 2.5rem;
+      font-size: 200%;
+      font-weight: 500;
+      padding-left: 2rem;
+      box-shadow: 0.1rem 0.1rem 0.1rem rgb(94, 94, 94);
+    }
+
+    &__input::placeholder {
+      font-weight: 300;
+    }
+  }
+}
+
+.dates {
+  display: flex;
+  margin-bottom: 3.5rem;
+
+  .date--start,
+  .date--end {
+    flex: 0 0 30%;
+  }
+
+  .date--title {
+    color: $color-black;
+    display: block;
+    margin-bottom: 1rem;
+    font-size: 280%;
+    font-weight: 500;
+  }
+
+  .date--input {
+    padding-right: 1rem;
+    cursor: pointer;
+    transition: 0.25s;
+    height: 5rem;
     width: 100%;
-  
+    border: $color-black 0.1rem solid;
+    border-radius: 2.5rem;
+    font-size: 200%;
+    font-weight: 500;
+    padding-left: 2rem;
+    box-shadow: 0.1rem 0.1rem 0.1rem rgb(94, 94, 94);
   }
-  .existing--form {
-    width: 100%;
+
+  .date--input:hover {
+    background-color: rgb(248, 248, 248);
   }
-  
-  .form--field {
-    display: flex;
-    align-items: center;
-    margin: 2rem 0;
+}
 
-    &:first-child {
-      margin-top: 3%;
-    }
+.date--end {
+  margin-left: 5rem;
+}
 
-    .field--label {
-      flex: 0 0 20%;
+.form--btns {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 3%;
 
-      .field--label__label {
-        font-size: 280%;
-        color: $color-black;
-        font-weight: 500;
-        width: 100%;
-      }
-    }
-
-    .field--input {
-      flex: 0 0 75%;
-      margin-left: auto;
-
-      .field--input__input {
-        height: 6rem;
-        width: 100%;
-        border: $color-black 0.1rem solid;
-        border-radius: 2.5rem;
-        font-size: 200%;
-        font-weight: 500;
-        padding-left: 2rem;
-        box-shadow: 0.1rem 0.1rem 0.1rem rgb(94, 94, 94);
-      }
-
-      .field--input__input::placeholder {
-        font-weight: 300;
-      }
-    }
-
-    .dates {
-      display: flex;
-      margin-bottom: 3.5rem;
-
-      .date--start,
-      .date--end {
-        flex: 0 0 30%;
-
-        .date--title {
-          color: $color-black;
-          display: block;
-          margin-bottom: 1rem;
-          font-size: 280%;
-          font-weight: 500;
-        }
-
-        .date--input {
-          padding-right: 1rem;
-          cursor: pointer;
-          transition: 0.25s;
-          height: 5rem;
-          width: 100%;
-          border: $color-black 0.1rem solid;
-          border-radius: 2.5rem;
-          font-size: 200%;
-          font-weight: 500;
-          padding-left: 2rem;
-          box-shadow: 0.1rem 0.1rem 0.1rem rgb(94, 94, 94);
-        }
-
-        .date--input:hover {
-          background-color: rgb(248, 248, 248);
-        }
-      }
-
-      .date--end {
-        margin-left: 5rem;
-      }
-    }
-
-    .form--btns {
-      display: flex;
-      flex-direction: column;
-      margin-bottom: 3%;
-
-      .choose-media {
-        border: $color-black solid 0.1rem;
-        padding: 0.5rem 5rem;
-      }
-      
-      .post-media {
-        margin-top: 3rem;
-        margin-left: 42.5%;
-        width: 15%;
-      }
-    }
+  .files {
+    display: none;
   }
+
+  .choose-media {
+    border: $color-black solid 0.1rem;
+    padding: 0.5rem 5rem;
+  }
+
+  .post-media {
+    margin-top: 3rem;
+    margin-left: 42.5%;
+    width: 15%;
+  }
+}

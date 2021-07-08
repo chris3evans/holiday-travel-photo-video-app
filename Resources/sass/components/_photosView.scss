@@ -1,9 +1,13 @@
-.photos--view {
+.photos {
   background-image: linear-gradient(
     to left bottom,
     rgb(255, 174, 0),
     rgb(255, 0, 93)
   );
+  height: 100vh;
+}
+
+.photos--view {
   display: flex;
   flex-direction: column;
   justify-content: center;

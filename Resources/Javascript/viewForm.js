@@ -37,7 +37,6 @@ export const addHandlerOpenFiles = function () {
 export const addHandlerChooseImages = function (subscriber) {
   /*fileInput.onchange = getPhotoData();*/
   fileInput.addEventListener("click", function () {
-    console.log("Hello");
     subscriber();
     /*fileInput.onchange = function () {
       const fileObject = fileInput.files;

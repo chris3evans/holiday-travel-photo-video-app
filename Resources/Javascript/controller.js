@@ -2,7 +2,7 @@ import * as viewForm from "./viewForm.js";
 import * as model from "./model.js";
 import * as viewResults from "./viewResults.js";
 import * as viewMain from "./viewMain.js";
-import * as viewPhotos from "./photosView.js";
+import * as viewPhotos from "./viewPhotos.js";
 /*import '/.core-js/stable'
 import '/.regenerator-runtime/runtime'*/
 
@@ -38,6 +38,14 @@ const controlPhotoData = function () {
   model.getPhotoData();
 };
 
+const controlDisplayPhotoView = function (target, country) {
+  viewMain.hidePhotoInterface();
+
+  viewPhotos.renderPhotoCollection(target, country);
+
+  viewPhotos.renderPhotos(target, country);
+};
+
 const init = function () {
   viewForm.addHandlerOpenForm();
   viewForm.addHandlerCloseForm();
@@ -45,6 +53,9 @@ const init = function () {
 
   viewForm.addHandlerOpenFiles();
   viewForm.addHandlerChooseImages(controlPhotoData);
+
+  viewPhotos.addHandlerLeavePhotoView();
+  viewResults.addHandlerRevealPhotoView(controlDisplayPhotoView);
 
   viewForm.addHandlerSubmitNewFormClick(controlSubmitEntry);
   viewForm.addHandlerSubmitNewFormKey(controlSubmitEntry);

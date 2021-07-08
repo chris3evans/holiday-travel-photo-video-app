@@ -6,7 +6,7 @@ export const renderCountryResults = function (countryData) {
 
   resultsContainer.innerHTML = "";
   countryData.forEach(function (country) {
-    const uniqueID = country.country.split(" ").shift();
+    const uniqueID = country.country.replaceAll(" ", "-");
     let photos = [];
 
     const countPhotos = function () {
@@ -48,20 +48,23 @@ export const renderCountryResults = function (countryData) {
 };
 
 let target;
+let selectedCountry;
 
 export const renderLocationResults = function (locationData) {
   resultsContainer.innerHTML = "";
   backBtn.classList.remove("hidden");
 
-  const selectedCountry = locationData.find(function (country) {
-    const countryMatch = country.country.split(" ").shift();
+  selectedCountry = locationData.find(function (country) {
+    const countryMatch = country.country.replaceAll(" ", "-");
     return countryMatch === target.dataset.id;
   });
 
   selectedCountry.locations.forEach(function (location) {
+    const uniqueLocationID = location.nameTag.replaceAll(" ", "-");
+
     resultsContainer.insertAdjacentHTML(
       "afterbegin",
-      `<div class="location entry">
+      `<div class="location entry" data-id=${uniqueLocationID}>
         <h2 class="location--name">${location.nameTag}</h2>
 
         <ul class="location--details">
@@ -96,5 +99,14 @@ export const addHandlerGoBack = function (subscriber) {
   backBtn.addEventListener("click", function () {
     backBtn.classList.add("hidden");
     subscriber();
+  });
+};
+
+export const addHandlerRevealPhotoView = function (subscriber) {
+  resultsContainer.addEventListener("click", function (e) {
+    target = e.target.closest(".location");
+
+    if (target.classList.contains("location"))
+      subscriber(target, selectedCountry);
   });
 };

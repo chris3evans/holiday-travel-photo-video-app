@@ -245,7 +245,13 @@
 
             <div class="form--btns">
               <div class="media">
-                <input type="file" id="myfiles" class="files" directory webkitdirectory>
+                <input
+                  type="file"
+                  id="myfiles"
+                  class="files"
+                  directory
+                  webkitdirectory
+                />
                 <button type="file" class="form-btn choose-media">
                   Choose Photos / Videos
                 </button>
@@ -260,55 +266,56 @@
     </div>
 
     <!--END OF FORM HTML CODE-->
+    <main class="primary--view">
+      <header>
+        <a class="mob-nav-icon js--nav-icon"><i class="ion-close-round"></i></a>
 
-    <header>
-      <a class="mob-nav-icon js--nav-icon"><i class="ion-close-round"></i></a>
+        <div class="main--nav js--main-nav">
+          <div class="search">
+            <form class="search--filter">
+              <select
+                class="field search--filter__filters"
+                name="sort"
+                id="sort"
+              >
+                <option value="frequency" selected>Frequency</option>
+                <option value="recency">Recency</option>
+                <option value="photos">Most Photos</option>
+                <option value="videos">Most Videos</option>
+              </select>
+            </form>
 
-      <div class="main--nav js--main-nav">
-
-        <div class="search">
-          <form class="search--filter">
-            <select class="field  search--filter__filters" name="sort" id="sort">
-              <option value="frequency" selected>Frequency</option>
-              <option value="recency">Recency</option>
-              <option value="photos">Most Photos</option>
-              <option value="videos">Most Videos</option>
-            </select>
-          </form>
-         
-          <form class="search--bar">
-            <input
-              class="search--bar__field"
-              type="text"
-              name="search"
-              id="search"
-              placeholder="Search for country"
-            />
-            <button type="submit" class="search--bar__btn">
-              <i class="ion-ios-search search--bar__btn-icon"></i>
-            </button>
-    
-          </form>
-          <form class=search--add>
-            <button class="search--add__btn field">Add Media</button>
-          </form>
+            <form class="search--bar">
+              <input
+                class="search--bar__field"
+                type="text"
+                name="search"
+                id="search"
+                placeholder="Search for country"
+              />
+              <button type="submit" class="search--bar__btn">
+                <i class="ion-ios-search search--bar__btn-icon"></i>
+              </button>
+            </form>
+            <form class="search--add">
+              <button class="search--add__btn field">Add Media</button>
+            </form>
           </div>
         </div>
 
         <a class="search--logo" href="http://127.0.0.1:5500/index.html"
           ><img src="Resources/Images/Logo-Test.jpg" class="search--logo__img"
         /></a>
-      </div>
-    </header>
+      </header>
 
-    <section class="main--interface">
-      <div class="results">
-        <div class="results--navigation hidden">
-          <i class="ion-ios-arrow-thin-left"></i>
-        </div>
+      <section class="main--interface">
+        <div class="results">
+          <div class="results--navigation hidden">
+            <i class="ion-ios-arrow-thin-left"></i>
+          </div>
 
-      <div class="results--container">
-          <!--<div class="country entry">
+          <div class="results--container">
+            <!--<div class="country entry">
            <h2 class="country--name">Portugal</h2>
            <div class="country--info">
             <p class="country--visited">Visited 15 Times</p>
@@ -321,7 +328,7 @@
           </div>
           </div>-->
 
-    <!--<div class="location entry">
+            <!--<div class="location entry">
             <h2 class="location--name">Ramiro Restaurant</h2>
 
             <ul class="location--details">
@@ -337,14 +344,14 @@
                 <i class="ion-images location--details__media-icon"></i>14<i class="ion-film-marker location--details__media-icon"></i>6</li>
             </ul>
           </div>-->
+          </div>
         </div>
-      </div>
-        <div class="world-map">
-      </div>
+        <div class="world-map"></div>
       </section>
+    </main>
 
     <section>
-      <div class="photos">
+      <div class="photos hidden">
         <div class="photos--navigation">
           <button class="photos--navigation__back">
             <i class="ion-chevron-left"></i>
@@ -358,7 +365,7 @@
           <button class="photos--navigation__add">Add Media</button>
         </div>
         <div class="photos--view">
-          <div class="collection">
+          <!--<div class="collection">
             <div class="collection--date">
               <p><u>12/06/2021 &mdash; 18/06/2021</u></p>
             </div>
@@ -384,7 +391,7 @@
                 />
               </div>
             </div>
-          </div>
+          </div>-->
         </div>
       </div>
     </section>

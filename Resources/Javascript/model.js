@@ -24,6 +24,7 @@ export const getPhotoData = function () {
   fileInput.onchange = function () {
     const fileObject = fileInput.files;
     const fileArr = Object.values(fileObject);
+    console.log(fileArr);
 
     fileArr.forEach(function (file) {
       if (file.type === "image/jpeg" || file.type === "image/png") {

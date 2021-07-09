@@ -558,13 +558,14 @@ body {
       -ms-flex-direction: column;
           flex-direction: column;
   margin-bottom: 3%;
+  /*.choose-media,*/
 }
 
 .form--btns .files {
   display: none;
 }
 
-.form--btns .choose-media {
+.form--btns .custom-file-upload {
   border: black solid 0.1rem;
   padding: 0.5rem 5rem;
 }

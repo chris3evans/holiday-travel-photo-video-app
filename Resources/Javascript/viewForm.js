@@ -8,7 +8,7 @@ const existingForm = document.querySelector(".existing--form");
 const overlay = document.querySelector(".overlay");
 const type = document.querySelectorAll(".type");
 const inputs = document.querySelectorAll(".js--input-selector");
-const btnFile = document.querySelector(".choose-media");
+const btnFile = document.querySelector(".custom-file-upload");
 
 const fileInput = document.querySelector(".files");
 
@@ -28,30 +28,8 @@ export const resetForm = function () {
   newForm.classList.remove("hidden");
 };
 
-export const addHandlerOpenFiles = function () {
-  btnFile.addEventListener("click", function () {
-    document.getElementById("myfiles").click();
-  });
-};
-
 export const addHandlerChooseImages = function (subscriber) {
-  /*fileInput.onchange = getPhotoData();*/
-  fileInput.addEventListener("click", function () {
-    subscriber();
-    /*fileInput.onchange = function () {
-      const fileObject = fileInput.files;
-      const fileArr = Object.values(fileObject);
-
-      const filePathArr = [];
-
-      fileArr.forEach(function (file) {
-        if (file.type === "image/jpeg" || file.type === "image/png") {
-          filePathArr.push(file.webkitRelativePath);
-        }
-      });
-      console.log(filePathArr);
-    };*/
-  });
+  btnFile.addEventListener("change", subscriber);
 };
 
 export const addHandlerOpenForm = function () {

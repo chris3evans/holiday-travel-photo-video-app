@@ -12,11 +12,9 @@ export const renderPhotoCollection = function (targetLocation, data) {
     const nameTagFormat = location.nameTag.replaceAll(" ", "-");
     return nameTagFormat === targetLocation.dataset.id;
   });
-  console.log(selectedLocation);
 
   // Unique ID to identify each photo collection
   const uniqeuCollectionID = `${selectedLocation.startDate}-${selectedLocation.endDate}`;
-  console.log(uniqeuCollectionID);
 
   // Collection HTML Markup
   const collectionMarkup = `
@@ -25,7 +23,8 @@ export const renderPhotoCollection = function (targetLocation, data) {
       <p><u>${selectedLocation.startDate} &mdash; ${selectedLocation.endDate}</u></p>
     </div>
     <div class="collection--photos">
-     
+      
+      </div>
     </div>
   </div>
   `;
@@ -42,6 +41,7 @@ export const renderPhotos = function (targetLocation, data) {
     const nameTagFormat = location.nameTag.replaceAll(" ", "-");
     return nameTagFormat === targetLocation.dataset.id;
   });
+  console.log(selectedLocation);
 
   // Link the photo render to the correct collection and date
   if (

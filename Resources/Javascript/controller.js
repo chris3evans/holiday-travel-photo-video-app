@@ -3,12 +3,6 @@ import * as model from "./model.js";
 import * as viewResults from "./viewResults.js";
 import * as viewMain from "./viewMain.js";
 import * as viewPhotos from "./viewPhotos.js";
-/*import '/.core-js/stable'
-import '/.regenerator-runtime/runtime'*/
-
-/*if (module.hot) {
-    module.hot.accept();
-}*/
 
 const controlSubmitEntry = function (newEntry) {
   // Format data from form and push to state and local storage
@@ -51,7 +45,6 @@ const init = function () {
   viewForm.addHandlerCloseForm();
   viewForm.addHandlerSwitchForm();
 
-  viewForm.addHandlerOpenFiles();
   viewForm.addHandlerChooseImages(controlPhotoData);
 
   viewPhotos.addHandlerLeavePhotoView();

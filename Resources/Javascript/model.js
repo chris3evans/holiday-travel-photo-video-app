@@ -21,17 +21,15 @@ export const deleteLocalStorage = function () {
 };
 
 export const getPhotoData = function () {
-  fileInput.onchange = function () {
-    const fileObject = fileInput.files;
-    const fileArr = Object.values(fileObject);
-    console.log(fileArr);
+  const fileObject = fileInput.files;
+  const fileArr = Object.values(fileObject);
+  console.log(fileArr);
 
-    fileArr.forEach(function (file) {
-      if (file.type === "image/jpeg" || file.type === "image/png") {
-        filePathArr.push(file.webkitRelativePath);
-      }
-    });
-  };
+  fileArr.forEach(function (file) {
+    if (file.type === "image/jpeg" || file.type === "image/png") {
+      filePathArr.push(file.webkitRelativePath);
+    }
+  });
 };
 
 export const formatNewEntry = function (newEntry, countryData, photoData) {

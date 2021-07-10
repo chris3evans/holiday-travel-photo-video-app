@@ -43,8 +43,45 @@
       .photo {
         height: 20rem;
         width: 20rem;
+        border: 0.1rem white solid;
         cursor: pointer;
       }
     }
+
+    &--photo__add {
+      height: 20rem;
+      width: 20rem;
+      margin-left: 0.05rem;
+      border: rgba(255, 255, 255, 0.802) 0.3rem solid;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      .btn-add {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: rgba(241, 241, 241, 0.333);
+        padding: 2rem 2rem;
+        border: rgba(255, 255, 255, 0.333) 0.3rem solid;
+        cursor: pointer;
+        transition: 0.4s;
+
+        &:hover {
+          background-color: rgb(223, 223, 223);
+          border: white solid 0.3rem;
+        }
+      }
+
+      .btn--add__icon {
+        height: 5rem;
+        width: 5rem;
+      }
+    }
   }
+}
+
+.files2 {
+  display: none;
 }

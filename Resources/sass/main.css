@@ -279,7 +279,56 @@ body {
 .photos--view .collection--photo .photo {
   height: 20rem;
   width: 20rem;
+  border: 0.1rem white solid;
   cursor: pointer;
+}
+
+.photos--view .collection--photo__add {
+  height: 20rem;
+  width: 20rem;
+  margin-left: 0.05rem;
+  border: rgba(255, 255, 255, 0.802) 0.3rem solid;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.photos--view .collection--photo__add .btn-add {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background-color: rgba(241, 241, 241, 0.333);
+  padding: 2rem 2rem;
+  border: rgba(255, 255, 255, 0.333) 0.3rem solid;
+  cursor: pointer;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.photos--view .collection--photo__add .btn-add:hover {
+  background-color: #dfdfdf;
+  border: white solid 0.3rem;
+}
+
+.photos--view .collection--photo__add .btn--add__icon {
+  height: 5rem;
+  width: 5rem;
+}
+
+.files2 {
+  display: none;
 }
 
 .results {
@@ -561,10 +610,6 @@ body {
   /*.choose-media,*/
 }
 
-.form--btns .files {
-  display: none;
-}
-
 .form--btns .custom-file-upload {
   border: black solid 0.1rem;
   padding: 0.5rem 5rem;
@@ -574,6 +619,10 @@ body {
   margin-top: 3rem;
   margin-left: 42.5%;
   width: 15%;
+}
+
+.files {
+  display: none;
 }
 
 .existing--result {

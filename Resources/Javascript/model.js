@@ -1,5 +1,3 @@
-const fileInput = document.querySelector(".files");
-
 export let state = [];
 export let filePathArr = [];
 
@@ -18,18 +16,6 @@ export const loadLocalStorage = function () {
 
 export const deleteLocalStorage = function () {
   localStorage.removeItem("Country Entries");
-};
-
-export const getPhotoData = function () {
-  const fileObject = fileInput.files;
-  const fileArr = Object.values(fileObject);
-  console.log(fileArr);
-
-  fileArr.forEach(function (file) {
-    if (file.type === "image/jpeg" || file.type === "image/png") {
-      filePathArr.push(file.webkitRelativePath);
-    }
-  });
 };
 
 export const formatNewEntry = function (newEntry, countryData, photoData) {
@@ -59,8 +45,6 @@ export const formatNewEntry = function (newEntry, countryData, photoData) {
     };
 
     newEntryFormat.timesVisited = newEntryFormat.locations.length;
-
-    // Receive and store photo data
 
     // Check if country entry already exists
     const match = countryData.find(function (country) {
@@ -106,6 +90,7 @@ const formatForExistingEntry = function (newEntry) {
 
   const locationDataArr = location.pop();
   const [locationData] = locationDataArr;
+  console.log(locationData);
   return locationData;
 };
 
@@ -129,4 +114,70 @@ const capitalise = function (string) {
       return word[0].toUpperCase() + word.toLowerCase().slice(1);
     })
     .join(" ");
+};
+
+// Results in an array of photo file paths
+export const getPhotoData = function (selector) {
+  const fileObject = selector.files;
+  const fileArr = Object.values(fileObject);
+
+  fileArr.forEach(function (file) {
+    if (file.type === "image/jpeg" || file.type === "image/png") {
+      filePathArr.push(file.webkitRelativePath);
+    }
+  });
+  return filePathArr;
+};
+
+// Need to write a function that will add the new photo URL elements to the array that currently exists in the target location data object
+
+export const pushNewPhotoData = function (targetLocationID) {
+  const countryID = targetLocationID.slice(22);
+  const fileInput2 = document.querySelector(".files2");
+
+  // Image file path array now stored in a variable
+  const newData = getPhotoData(fileInput2);
+
+  // Find the location entry who's start+end date matches the targetLocationID
+  // Country containing location we want to add photos to
+  const [pushToCountry] = state.filter(function (country) {
+    const countryFormat = country.country.replaceAll(" ", "-");
+
+    // Find the country who matches the ID
+    if (countryFormat === countryID) {
+      return country;
+    }
+  });
+
+  // Location containing collection we want to add photos to
+  const [pushToLocation] = pushToCountry.locations.filter(function (location) {
+    const locationFormat = targetLocationID.slice(0, 21);
+    if (locationFormat === `${location.startDate}-${location.endDate}`) {
+      return location;
+    }
+  });
+
+  // Location we want to add photos to
+  const pushToPhotosArr = pushToLocation.photos;
+
+  // Push these photos to the correct photo collection array
+  filePathArr.forEach(function (file) {
+    pushToPhotosArr.push(file);
+  });
+  console.log(pushToPhotosArr);
+
+  // Replace old photo array with new one in the state
+  console.log(state);
+  /*state
+    .find(function (country) {
+      const countryFormat = country.country.replaceAll(" ", "-");
+      return countryFormat === countryID;
+    })
+    .locations.find(function (location) {
+      const locationFormat = targetLocationID.slice(0, 21);
+      return locationFormat === `${location.startDate}-${location.endDate}`;
+    }).photos;*/
+
+  // Save the data in the state
+  setLocalStorage();
 };

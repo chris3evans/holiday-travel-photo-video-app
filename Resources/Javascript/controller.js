@@ -4,6 +4,9 @@ import * as viewResults from "./viewResults.js";
 import * as viewMain from "./viewMain.js";
 import * as viewPhotos from "./viewPhotos.js";
 
+const fileInput = document.querySelector(".files");
+const fileInput2 = document.querySelector(".files2");
+
 const controlSubmitEntry = function (newEntry) {
   // Format data from form and push to state and local storage
   model.formatNewEntry(newEntry, model.state, model.filePathArr);
@@ -29,15 +32,24 @@ const controlClearStorage = function () {
 };
 
 const controlPhotoData = function () {
-  model.getPhotoData();
+  model.getPhotoData(fileInput);
 };
 
 const controlDisplayPhotoView = function (target, country) {
   viewMain.hidePhotoInterface();
 
-  viewPhotos.renderPhotoCollection(target, country);
+  viewPhotos.renderPhotoCollection(target, country, model.state);
 
-  viewPhotos.renderPhotos(target, country);
+  viewPhotos.renderPhotos(target, country, model.state);
+};
+
+const controlAddToCol = function (collectionID) {
+  console.log(collectionID);
+
+  // Pushes additional photos and saves in local storage
+  model.pushNewPhotoData(collectionID);
+
+  // Re-render the photo view with new photo data
 };
 
 const init = function () {
@@ -46,6 +58,8 @@ const init = function () {
   viewForm.addHandlerSwitchForm();
 
   viewForm.addHandlerChooseImages(controlPhotoData);
+
+  viewPhotos.addHandlerAddToCol(controlAddToCol);
 
   viewPhotos.addHandlerLeavePhotoView();
   viewResults.addHandlerRevealPhotoView(controlDisplayPhotoView);

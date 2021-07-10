@@ -91,10 +91,6 @@
   flex-direction: column;
   margin-bottom: 3%;
 
-  .files {
-    display: none;
-  }
-
   /*.choose-media,*/
   .custom-file-upload {
     border: $color-black solid 0.1rem;
@@ -106,4 +102,8 @@
     margin-left: 42.5%;
     width: 15%;
   }
+}
+
+.files {
+  display: none;
 }

@@ -1,12 +1,18 @@
 const resultsContainer = document.querySelector(".results--container");
+const countryContainer = document.querySelector(
+  ".results--container__countries"
+);
+const locationContainer = document.querySelector(
+  ".results--container__locations"
+);
 const backBtn = document.querySelector(".results--navigation");
 
 export const renderCountryResults = function (countryData) {
   //Need to use data from state in a HTML feature we can render
 
-  resultsContainer.innerHTML = "";
+  countryContainer.innerHTML = "";
   countryData.forEach(function (country) {
-    const uniqueID = country.country.replaceAll(" ", "-");
+    const uniqueCountryID = country.countryID;
     let photos = [];
 
     const countPhotos = function () {
@@ -23,10 +29,10 @@ export const renderCountryResults = function (countryData) {
     };
     countPhotos();
 
-    resultsContainer.insertAdjacentHTML(
+    countryContainer.insertAdjacentHTML(
       "afterbegin",
       `
-        <div class="country entry" data-id=${uniqueID}>
+        <div class="country entry" id=${uniqueCountryID}>
         <h2 class="country--name">${country.country}</h2>
         <div class="country--info">
          <p class="country--visited">Visited ${country.timesVisited} Time${
@@ -47,24 +53,25 @@ export const renderCountryResults = function (countryData) {
   });
 };
 
-let target;
+/*let target;*/
 let selectedCountry;
 
-export const renderLocationResults = function (locationData) {
-  resultsContainer.innerHTML = "";
+export const renderLocationResults = function (targetCountryID, locationData) {
+  locationContainer.innerHTML = "";
   backBtn.classList.remove("hidden");
+  locationContainer.classList.remove("hidden");
+  countryContainer.classList.add("hidden");
 
   selectedCountry = locationData.find(function (country) {
-    const countryMatch = country.country.replaceAll(" ", "-");
-    return countryMatch === target.dataset.id;
+    return country.countryID === targetCountryID;
   });
 
   selectedCountry.locations.forEach(function (location) {
-    const uniqueLocationID = location.nameTag.replaceAll(" ", "-");
+    const uniqueLocationID = location.locationID;
 
-    resultsContainer.insertAdjacentHTML(
+    locationContainer.insertAdjacentHTML(
       "afterbegin",
-      `<div class="location entry" data-id=${uniqueLocationID}>
+      `<div class="location entry" id=${uniqueLocationID}>
         <h2 class="location--name">${location.nameTag}</h2>
 
         <ul class="location--details">
@@ -90,23 +97,29 @@ export const addHandlerPageLoad = function (subscriber) {
 
 export const addHandlerLocationResults = function (subscriber) {
   resultsContainer.addEventListener("click", function (e) {
-    target = e.target.closest(".country");
-    if (target.classList.contains("country")) subscriber();
+    const targetCountry = e.target.closest(".country");
+    targetCountry.classList.add("selected");
+    const target = Number(e.target.closest(".country").id);
+    if (targetCountry.classList.contains("country")) subscriber(target);
   });
 };
 
 export const addHandlerGoBack = function (subscriber) {
   backBtn.addEventListener("click", function () {
     backBtn.classList.add("hidden");
+    locationContainer.classList.add("hidden");
+    countryContainer.classList.remove("hidden");
     subscriber();
   });
 };
 
 export const addHandlerRevealPhotoView = function (subscriber) {
   resultsContainer.addEventListener("click", function (e) {
-    target = e.target.closest(".location");
+    const target = e.target.closest(".location");
+    console.log(target);
 
-    if (target.classList.contains("location"))
+    if (target.classList.contains("location")) {
       subscriber(target, selectedCountry);
+    }
   });
 };

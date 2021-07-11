@@ -6,31 +6,30 @@ const btnAddToCol = document.querySelector(".btn-add");
 
 export const renderPhotoCollection = function (
   targetLocation,
-  data,
+  countryData,
   stateData
 ) {
-  console.log(stateData);
-  const [findCountry] = stateData.filter(function (country) {
-    return country.country === data.country;
+  targetLocation.classList.add("selected");
+
+  // ID of location that was clicked on
+  const targetLocationID = Number(targetLocation.id);
+
+  // Location object who's ID matches that of the one clicked
+  const selectedLocation = countryData.locations.find(function (location) {
+    return location.locationID === targetLocationID;
   });
-  console.log(findCountry);
-  const countryIDPart = findCountry.country.replaceAll(" ", "-");
-  console.log(countryIDPart);
+
   // Clear photo view
   photoView.innerHTML = "";
 
-  // Selected location chosen to display photos with their dates
-  const selectedLocation = data.locations.find(function (location) {
-    const nameTagFormat = location.nameTag.replaceAll(" ", "-");
-    return nameTagFormat === targetLocation.dataset.id;
-  });
-
   // Unique ID to identify each photo collection
-  const uniqeuCollectionID = `${selectedLocation.startDate}-${selectedLocation.endDate}-${countryIDPart}`;
+  const targetCollectionID = Number(
+    `${countryData.countryID}${targetLocationID}`
+  );
 
   // Collection HTML Markup
   const collectionMarkup = `
-    <div class="collection" data-id=${uniqeuCollectionID}>
+    <div class="collection" id=${targetCollectionID}>
       <div class="collection--date">
         <p><u>${selectedLocation.startDate} &mdash; ${selectedLocation.endDate}</u></p>
       </div>
@@ -59,24 +58,21 @@ export const renderPhotoCollection = function (
   photoView.insertAdjacentHTML("afterbegin", collectionMarkup);
 };
 
-export const renderPhotos = function (targetLocation, data, stateData) {
-  const [findCountry] = stateData.filter(function (country) {
-    return country.country === data.country;
-  });
-  const countryIDPart = findCountry.country.replaceAll(" ", "-");
-
+export const renderPhotos = function (targetLocation, countryData, stateData) {
   const collectionContainer = document.querySelector(".collection");
   const photoContainer = document.querySelector(".collection--photos");
 
-  const selectedLocation = data.locations.find(function (location) {
-    const nameTagFormat = location.nameTag.replaceAll(" ", "-");
-    return nameTagFormat === targetLocation.dataset.id;
+  const targetLocationID = Number(targetLocation.id);
+
+  const selectedLocation = countryData.locations.find(function (location) {
+    return location.locationID === targetLocationID;
   });
+  console.log(selectedLocation);
 
   // Link the photo render to the correct collection and date
   if (
-    collectionContainer.dataset.id ===
-    `${selectedLocation.startDate}-${selectedLocation.endDate}-${countryIDPart}`
+    Number(collectionContainer.id) ===
+    Number(`${countryData.countryID}${targetLocationID}`)
   ) {
     // Loop over image URL array, rendering each one in the collection
     selectedLocation.photos.forEach(function (photo) {
@@ -97,8 +93,19 @@ export const renderPhotos = function (targetLocation, data, stateData) {
 
 export const addHandlerLeavePhotoView = function () {
   photoBackBtn.addEventListener("click", function () {
+    const locationResults = document.querySelectorAll(".location");
+    const collectionResults = document.querySelectorAll(".collection--photos");
+
     photosView.classList.add("hidden");
     mainView.classList.remove("hidden");
+    console.log(locationResults);
+
+    locationResults.forEach(function (locationResult) {
+      locationResult.classList.remove("selected");
+    });
+    collectionResults.forEach(function (collectionResult) {
+      collectionResult.classList.remove("selected");
+    });
   });
 };
 
@@ -108,9 +115,11 @@ export const addHandlerAddToCol = function (subscriber) {
       e.target.classList.contains("btn-add") ||
       e.target.classList.contains("files2")
     ) {
+      // Add selected class to collection "change" occured on
+      const targetCollection = e.target.closest(".collection--photos");
+      targetCollection.classList.add("selected");
       // Unique ID of the collection we want to add photos to
-      const targetCollectionID = e.target.closest(".collection").dataset.id;
-      console.log(targetCollectionID);
+      const targetCollectionID = e.target.closest(".collection").id;
       subscriber(targetCollectionID);
     }
   });

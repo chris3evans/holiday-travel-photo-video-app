@@ -30,6 +30,9 @@ export const formatNewEntry = function (newEntry, countryData, photoData) {
     // Checks input data is correct
     const newEntryNormal = normalizeFormInputs(newEntry);
 
+    const generateCountryID = Math.floor(Math.random() * 9999999999);
+    const generateLocationID = Math.floor(Math.random() * 9999999999);
+
     // Formats form data object
     let newEntryFormat = {
       country: newEntryNormal.country,
@@ -40,11 +43,13 @@ export const formatNewEntry = function (newEntry, countryData, photoData) {
           startDate: newEntryNormal.startDate,
           endDate: newEntryNormal.endDate,
           photos: photoData,
+          locationID: generateLocationID,
         },
       ],
     };
 
     newEntryFormat.timesVisited = newEntryFormat.locations.length;
+    newEntryFormat.countryID = generateCountryID;
 
     // Check if country entry already exists
     const match = countryData.find(function (country) {
@@ -129,54 +134,56 @@ export const getPhotoData = function (selector) {
   return filePathArr;
 };
 
+export const clearSelectedPhotoData = function () {
+  filePathArr = [];
+};
+
 // Need to write a function that will add the new photo URL elements to the array that currently exists in the target location data object
 
 export const pushNewPhotoData = function (targetLocationID) {
-  const countryID = targetLocationID.slice(22);
+  filePathArr = [];
+  const countryResults = Array.from(document.querySelectorAll(".country"));
+  const locationResults = Array.from(document.querySelectorAll(".location"));
+  const [selectedCountry] = countryResults.filter(function (country) {
+    return country.classList.contains("selected");
+  });
+  console.log(selectedCountry);
+  const [selectedLocation] = locationResults.filter(function (location) {
+    return location.classList.contains("selected");
+  });
+
+  // Country ID of the country that has "selected" class
+  const selectedCountryID = Number(selectedCountry.id);
+  console.log(selectedCountryID);
+
+  // Location ID of the location that has "selected" class
+  const selectedLocationID = Number(selectedLocation.id);
+  console.log(selectedLocationID);
   const fileInput2 = document.querySelector(".files2");
 
-  // Image file path array now stored in a variable
-  const newData = getPhotoData(fileInput2);
-
-  // Find the location entry who's start+end date matches the targetLocationID
-  // Country containing location we want to add photos to
-  const [pushToCountry] = state.filter(function (country) {
-    const countryFormat = country.country.replaceAll(" ", "-");
-
-    // Find the country who matches the ID
-    if (countryFormat === countryID) {
-      return country;
-    }
-  });
-
-  // Location containing collection we want to add photos to
-  const [pushToLocation] = pushToCountry.locations.filter(function (location) {
-    const locationFormat = targetLocationID.slice(0, 21);
-    if (locationFormat === `${location.startDate}-${location.endDate}`) {
-      return location;
-    }
-  });
-
-  // Location we want to add photos to
-  const pushToPhotosArr = pushToLocation.photos;
-
-  // Push these photos to the correct photo collection array
-  filePathArr.forEach(function (file) {
-    pushToPhotosArr.push(file);
-  });
-  console.log(pushToPhotosArr);
-
-  // Replace old photo array with new one in the state
-  console.log(state);
-  /*state
+  const newPhotos = getPhotoData(fileInput2);
+  console.log(newPhotos);
+  console.log(
+    state
+      .find(function (country) {
+        return country.countryID === selectedCountryID;
+      })
+      .locations.find(function (location) {
+        return location.locationID === selectedLocationID;
+      }).photos
+  );
+  console.log(filePathArr);
+  const pushTo = state
     .find(function (country) {
-      const countryFormat = country.country.replaceAll(" ", "-");
-      return countryFormat === countryID;
+      return country.countryID === selectedCountryID;
     })
     .locations.find(function (location) {
-      const locationFormat = targetLocationID.slice(0, 21);
-      return locationFormat === `${location.startDate}-${location.endDate}`;
-    }).photos;*/
+      return location.locationID === selectedLocationID;
+    }).photos;
+
+  newPhotos.forEach(function (imgFile) {
+    pushTo.push(imgFile);
+  });
 
   // Save the data in the state
   setLocalStorage();

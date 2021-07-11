@@ -5,14 +5,17 @@ import * as viewMain from "./viewMain.js";
 import * as viewPhotos from "./viewPhotos.js";
 
 const fileInput = document.querySelector(".files");
-const fileInput2 = document.querySelector(".files2");
 
 const controlSubmitEntry = function (newEntry) {
+  // Clear photo data selected
+
   // Format data from form and push to state and local storage
   model.formatNewEntry(newEntry, model.state, model.filePathArr);
 
   // Render new country with other results in results container
   viewResults.renderCountryResults(model.state);
+
+  model.clearSelectedPhotoData();
 };
 
 const controlLoadCountryEntries = function (data) {
@@ -23,8 +26,8 @@ const controlLoadCountryEntries = function (data) {
   viewResults.renderCountryResults(model.state);
 };
 
-const controlLoadLocationsEntries = function () {
-  viewResults.renderLocationResults(model.state);
+const controlLoadLocationsEntries = function (targetCountryID) {
+  viewResults.renderLocationResults(targetCountryID, model.state);
 };
 
 const controlClearStorage = function () {
@@ -35,6 +38,8 @@ const controlPhotoData = function () {
   model.getPhotoData(fileInput);
 };
 
+const clearPhotoData = function () {};
+
 const controlDisplayPhotoView = function (target, country) {
   viewMain.hidePhotoInterface();
 
@@ -44,8 +49,6 @@ const controlDisplayPhotoView = function (target, country) {
 };
 
 const controlAddToCol = function (collectionID) {
-  console.log(collectionID);
-
   // Pushes additional photos and saves in local storage
   model.pushNewPhotoData(collectionID);
 

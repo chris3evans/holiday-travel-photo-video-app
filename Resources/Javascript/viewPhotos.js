@@ -59,6 +59,8 @@ export const renderPhotoCollection = function (
 };
 
 export const renderPhotos = function (targetLocation, countryData, stateData) {
+  console.log(targetLocation);
+  console.log(countryData);
   const collectionContainer = document.querySelector(".collection");
   const photoContainer = document.querySelector(".collection--photos");
 
@@ -117,9 +119,11 @@ export const addHandlerAddToCol = function (subscriber) {
     ) {
       // Add selected class to collection "change" occured on
       const targetCollection = e.target.closest(".collection--photos");
+      console.log(targetCollection);
       targetCollection.classList.add("selected");
       // Unique ID of the collection we want to add photos to
       const targetCollectionID = e.target.closest(".collection").id;
+      console.log(targetCollectionID);
       subscriber(targetCollectionID);
     }
   });

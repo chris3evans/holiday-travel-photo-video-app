@@ -35,171 +35,170 @@
 }
 
 @media only screen and (max-width: 900px) {
-    html {
-      font-size: 8.5px;
-    }
-  
-    header {
-      justify-content: space-between;
-      padding: 1rem 0;
-    }
-    .main--nav {
-      margin: 2rem 0;
-      flex: 0 0 60%;
-      align-items: center;
-    }
-    .search {
-      display: flex;
-      flex-direction: column;
-      flex: 0 0 95%;
-      justify-content: center;
-      margin-right: 2.5%;
-    }
-    .search--filter {
-      display: block;
-    }
-    .search--bar {
-      display: flex;
-      width: 100%;
-      height: 4rem;
-    }
-    .search--add {
-      display: flex;
-    }
-    .search--filter__filters {
-      width: 100%;
-      height: 4rem;
-    }
-    .search--bar__field {
-      flex: 0 0 100%;
-      font-size: 200%;
-      height: 4rem;
-    }
-    .search--bar__btn {
-      display: none;
-    }
-    .search--add__btn {
-      flex: 0 0 100%;
-      height: 4rem;
-      text-align: left;
-      padding-left: 4%;
-      margin-left: 0;
-    }
-    .search--logo {
-      flex: 0 0 15%;
-    }
-    .mob-nav-icon {
-      display: flex;
-      flex: 0 0 25%;
-      justify-content: center;
-    }
-    .form-btn {
-      font-size: 160%;
-      height: 4.5rem;
-    }
-    .type h4 {
-      font-size: 180%;
-    }
-    .form--close i {
-      font-size: 200%;
-    }
-    .form--field {
-      flex-direction: column;
-      margin: 1.8rem 0;
-    }
-    .field--input {
-      width: 100%;
-    }
-    .field--label {
-      margin-bottom: 0.5rem;
-    }
-    .field--label__label {
-      font-size: 200%;
-    }
-    .field--input__input {
-      height: 4.5rem;
-      font-size: 140%;
-      padding-left: 1rem;
-    }
-    .dates {
-      margin-top: 3rem;
-      margin-bottom: 2rem;
-      flex-direction: column;
-    }
-    .date--end {
-      margin-left: 0px;
-      margin-top: 1.5rem;
-    }
-    .date--title {
-      margin-bottom: 1rem;
-      font-size: 200%;
-    }
-    .date--input {
-      height: 4.5rem;
-      width: 60%;
-      margin-left: 0%;
-      font-size: 160%;
-      font-weight: 500;
-      padding-left: 2rem;
-    }
-    .form--btns {
-      display: flex;
-      margin-top: 4rem;
-    }
-    .media {
-      flex: 0 0 60%;
-    }
-    .post {
-      flex: 0 0 35%;
-      margin-left: auto;
-    }
-    .choose-media {
-      font-size: 180%;
-      display: flex;
-      align-items: center;
-      margin-top: 0;
-    }
-    .post-media {
-      margin-top: 0;
-      width: 100%;
-      margin-left: 0;
-    }
-    .name--field,
-    .location--field {
-      height: 4rem;
-      margin-bottom: 0.5rem;
-      font-size: 130%;
-    }
-    .name--field {
-      margin-top: 1rem;
-    }
-    .existing--results {
-      margin-bottom: 7%;
-    }
-    .existing--result {
-      flex-direction: column;
-    }
-    .existing--result__name {
-      justify-content: center;
-      margin-right: 0;
-      margin-bottom: 1.5rem;
-      font-size: 200%;
-    }
-    .existing--result__date-container {
-      display: flex;
-      justify-content: space-between;
-    }
-    .existing--result__date-start,
-    .existing--result__date-end {
-      width: 50%;
-    }
-    .existing--result__add {
-      width: 35%;
-      margin-top: 1.5rem;
-      padding: 0.5rem;
-      height: 6rem;
-    }
+  html {
+    font-size: 8.5px;
   }
+
+  header {
+    justify-content: space-between;
+    padding: 1rem 0;
+  }
+  .main--nav {
+    margin: 2rem 0;
+    flex: 0 0 60%;
+    align-items: center;
+  }
+  .search {
+    display: flex;
+    flex-direction: column;
+    flex: 0 0 95%;
+    justify-content: center;
+    margin-right: 2.5%;
+  }
+  .search--filter {
+    display: block;
+  }
+  .search--bar {
+    display: flex;
+    width: 100%;
+    height: 4rem;
+  }
+  .search--add {
+    display: flex;
+  }
+  .search--filter__filters {
+    width: 100%;
+    height: 4rem;
+  }
+  .search--bar__field {
+    flex: 0 0 100%;
+    font-size: 200%;
+    height: 4rem;
+  }
+  .search--bar__btn {
+    display: none;
+  }
+  .search--add__btn {
+    flex: 0 0 100%;
+    height: 4rem;
+    text-align: left;
+    padding-left: 4%;
+    margin-left: 0;
+  }
+  .search--logo {
+    flex: 0 0 15%;
+  }
+  .mob-nav-icon {
+    display: flex;
+    flex: 0 0 25%;
+    justify-content: center;
+  }
+  .form-btn {
+    font-size: 160%;
+    height: 4.5rem;
+  }
+  .type h4 {
+    font-size: 180%;
+  }
+  .form--close i {
+    font-size: 200%;
+  }
+  .form--field {
+    flex-direction: column;
+    margin: 1.8rem 0;
+  }
+  .field--input {
+    width: 100%;
+  }
+  .field--label {
+    margin-bottom: 0.5rem;
+  }
+  .field--label__label {
+    font-size: 200%;
+  }
+  .field--input__input {
+    height: 4.5rem;
+    font-size: 140%;
+    padding-left: 1rem;
+  }
+  .dates {
+    margin-top: 3rem;
+    margin-bottom: 2rem;
+    flex-direction: column;
+  }
+  .date--end {
+    margin-left: 0px;
+    margin-top: 1.5rem;
+  }
+  .date--title {
+    margin-bottom: 1rem;
+    font-size: 200%;
+  }
+  .date--input {
+    height: 4.5rem;
+    width: 60%;
+    margin-left: 0%;
+    font-size: 160%;
+    font-weight: 500;
+    padding-left: 2rem;
+  }
+  .form--btns {
+    display: flex;
+    margin-top: 4rem;
+  }
+  .media {
+    flex: 0 0 60%;
+  }
+  .post {
+    flex: 0 0 35%;
+  }
+  .choose-media {
+    font-size: 180%;
+    display: flex;
+    align-items: center;
+    margin-top: 0;
+  }
+  .post-media {
+    margin-top: 0;
+    width: 100%;
+    margin-left: 0;
+  }
+  .name--field,
+  .location--field {
+    height: 4rem;
+    margin-bottom: 0.5rem;
+    font-size: 130%;
+  }
+  .name--field {
+    margin-top: 1rem;
+  }
+  .existing--results {
+    margin-bottom: 7%;
+  }
+  .existing--result {
+    flex-direction: column;
+  }
+  .existing--result__name {
+    justify-content: center;
+    margin-right: 0;
+    margin-bottom: 1.5rem;
+    font-size: 200%;
+  }
+  .existing--result__date-container {
+    display: flex;
+    justify-content: space-between;
+  }
+  .existing--result__date-start,
+  .existing--result__date-end {
+    width: 50%;
+  }
+  .existing--result__add {
+    width: 35%;
+    margin-top: 1.5rem;
+    padding: 0.5rem;
+    height: 6rem;
+  }
+}
 
 @media only screen and (max-width: 850px) {
   html {
@@ -219,7 +218,7 @@
   }
   .main--interface {
     display: block;
-  }  
+  }
   .results--container {
     height: 300px;
   }

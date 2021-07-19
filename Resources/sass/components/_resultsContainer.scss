@@ -16,3 +16,20 @@
     cursor: pointer;
   }
 }
+
+.entry {
+  background-color: rgb(255, 60, 0);
+  color: $color-black;
+  margin-bottom: 0.3rem;
+  margin-left: 0.2rem;
+  margin-right: 0.2rem;
+  border-radius: 0.5rem;
+  transition: 1s;
+
+  &:hover {
+    background-color: rgb(255, 0, 93);
+  }
+  &:first-child {
+    margin-top: 0.1rem;
+  }
+}

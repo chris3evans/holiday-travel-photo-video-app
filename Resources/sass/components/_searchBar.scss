@@ -79,3 +79,20 @@
     }
   }
 }
+
+.field {
+  height: 5rem;
+  border-radius: 10rem;
+  color: white;
+  border: none;
+  background-color: $btn-main-purple;
+  font-size: 200%;
+
+  &:hover,
+  &:active {
+    background-color: $btn-main-hover;
+    border: 0.05rem solid black;
+    transition: 0.5s;
+    color: black;
+  }
+}

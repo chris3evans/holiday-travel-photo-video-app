@@ -74,13 +74,10 @@ export const formatNewEntry = function (newEntry, countryData, photoData) {
     } else {
       // Push entire new country object to state
       state.push(newEntryFormat);
-      console.log(newEntryFormat);
-      console.log(state);
 
       // Save to local storage
       setLocalStorage();
     }
-    console.log(state);
   }
 };
 
@@ -95,7 +92,6 @@ const formatForExistingEntry = function (newEntry) {
 
   const locationDataArr = location.pop();
   const [locationData] = locationDataArr;
-  console.log(locationData);
   return locationData;
 };
 
@@ -125,54 +121,46 @@ const capitalise = function (string) {
 export const getPhotoData = function (selector) {
   const fileObject = selector.files;
   const fileArr = Object.values(fileObject);
+  console.log(fileArr);
 
   fileArr.forEach(function (file) {
     if (file.type === "image/jpeg" || file.type === "image/png") {
       filePathArr.push(file.webkitRelativePath);
     }
   });
-  return filePathArr;
+  console.log(filePathArr);
+  /*return filePathArr;*/
 };
 
 export const clearSelectedPhotoData = function () {
   filePathArr = [];
+  const newForm = document.querySelector(".new--form");
+  const fileInput = document.querySelector("#selectedFiles");
+  newForm.reset();
+  console.log(filePathArr);
+  console.log(fileInput.files);
 };
 
-// Need to write a function that will add the new photo URL elements to the array that currently exists in the target location data object
-
-export const pushNewPhotoData = function (targetLocationID) {
+export const pushNewPhotoData = function () {
   filePathArr = [];
   const countryResults = Array.from(document.querySelectorAll(".country"));
   const locationResults = Array.from(document.querySelectorAll(".location"));
   const [selectedCountry] = countryResults.filter(function (country) {
     return country.classList.contains("selected");
   });
-  console.log(selectedCountry);
   const [selectedLocation] = locationResults.filter(function (location) {
     return location.classList.contains("selected");
   });
 
   // Country ID of the country that has "selected" class
   const selectedCountryID = Number(selectedCountry.id);
-  console.log(selectedCountryID);
 
   // Location ID of the location that has "selected" class
   const selectedLocationID = Number(selectedLocation.id);
-  console.log(selectedLocationID);
   const fileInput2 = document.querySelector(".files2");
 
   const newPhotos = getPhotoData(fileInput2);
-  console.log(newPhotos);
-  console.log(
-    state
-      .find(function (country) {
-        return country.countryID === selectedCountryID;
-      })
-      .locations.find(function (location) {
-        return location.locationID === selectedLocationID;
-      }).photos
-  );
-  console.log(filePathArr);
+
   const pushTo = state
     .find(function (country) {
       return country.countryID === selectedCountryID;

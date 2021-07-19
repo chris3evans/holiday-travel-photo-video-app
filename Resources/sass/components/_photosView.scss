@@ -4,7 +4,7 @@
     rgb(255, 174, 0),
     rgb(255, 0, 93)
   );
-  height: 100vh;
+  height: 100%;
 }
 
 .photos--view {
@@ -45,6 +45,7 @@
         width: 20rem;
         border: 0.1rem white solid;
         cursor: pointer;
+        display: block;
       }
     }
 

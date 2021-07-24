@@ -248,6 +248,9 @@ body {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .photos--view .collection--date {
@@ -274,6 +277,9 @@ body {
   width: 100%;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .photos--view .collection--photo .photo {
@@ -330,6 +336,169 @@ body {
 
 .files2 {
   display: none;
+}
+
+.photo__pop-up {
+  position: absolute;
+  z-index: 10;
+  background-color: white;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  border: #ff1111 solid 0.1rem;
+  border-radius: 1rem;
+}
+
+.photo__pop-up .btn__close {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+.photo__pop-up .btn__close--icon {
+  height: 3.5rem;
+  width: 3.5rem;
+  cursor: pointer;
+}
+
+.photo__pop-up .photo__container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  margin: 0rem 2rem 2rem 2rem;
+}
+
+.photo__pop-up .photo__note--input {
+  font-size: 165%;
+  height: 2rem;
+  width: 100%;
+  border: none;
+  margin: 1rem 0rem;
+}
+
+.photo__pop-up .photo__note--input::-webkit-input-placeholder {
+  color: black;
+  font-family: "Lato", sans-serif;
+  font-weight: 300;
+}
+
+.photo__pop-up .photo__note--input:-ms-input-placeholder {
+  color: black;
+  font-family: "Lato", sans-serif;
+  font-weight: 300;
+}
+
+.photo__pop-up .photo__note--input::-ms-input-placeholder {
+  color: black;
+  font-family: "Lato", sans-serif;
+  font-weight: 300;
+}
+
+.photo__pop-up .photo__note--input::placeholder {
+  color: black;
+  font-family: "Lato", sans-serif;
+  font-weight: 300;
+}
+
+.photo__pop-up .photo__large {
+  height: 50rem;
+  border-radius: 1rem;
+  border: solid 0.1rem #ff8f73;
+}
+
+.btn__note {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+.btn__note .btn__post-note {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 0.5rem 3rem;
+  margin-top: 1rem;
+  font-size: 175%;
+  font-weight: 600;
+  cursor: pointer;
+  background-color: #cc0077;
+  border: 0.1rem solid #e600a1;
+  border-radius: 1rem;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  color: white;
+}
+
+.btn__note .btn__post-note:hover {
+  background-color: #ff002b;
+  border: 0.1rem solid black;
+  color: black;
+}
+
+.btn__note-reveal {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-left: auto;
+  border-radius: 100px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  cursor: pointer;
+  background-color: #cc0077;
+  border: 0.1rem solid #e600a1;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  margin-top: 1rem;
+}
+
+.btn__note-reveal:hover {
+  background-color: #ff002b;
+  border: 0.1rem solid black;
+  color: black;
+}
+
+.btn__note-reveal--icon {
+  height: 1.5rem;
+  width: 4rem;
+  fill: white;
+}
+
+.note__container {
+  font-size: 165%;
+  width: 100%;
+  border: none;
+  margin: 1rem 0rem 0rem 0rem;
 }
 
 .results {
@@ -759,7 +928,8 @@ body {
   display: none;
 }
 
-.overlay {
+.overlay,
+.overlay2 {
   position: absolute;
   background-color: rgba(0, 0, 0, 0.415);
   z-index: 5;

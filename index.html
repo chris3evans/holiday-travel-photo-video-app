@@ -21,7 +21,7 @@
     />
   </head>
   <body>
-    <!--START OF FORM CODE-->
+    <!--Start of FORM CODE-->
     <div class="overlay hidden"></div>
     <div class="modal-form hidden">
       <button class="form--close"><i class="ion-close-round"></i></button>
@@ -130,7 +130,42 @@
       </div>
     </div>
 
-    <!--END OF FORM CODE-->
+    <!--End of FORM CODE-->
+
+    <!--Start of PHOTO POP UP code-->
+
+    <div class="overlay2"></div>
+    <div class="photo__pop-up">
+      <div class="btn__close">
+        <svg class="btn__close--icon">
+          <use xlink:href="Resources/CSS/cross-sprite.svg#icon-cross"></use>
+        </svg>
+      </div>
+      <div class="photo__container">
+        <img src="Resources/Test Images/bali_Test.jfif" class="photo__large" />
+        <div class="photo__note">
+          <input
+            type="text"
+            class="photo__note--input"
+            placeholder="Add a note here..."
+          />
+          <button class="btn__note-reveal">
+            <svg class="btn__note-reveal--icon">
+              <use
+                xlink:href="Resources/CSS/dots-sprite.svg#icon-dots-three-horizontal"
+              ></use>
+            </svg>
+          </button>
+        </div>
+        <div class="btn__note hidden">
+          <button class="btn__post-note">Post Note</button>
+        </div>
+        <div class="note__container hidden"></div>
+        <!--asdadkjahdashdakdhakdhaskdhaksdhakdhakdhasdkhadkahsdkadhasdhadkjasdkjadhajsdkajd-->
+      </div>
+    </div>
+
+    <!--End of PHOTO POP UP code-->
 
     <main class="primary--view">
       <header>
@@ -189,23 +224,23 @@
       </section>
     </main>
 
-    <section>
-      <div class="photos hidden">
-        <div class="photos--navigation">
-          <button class="photos--navigation__back">
-            <i class="ion-chevron-left"></i>
-          </button>
-          <a class="search--logo" href="http://127.0.0.1:5500/index.html">
-            <img
-              src="Resources/Images/Logo-Test.jpg"
-              class="search--logo__img"
-            />
-          </a>
-          <button class="photos--navigation__add">Add Media</button>
-        </div>
-        <div class="photos--view"></div>
+    <div class="photos hidden">
+      <div class="photos--navigation">
+        <button class="photos--navigation__back">
+          <i class="ion-chevron-left"></i>
+        </button>
+        <a class="search--logo" href="http://127.0.0.1:5500/index.html">
+          <img src="Resources/Images/Logo-Test.jpg" class="search--logo__img" />
+        </a>
+        <button class="photos--navigation__add">Add Media</button>
       </div>
-    </section>
+      <div class="photos--view"></div>
+    </div>
+    <!--<div class="photo__pop-up">
+      <div class="photo__container">
+        <img src="Resources/Test Images/bali_Test.jfif" class="photo__large" />
+      </div>
+    </div>-->
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script type="module" src="Resources/Javascript/model.js"></script>

@@ -3,6 +3,7 @@ import * as model from "./model.js";
 import * as viewResults from "./viewResults.js";
 import * as viewMain from "./viewMain.js";
 import * as viewPhotos from "./viewPhotos.js";
+import * as viewLargePhoto from "./viewLargePhoto.js";
 
 const fileInput = document.querySelector("#selectedFiles");
 
@@ -43,8 +44,6 @@ const controlDisplayPhotoView = function (target, country) {
   viewPhotos.renderPhotoCollection(target, country, model.state);
 
   viewPhotos.renderPhotos(target, country, model.state);
-  console.log(target);
-  console.log(country);
 };
 
 const controlAddToCol = function (collectionID) {
@@ -53,6 +52,12 @@ const controlAddToCol = function (collectionID) {
 
   // Re-render the photo view with new photo data
 };
+
+const controlAddPhotoNote = function () {
+  viewLargePhoto.initializePhotoInput();
+};
+
+const controlViewLargePhoto = function () {};
 
 const controlCloseForm = function () {
   // Clear the photo data array
@@ -64,16 +69,16 @@ const controlCloseForm = function () {
 
 const init = function () {
   viewForm.addHandlerOpenForm(controlCloseForm);
-
   viewForm.addHandlerCloseForm(controlCloseForm);
 
-  viewForm.addHandlerChooseImages(
-    controlPhotoData,
-    /*model.getPhotoData(fileInput)*/
-    model.fileInput
-  );
-
+  viewForm.addHandlerChooseImages(controlPhotoData);
   viewPhotos.addHandlerAddToCol(controlAddToCol);
+
+  viewLargePhoto.addHandlerOpenLargePhoto(controlAddPhotoNote);
+  viewLargePhoto.addHandlerCloseLargePhoto();
+  viewLargePhoto.addHandlerOpenNote();
+  viewLargePhoto.addHandlerNoteInput();
+  /*viewLargePhoto.addHandlerSelectPhotoNote(controlAddPhotoNote);*/
 
   viewPhotos.addHandlerLeavePhotoView();
   viewResults.addHandlerRevealPhotoView(controlDisplayPhotoView);

@@ -121,24 +121,18 @@ const capitalise = function (string) {
 export const getPhotoData = function (selector) {
   const fileObject = selector.files;
   const fileArr = Object.values(fileObject);
-  console.log(fileArr);
 
   fileArr.forEach(function (file) {
     if (file.type === "image/jpeg" || file.type === "image/png") {
       filePathArr.push(file.webkitRelativePath);
     }
   });
-  console.log(filePathArr);
-  /*return filePathArr;*/
 };
 
 export const clearSelectedPhotoData = function () {
   filePathArr = [];
   const newForm = document.querySelector(".new--form");
-  const fileInput = document.querySelector("#selectedFiles");
   newForm.reset();
-  console.log(filePathArr);
-  console.log(fileInput.files);
 };
 
 export const pushNewPhotoData = function () {

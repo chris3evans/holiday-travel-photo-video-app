@@ -11,6 +11,7 @@
 @import "components/locationEntry";
 @import "components/photosNavigation";
 @import "components/photosView";
+@import "components/largePhotosView";
 @import "components/resultsContainer";
 @import "components/searchBar";
 @import "components/newForm";
@@ -21,7 +22,8 @@
   display: none;
 }
 
-.overlay {
+.overlay,
+.overlay2 {
   position: absolute;
   background-color: rgba($color-black, 0.415);
   z-index: 5;

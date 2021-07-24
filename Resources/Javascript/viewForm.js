@@ -20,8 +20,6 @@ export const resetForm = function () {
   const fileUploadTexts = document.querySelectorAll(".number-upload");
   // Hide the form modal
   hide();
-  console.log(fileInput.files);
-  console.log(model.filePathArr);
 
   // Clear each field of any text
   inputs.forEach(function (input) {
@@ -34,13 +32,10 @@ export const resetForm = function () {
       uploadText.remove();
     });
   }
-  /*newForm.classList.remove("hidden"); */
 };
 
 const renderNumFiles = function (photoArray) {
-  console.log(photoArray);
   const numFiles = photoArray.length;
-  console.log(photoArray.length);
   const plural = numFiles > 1 ? "s" : "";
   const markup = `
   <div class="number-upload">${numFiles} File${plural} Selected</div>
@@ -48,12 +43,11 @@ const renderNumFiles = function (photoArray) {
   btnFile.insertAdjacentHTML("afterend", markup);
 };
 
-export const addHandlerChooseImages = function (subscriber, photoArray) {
+export const addHandlerChooseImages = function (subscriber) {
   btnFile.addEventListener("change", function () {
     subscriber();
-    console.log(fileInput.files);
 
-    renderNumFiles(/*photoArray*/ fileInput.files);
+    renderNumFiles(fileInput.files);
   });
 };
 

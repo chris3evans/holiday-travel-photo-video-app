@@ -128,3 +128,7 @@ export const addHandlerAddToCol = function (subscriber) {
     }
   });
 };
+
+// Keep photo pop up hidden with an empty image URL
+// When rendered, reveal the pop up render with selected image URL
+// When closed, hide the pop up and clear the image URL

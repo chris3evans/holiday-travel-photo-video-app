@@ -1,0 +1,115 @@
+.photo__pop-up {
+  position: absolute;
+  z-index: 10;
+  background-color: white;
+
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  display: flex;
+  flex-direction: column;
+  border: rgb(255, 17, 17) solid 0.1rem;
+  border-radius: 1rem;
+
+  .btn__close {
+    display: flex;
+    justify-content: flex-end;
+
+    &--icon {
+      height: 3.5rem;
+      width: 3.5rem;
+      cursor: pointer;
+    }
+  }
+
+  .photo__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+
+    margin: 0rem 2rem 2rem 2rem;
+  }
+
+  .photo__note {
+    &--input {
+      font-size: 165%;
+      height: 2rem;
+      width: 100%;
+      border: none;
+      margin: 1rem 0rem;
+    }
+
+    &--input::placeholder {
+      color: black;
+      font-family: "Lato", sans-serif;
+      font-weight: 300;
+    }
+  }
+
+  .photo__large {
+    height: 50rem;
+    border-radius: 1rem;
+    border: solid 0.1rem rgb(255, 143, 115);
+  }
+}
+
+.btn__note {
+  display: flex;
+  justify-content: flex-end;
+
+  .btn__post-note {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.5rem 3rem;
+    margin-top: 1rem;
+    font-size: 175%;
+    font-weight: 600;
+    cursor: pointer;
+
+    background-color: $btn-main-purple;
+    border: 0.1rem solid $btn-main-border;
+    border-radius: 1rem;
+    transition: 0.5s;
+    color: white;
+
+    &:hover {
+      background-color: $btn-main-hover;
+      border: 0.1rem solid $color-black;
+      color: black;
+    }
+  }
+
+  &-reveal {
+    display: flex;
+    margin-left: auto;
+    border-radius: 100px;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    background-color: $btn-main-purple;
+    border: 0.1rem solid $btn-main-border;
+    transition: 0.5s;
+    margin-top: 1rem;
+
+    &:hover {
+      background-color: $btn-main-hover;
+      border: 0.1rem solid $color-black;
+      color: black;
+    }
+
+    &--icon {
+      height: 1.5rem;
+      width: 4rem;
+      fill: white;
+    }
+  }
+}
+
+.note__container {
+  font-size: 165%;
+  width: 100%;
+  border: none;
+  margin: 1rem 0rem 0rem 0rem;
+}

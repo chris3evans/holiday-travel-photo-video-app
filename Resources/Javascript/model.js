@@ -19,6 +19,18 @@ export const deleteLocalStorage = function () {
 };
 
 export const formatNewEntry = function (newEntry, countryData, photoData) {
+  const generatePhotoID = +Math.floor(Math.random() * 9999999999);
+  const photoObjectArr = [];
+  photoData.forEach(function (photo) {
+    const photoObject = {
+      filePath: photo,
+      notes: [],
+      photoID: generatePhotoID,
+    };
+
+    photoObjectArr.push(photoObject);
+  });
+  console.log(photoObjectArr);
   // Checks data was actually entered
   if (
     newEntry.country === "" ||
@@ -42,7 +54,7 @@ export const formatNewEntry = function (newEntry, countryData, photoData) {
           locationAddress: newEntryNormal.address,
           startDate: newEntryNormal.startDate,
           endDate: newEntryNormal.endDate,
-          photos: photoData,
+          photos: photoObjectArr,
           locationID: generateLocationID,
         },
       ],
@@ -117,16 +129,40 @@ const capitalise = function (string) {
     .join(" ");
 };
 
-// Results in an array of photo file paths
-export const getPhotoData = function (selector) {
+// For initial photo add
+export const getPhotoData1 = function (selector) {
   const fileObject = selector.files;
   const fileArr = Object.values(fileObject);
+  console.log(fileArr);
 
   fileArr.forEach(function (file) {
     if (file.type === "image/jpeg" || file.type === "image/png") {
       filePathArr.push(file.webkitRelativePath);
+      console.log(filePathArr);
     }
   });
+};
+
+// For adding more photos to current collection
+export const getPhotoData2 = function (selector) {
+  const fileObject = selector.files;
+  const fileArr = Object.values(fileObject);
+  console.log(fileArr);
+
+  const generatePhotoID = +Math.floor(Math.random() * 9999999999);
+
+  fileArr.forEach(function (file) {
+    if (file.type === "image/jpeg" || file.type === "image/png") {
+      console.log(file);
+      const photoObject = {
+        filePath: file.webkitRelativePath,
+        notes: [],
+        photoID: generatePhotoID,
+      };
+      filePathArr.push(photoObject);
+    }
+  });
+  return filePathArr;
 };
 
 export const clearSelectedPhotoData = function () {
@@ -153,7 +189,8 @@ export const pushNewPhotoData = function () {
   const selectedLocationID = Number(selectedLocation.id);
   const fileInput2 = document.querySelector(".files2");
 
-  const newPhotos = getPhotoData(fileInput2);
+  const newPhotos = getPhotoData2(fileInput2);
+  console.log(newPhotos);
 
   const pushTo = state
     .find(function (country) {
@@ -163,10 +200,76 @@ export const pushNewPhotoData = function () {
       return location.locationID === selectedLocationID;
     }).photos;
 
+  console.log(pushTo);
+
   newPhotos.forEach(function (imgFile) {
+    console.log(imgFile.filePath);
     pushTo.push(imgFile);
   });
 
   // Save the data in the state
+  setLocalStorage();
+};
+
+export const addNewNote = function () {
+  const countriesNl = document.querySelectorAll(".country");
+  const locationsNl = document.querySelectorAll(".location");
+  const photoNoteInput = document.querySelector(".photo__note--input");
+  const photosNl = document.querySelectorAll(".photo");
+
+  const countriesArr = Array.from(countriesNl);
+
+  const countryId = +countriesArr.find(function (country) {
+    if (country.classList.contains("selected")) {
+      return country;
+    }
+  }).id;
+
+  const locationsArr = Array.from(locationsNl);
+
+  const locationId = +locationsArr.find(function (location) {
+    if (location.classList.contains("selected")) {
+      return location;
+    }
+  }).id;
+
+  /*const targetLocation = state
+    .find(function (country) {
+      return country.countryID === countryId;
+    })
+    .locations.find(function (location) {
+      return location.locationID === locationId;
+    });*/
+
+  // Collection which contains the photo we want to add a note to
+  const targetPhotoCollection = state
+    .find(function (country) {
+      return country.countryID === countryId;
+    })
+    .locations.find(function (location) {
+      return location.locationID === locationId;
+    }).photos;
+  console.log(targetPhotoCollection);
+
+  // Note stored in a variable
+  const note = photoNoteInput.value;
+  const photoArr = Array.from(photosNl);
+
+  // ID of photo to add note to
+  const targetPhotoID = +photoArr.find(function (photo) {
+    return photo.classList.contains("selected");
+  }).id;
+  console.log(targetPhotoID);
+
+  // Note array to push note value to
+  const pushNoteTo = targetPhotoCollection.find(function (photo) {
+    return photo.photoID === targetPhotoID;
+  }).notes;
+  console.log(pushNoteTo);
+
+  // Note is now inside the notes array for that photo
+  pushNoteTo.push(note);
+  console.log(pushNoteTo);
+
   setLocalStorage();
 };

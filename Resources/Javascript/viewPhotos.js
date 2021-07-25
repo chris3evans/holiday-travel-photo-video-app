@@ -59,8 +59,6 @@ export const renderPhotoCollection = function (
 };
 
 export const renderPhotos = function (targetLocation, countryData, stateData) {
-  console.log(targetLocation);
-  console.log(countryData);
   const collectionContainer = document.querySelector(".collection");
   const photoContainer = document.querySelector(".collection--photos");
 
@@ -69,7 +67,6 @@ export const renderPhotos = function (targetLocation, countryData, stateData) {
   const selectedLocation = countryData.locations.find(function (location) {
     return location.locationID === targetLocationID;
   });
-  console.log(selectedLocation);
 
   // Link the photo render to the correct collection and date
   if (
@@ -83,7 +80,8 @@ export const renderPhotos = function (targetLocation, countryData, stateData) {
         `
           <div class="collection--photo">
             <img
-              src="Resources/${photo}"
+              id="${photo.photoID}"
+              src="Resources/${photo.filePath}"
               class="photo"
             />
           </div>
@@ -100,7 +98,6 @@ export const addHandlerLeavePhotoView = function () {
 
     photosView.classList.add("hidden");
     mainView.classList.remove("hidden");
-    console.log(locationResults);
 
     locationResults.forEach(function (locationResult) {
       locationResult.classList.remove("selected");
@@ -119,16 +116,10 @@ export const addHandlerAddToCol = function (subscriber) {
     ) {
       // Add selected class to collection "change" occured on
       const targetCollection = e.target.closest(".collection--photos");
-      console.log(targetCollection);
       targetCollection.classList.add("selected");
       // Unique ID of the collection we want to add photos to
       const targetCollectionID = e.target.closest(".collection").id;
-      console.log(targetCollectionID);
       subscriber(targetCollectionID);
     }
   });
 };
-
-// Keep photo pop up hidden with an empty image URL
-// When rendered, reveal the pop up render with selected image URL
-// When closed, hide the pop up and clear the image URL

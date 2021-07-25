@@ -35,7 +35,7 @@ const controlClearStorage = function () {
 };
 
 const controlPhotoData = function () {
-  model.getPhotoData(fileInput);
+  model.getPhotoData1(fileInput);
 };
 
 const controlDisplayPhotoView = function (target, country) {
@@ -53,11 +53,21 @@ const controlAddToCol = function (collectionID) {
   // Re-render the photo view with new photo data
 };
 
-const controlAddPhotoNote = function () {
+const controlRenderPhotoNote = function () {
+  // Reset the pop up
   viewLargePhoto.initializePhotoInput();
+
+  // Render the pop up with any notes
+  viewLargePhoto.renderNotes();
 };
 
-const controlViewLargePhoto = function () {};
+const controlSubmitNote = function () {
+  // Save the note to correct location in local storage
+  model.addNewNote(model.state);
+
+  // Render the note from this new data
+  /*viewLargePhoto.renderNotes();*/
+};
 
 const controlCloseForm = function () {
   // Clear the photo data array
@@ -74,11 +84,11 @@ const init = function () {
   viewForm.addHandlerChooseImages(controlPhotoData);
   viewPhotos.addHandlerAddToCol(controlAddToCol);
 
-  viewLargePhoto.addHandlerOpenLargePhoto(controlAddPhotoNote);
+  viewLargePhoto.addHandlerOpenLargePhoto(controlRenderPhotoNote);
   viewLargePhoto.addHandlerCloseLargePhoto();
   viewLargePhoto.addHandlerOpenNote();
   viewLargePhoto.addHandlerNoteInput();
-  /*viewLargePhoto.addHandlerSelectPhotoNote(controlAddPhotoNote);*/
+  viewLargePhoto.addHandlerSubmitNote(controlSubmitNote);
 
   viewPhotos.addHandlerLeavePhotoView();
   viewResults.addHandlerRevealPhotoView(controlDisplayPhotoView);

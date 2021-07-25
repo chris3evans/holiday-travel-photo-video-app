@@ -116,7 +116,6 @@ export const addHandlerGoBack = function (subscriber) {
 export const addHandlerRevealPhotoView = function (subscriber) {
   resultsContainer.addEventListener("click", function (e) {
     const target = e.target.closest(".location");
-    console.log(target);
 
     if (target.classList.contains("location")) {
       subscriber(target, selectedCountry);

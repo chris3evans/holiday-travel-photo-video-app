@@ -1,5 +1,6 @@
 const photoPopUp = document.querySelector(".photo__pop-up");
 const photoNoteBtnEl = document.querySelector(".btn__note");
+const photoNoteInputEl = document.querySelector(".photo__note");
 const photoNoteInput = document.querySelector(".photo__note--input");
 const revealNoteBtn = document.querySelector(".btn__note-reveal");
 const noteContainer = document.querySelector(".note__container");
@@ -8,6 +9,42 @@ const larPhotoPostBtn = document.querySelector(".btn__post-note");
 const larPhotoPostBtnEl = document.querySelector(".btn__note");
 const larPhoto = document.querySelector(".photo__large");
 const overlay = document.querySelector(".overlay2");
+
+export const findNote = function (stateData) {
+  const countriesNl = document.querySelectorAll(".country");
+  const locationsNl = document.querySelectorAll(".location");
+  const photosNl = document.querySelectorAll(".photo");
+
+  const countriesArr = Array.from(countriesNl);
+  const locationsArr = Array.from(locationsNl);
+  const photosArr = Array.from(photosNl);
+
+  // ID of selected country, location and photo
+  const clickedCountryID = +countriesArr.find(function (country) {
+    return country.classList.contains("selected");
+  }).id;
+  const clickedLocationID = +locationsArr.find(function (location) {
+    return location.classList.contains("selected");
+  }).id;
+
+  const clickedPhotoID = +photosArr.find(function (photo) {
+    return photo.classList.contains("selected");
+  }).id;
+
+  // The note value of the photo clicked
+  const [targetPhotoNotes] = stateData
+    .find(function (country) {
+      return country.countryID === clickedCountryID;
+    })
+    .locations.find(function (location) {
+      return location.locationID === clickedLocationID;
+    })
+    .photos.find(function (photo) {
+      return photo.photoID === clickedPhotoID;
+    }).notes;
+
+  return targetPhotoNotes;
+};
 
 export const addHandlerSelectPhotoNote = function (subscriber) {
   photoNoteInput.addEventListener("click", function () {
@@ -18,11 +55,8 @@ export const addHandlerSelectPhotoNote = function (subscriber) {
 export const addHandlerOpenLargePhoto = function (subscriber) {
   document.addEventListener("click", function (e) {
     if (e.target.classList.contains("photo")) {
-      console.log(e.target);
       e.target.classList.add("selected");
-      console.log(e.target);
       // Reveal Large Photo Pop Up
-      subscriber();
       photoPopUp.classList.remove("hidden");
       overlay.classList.remove("hidden");
 
@@ -30,8 +64,11 @@ export const addHandlerOpenLargePhoto = function (subscriber) {
       const largeUrl = e.target.getAttribute("src");
       larPhoto.src = largeUrl;
 
-      const imageClickedID = e.target.id;
-      console.log(imageClickedID);
+      // Load And Render Correct Note (if it exists)
+
+      // ID of photo who's note we want to retreive
+      const targetPhotoID = e.target.id;
+      subscriber(targetPhotoID);
     }
   });
 };
@@ -76,10 +113,15 @@ export const addHandlerNoteInput = function () {
   });
 };
 
-export const addHandlerOpenNote = function () {
+export const addHandlerOpenNote = function (noteText) {
   revealNoteBtn.addEventListener("click", function (e) {
     e.preventDefault();
-    noteContainer.classList.toggle("hidden");
+    /*if (noteContainer.classList.contains("hidden")) {
+    } else {
+      noteContainer.classList.add("hidden");
+    }*/
+    noteContainer.classList.remove("hidden");
+    noteContainer.innerHTML = noteText;
   });
 };
 
@@ -114,6 +156,17 @@ export const addHandlerSubmitNote = function (subscriber) {
   });
 };
 
-export const renderNotes = function () {
-  console.log("hi");
+export const renderNotes = function (noteText) {
+  // If there is a note to render
+  if (noteText) {
+    // Render "Reveal Note" button
+    revealNoteBtn.classList.remove("hidden");
+    // Hide note input
+    photoNoteInput.classList.add("hidden");
+  } else {
+    // Render placeholder text
+    photoNoteInput.classList.remove("hidden");
+    // Hide "Reveal Note" button
+    revealNoteBtn.classList.add("hidden");
+  }
 };

@@ -58,7 +58,11 @@ const controlRenderPhotoNote = function () {
   viewLargePhoto.initializePhotoInput();
 
   // Render the pop up with any notes
-  viewLargePhoto.renderNotes();
+  const note = viewLargePhoto.findNote(model.state);
+
+  viewLargePhoto.renderNotes(note);
+
+  viewLargePhoto.addHandlerOpenNote(note);
 };
 
 const controlSubmitNote = function () {
@@ -86,7 +90,6 @@ const init = function () {
 
   viewLargePhoto.addHandlerOpenLargePhoto(controlRenderPhotoNote);
   viewLargePhoto.addHandlerCloseLargePhoto();
-  viewLargePhoto.addHandlerOpenNote();
   viewLargePhoto.addHandlerNoteInput();
   viewLargePhoto.addHandlerSubmitNote(controlSubmitNote);
 

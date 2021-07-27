@@ -19,9 +19,9 @@ export const deleteLocalStorage = function () {
 };
 
 export const formatNewEntry = function (newEntry, countryData, photoData) {
-  const generatePhotoID = +Math.floor(Math.random() * 9999999999);
   const photoObjectArr = [];
   photoData.forEach(function (photo) {
+    const generatePhotoID = +Math.floor(Math.random() * 9999999999);
     const photoObject = {
       filePath: photo,
       notes: [],
@@ -149,11 +149,10 @@ export const getPhotoData2 = function (selector) {
   const fileArr = Object.values(fileObject);
   console.log(fileArr);
 
-  const generatePhotoID = +Math.floor(Math.random() * 9999999999);
-
   fileArr.forEach(function (file) {
     if (file.type === "image/jpeg" || file.type === "image/png") {
       console.log(file);
+      const generatePhotoID = +Math.floor(Math.random() * 9999999999);
       const photoObject = {
         filePath: file.webkitRelativePath,
         notes: [],
@@ -233,14 +232,6 @@ export const addNewNote = function () {
     }
   }).id;
 
-  /*const targetLocation = state
-    .find(function (country) {
-      return country.countryID === countryId;
-    })
-    .locations.find(function (location) {
-      return location.locationID === locationId;
-    });*/
-
   // Collection which contains the photo we want to add a note to
   const targetPhotoCollection = state
     .find(function (country) {
@@ -249,7 +240,6 @@ export const addNewNote = function () {
     .locations.find(function (location) {
       return location.locationID === locationId;
     }).photos;
-  console.log(targetPhotoCollection);
 
   // Note stored in a variable
   const note = photoNoteInput.value;
@@ -259,17 +249,14 @@ export const addNewNote = function () {
   const targetPhotoID = +photoArr.find(function (photo) {
     return photo.classList.contains("selected");
   }).id;
-  console.log(targetPhotoID);
 
   // Note array to push note value to
   const pushNoteTo = targetPhotoCollection.find(function (photo) {
     return photo.photoID === targetPhotoID;
   }).notes;
-  console.log(pushNoteTo);
 
   // Note is now inside the notes array for that photo
   pushNoteTo.push(note);
-  console.log(pushNoteTo);
 
   setLocalStorage();
 };

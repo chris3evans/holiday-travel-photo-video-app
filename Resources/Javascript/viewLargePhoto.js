@@ -116,10 +116,6 @@ export const addHandlerNoteInput = function () {
 export const addHandlerOpenNote = function (noteText) {
   revealNoteBtn.addEventListener("click", function (e) {
     e.preventDefault();
-    /*if (noteContainer.classList.contains("hidden")) {
-    } else {
-      noteContainer.classList.add("hidden");
-    }*/
     noteContainer.classList.remove("hidden");
     noteContainer.innerHTML = noteText;
   });

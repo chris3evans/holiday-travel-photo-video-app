@@ -8,8 +8,11 @@ import * as viewLargePhoto from "./viewLargePhoto.js";
 const fileInput = document.querySelector("#selectedFiles");
 
 const controlSubmitEntry = function (newEntry) {
-  // Format data from form and push to state and local storage
-  model.formatNewEntry(newEntry, model.state, model.filePathArr);
+  // Format data from form
+  const entry = model.formatNewEntry(newEntry, model.filePathArr);
+
+  // Save it to correct space in local storage
+  model.saveEntryData(newEntry, entry, model.state, model.filePathArr);
 
   // Render new country with other results in results container
   viewResults.renderCountryResults(model.state);

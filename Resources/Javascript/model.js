@@ -18,7 +18,7 @@ export const deleteLocalStorage = function () {
   localStorage.removeItem("Country Entries");
 };
 
-export const formatNewEntry = function (newEntry, countryData, photoData) {
+export const formatNewEntry = function (newEntry, photoData) {
   const photoObjectArr = [];
   photoData.forEach(function (photo) {
     const generatePhotoID = +Math.floor(Math.random() * 9999999999);
@@ -30,7 +30,7 @@ export const formatNewEntry = function (newEntry, countryData, photoData) {
 
     photoObjectArr.push(photoObject);
   });
-  console.log(photoObjectArr);
+
   // Checks data was actually entered
   if (
     newEntry.country === "" ||
@@ -63,37 +63,78 @@ export const formatNewEntry = function (newEntry, countryData, photoData) {
     newEntryFormat.timesVisited = newEntryFormat.locations.length;
     newEntryFormat.countryID = generateCountryID;
 
-    // Check if country entry already exists
-    const match = countryData.find(function (country) {
-      return country.country === newEntryFormat.country;
-    });
-
-    // If country entry does exist and there is data in the state
-    if (match && state.length !== 0) {
-      // Nested object containing specific location data
-      const newData = formatForExistingEntry(newEntryFormat);
-
-      // Push this data to the country's location array
-      match.locations.push(newData);
-
-      // Update times visited value
-      match.timesVisited = match.locations.length;
-
-      // Save to local storage
-      setLocalStorage();
-
-      // If country entry does NOT exist
-    } else {
-      // Push entire new country object to state
-      state.push(newEntryFormat);
-
-      // Save to local storage
-      setLocalStorage();
-    }
+    return newEntryFormat;
   }
 };
 
-const formatForExistingEntry = function (newEntry) {
+const checkForCountry = function (newEntry, countryData) {
+  // Does country exist
+  const countryExist = countryData.some(function (country) {
+    return country.country === newEntry.country;
+  });
+
+  if (countryExist === false) {
+    return undefined;
+  } else {
+    const countryMatch = countryData.find(function (country) {
+      return country.country === newEntry.country;
+    });
+    return countryMatch;
+  }
+};
+
+const checkForNameTag = function (newEntry, existingCountry) {
+  // If country already exists check for existing name tag
+  if (existingCountry) {
+    const nameTagExist = existingCountry.locations.some(function (location) {
+      return location.nameTag === newEntry.locations[0].nameTag;
+    });
+    if (nameTagExist) {
+      const nameTagMatch = existingCountry.locations.find(function (location) {
+        return location.nameTag === newEntry.locations[0].nameTag;
+      });
+      return nameTagMatch;
+    }
+
+    // If country does not exist then push new object to state
+  } else {
+    state.push(newEntry);
+  }
+};
+
+const checkForLocationAddress = function (newEntry, countryData) {
+  const addressMatch = countryData
+    .find(function (country) {
+      return country.country === newEntry.country;
+    })
+    .locations.find(function (location) {
+      return location.locationAddress === newEntry.locations[0].locationAddress;
+    });
+  return addressMatch;
+};
+
+export const addToExistingEntry = function (
+  newEntry,
+  countryMatch,
+  nameTagMatch,
+  locationAddressMatch
+) {
+  // If the country + nameTag + address already exist
+  if (nameTagMatch && locationAddressMatch && countryMatch) {
+    // New photos to be added to existing location
+    const newPhotos = newEntry.locations[0].photos;
+
+    // Push each of them into the existing photo array
+    newPhotos.forEach(function (photo) {
+      nameTagMatch.photos.push(photo);
+    });
+
+    // Save to local storage
+    setLocalStorage();
+  }
+};
+
+const formatForExistingCountry = function (newEntry) {
   const location = Object.entries(newEntry)
     .filter(function (entry) {
       if (entry[0].startsWith("locations")) {
@@ -105,6 +146,58 @@ const formatForExistingEntry = function (newEntry) {
   const locationDataArr = location.pop();
   const [locationData] = locationDataArr;
   return locationData;
+};
+
+export const saveEntryData = function (
+  newEntry,
+  entry,
+  countryData,
+  photoData
+) {
+  // If no countries or locations at all - WORKS
+  if (state.length === 0) {
+    const newEntryFormat = formatNewEntry(newEntry, photoData);
+    state.push(newEntryFormat);
+    setLocalStorage();
+  } else {
+    // Check if country exists
+    const existingCountry = checkForCountry(newEntry, countryData);
+
+    const existingNameTag = checkForNameTag(entry, existingCountry);
+    const existingLocationAddress = checkForLocationAddress(entry, countryData);
+
+    // If the country is new - WORKS
+    if (!existingCountry) {
+      // Save state to local storage
+      setLocalStorage();
+
+      // If the country already exists but different location
+    } else if (
+      (existingCountry && !existingNameTag) ||
+      !existingLocationAddress
+    ) {
+      // Location data to push
+      const newLocationData = formatForExistingCountry(entry);
+
+      // Push it to existing countries location array
+      existingCountry.locations.push(newLocationData);
+
+      // Update times visited value
+      existingCountry.timesVisited = existingCountry.locations.length;
+
+      // Save to local storage
+      setLocalStorage();
+
+      // If the country and location already exist
+    } else {
+      addToExistingEntry(
+        entry,
+        existingCountry,
+        existingNameTag,
+        existingLocationAddress
+      );
+    }
+  }
 };
 
 const normalizeFormInputs = function (inputData) {
@@ -133,12 +226,10 @@ const capitalise = function (string) {
 export const getPhotoData1 = function (selector) {
   const fileObject = selector.files;
   const fileArr = Object.values(fileObject);
-  console.log(fileArr);
 
   fileArr.forEach(function (file) {
     if (file.type === "image/jpeg" || file.type === "image/png") {
       filePathArr.push(file.webkitRelativePath);
-      console.log(filePathArr);
     }
   });
 };
@@ -147,7 +238,6 @@ export const getPhotoData1 = function (selector) {
 export const getPhotoData2 = function (selector) {
   const fileObject = selector.files;
   const fileArr = Object.values(fileObject);
-  console.log(fileArr);
 
   fileArr.forEach(function (file) {
     if (file.type === "image/jpeg" || file.type === "image/png") {
@@ -189,7 +279,6 @@ export const pushNewPhotoData = function () {
   const fileInput2 = document.querySelector(".files2");
 
   const newPhotos = getPhotoData2(fileInput2);
-  console.log(newPhotos);
 
   const pushTo = state
     .find(function (country) {
@@ -199,10 +288,7 @@ export const pushNewPhotoData = function () {
       return location.locationID === selectedLocationID;
     }).photos;
 
-  console.log(pushTo);
-
   newPhotos.forEach(function (imgFile) {
-    console.log(imgFile.filePath);
     pushTo.push(imgFile);
   });
 

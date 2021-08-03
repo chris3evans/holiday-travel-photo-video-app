@@ -60,9 +60,24 @@ export const formatNewEntry = function (newEntry, photoData) {
       ],
     };
 
+    // Total number photos in country
+    let totalPhotosArr = [];
+
+    newEntryFormat.locations.forEach(function (location) {
+      totalPhotosArr.push(location.photos);
+    });
+
+    totalPhotosArr = totalPhotosArr.reduce(function (a, b) {
+      return a.concat(b);
+    });
+    console.log(totalPhotosArr);
+    newEntryFormat.totalPhotos = totalPhotosArr.length;
+
+    // Times visited
     newEntryFormat.timesVisited = newEntryFormat.locations.length;
     newEntryFormat.countryID = generateCountryID;
 
+    console.log(newEntryFormat);
     return newEntryFormat;
   }
 };
@@ -154,7 +169,7 @@ export const saveEntryData = function (
   countryData,
   photoData
 ) {
-  // If no countries or locations at all - WORKS
+  // If no countries or locations at all
   if (state.length === 0) {
     const newEntryFormat = formatNewEntry(newEntry, photoData);
     state.push(newEntryFormat);
@@ -166,7 +181,7 @@ export const saveEntryData = function (
     const existingNameTag = checkForNameTag(entry, existingCountry);
     const existingLocationAddress = checkForLocationAddress(entry, countryData);
 
-    // If the country is new - WORKS
+    // If the country is new
     if (!existingCountry) {
       // Save state to local storage
       setLocalStorage();
@@ -184,6 +199,20 @@ export const saveEntryData = function (
 
       // Update times visited value
       existingCountry.timesVisited = existingCountry.locations.length;
+
+      // Update the total number photos in country
+      let totalPhotosArr = [];
+
+      existingCountry.locations.forEach(function (location) {
+        totalPhotosArr.push(location.photos);
+      });
+
+      totalPhotosArr = totalPhotosArr.reduce(function (a, b) {
+        return a.concat(b);
+      });
+      console.log(totalPhotosArr);
+      existingCountry.totalPhotos = totalPhotosArr.length;
+      console.log(existingCountry);
 
       // Save to local storage
       setLocalStorage();

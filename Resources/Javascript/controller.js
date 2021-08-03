@@ -84,9 +84,19 @@ const controlCloseForm = function () {
   viewForm.resetForm();
 };
 
+const controlSortPhotos = function () {
+  console.log(model.state);
+  const sortedPhoto = viewMain.sortByPhotos(model.state);
+  console.log(sortedPhoto);
+
+  viewResults.renderCountryResults(sortedPhoto);
+};
+
 const init = function () {
   viewForm.addHandlerOpenForm(controlCloseForm);
   viewForm.addHandlerCloseForm(controlCloseForm);
+
+  viewMain.addHandlerSortByPhotos(controlSortPhotos);
 
   viewForm.addHandlerChooseImages(controlPhotoData);
   viewPhotos.addHandlerAddToCol(controlAddToCol);

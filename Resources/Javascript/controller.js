@@ -85,11 +85,15 @@ const controlCloseForm = function () {
 };
 
 const controlSortPhotos = function () {
-  console.log(model.state);
   const sortedPhoto = viewMain.sortByPhotos(model.state);
-  console.log(sortedPhoto);
 
   viewResults.renderCountryResults(sortedPhoto);
+};
+
+const controlSortFrequency = function () {
+  const sortedFrequency = viewMain.sortByFrequency(model.state);
+
+  viewResults.renderCountryResults(sortedFrequency);
 };
 
 const init = function () {
@@ -97,6 +101,7 @@ const init = function () {
   viewForm.addHandlerCloseForm(controlCloseForm);
 
   viewMain.addHandlerSortByPhotos(controlSortPhotos);
+  viewMain.addHandlerSortByFrequency(controlSortFrequency);
 
   viewForm.addHandlerChooseImages(controlPhotoData);
   viewPhotos.addHandlerAddToCol(controlAddToCol);

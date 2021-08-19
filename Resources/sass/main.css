@@ -502,9 +502,8 @@ body {
 }
 
 .results {
-  -webkit-box-flex: 0;
-      -ms-flex: 0 0 25%;
-          flex: 0 0 25%;
+  /*flex: 0 0 25%;*/
+  width: 100%;
 }
 
 .results--container {
@@ -985,6 +984,10 @@ header {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 1rem;
 }
 
 /*--------WORLD MAP----------*/

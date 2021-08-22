@@ -19,6 +19,8 @@ const controlSubmitEntry = function (newEntry) {
 
   // Clear photo data selected
   model.clearSelectedPhotoData();
+
+  window.location.reload();
 };
 
 const controlLoadCountryEntries = function (data) {
@@ -54,6 +56,7 @@ const controlAddToCol = function (collectionID) {
   model.pushNewPhotoData(collectionID);
 
   // Re-render the photo view with new photo data
+  window.location.reload();
 };
 
 const controlRenderPhotoNote = function () {
@@ -73,6 +76,7 @@ const controlSubmitNote = function () {
   model.addNewNote(model.state);
 
   // Render the note from this new data
+  window.location.reload();
   /*viewLargePhoto.renderNotes();*/
 };
 

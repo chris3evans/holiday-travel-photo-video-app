@@ -70,14 +70,13 @@ export const formatNewEntry = function (newEntry, photoData) {
     totalPhotosArr = totalPhotosArr.reduce(function (a, b) {
       return a.concat(b);
     });
-    console.log(totalPhotosArr);
+
     newEntryFormat.totalPhotos = totalPhotosArr.length;
 
     // Times visited
     newEntryFormat.timesVisited = newEntryFormat.locations.length;
     newEntryFormat.countryID = generateCountryID;
 
-    console.log(newEntryFormat);
     return newEntryFormat;
   }
 };
@@ -210,9 +209,7 @@ export const saveEntryData = function (
       totalPhotosArr = totalPhotosArr.reduce(function (a, b) {
         return a.concat(b);
       });
-      console.log(totalPhotosArr);
       existingCountry.totalPhotos = totalPhotosArr.length;
-      console.log(existingCountry);
 
       // Save to local storage
       setLocalStorage();

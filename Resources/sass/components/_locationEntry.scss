@@ -1,66 +1,79 @@
 .location {
-    display: flex;
-    flex-direction: column;
-    cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
 
-    &--name {
+  &--name {
     display: flex;
     padding: 0.8rem 0;
-    text-decoration: underline 0.2rem;
     margin-left: 3%;
+    padding-top: 1rem;
     margin-right: auto;
-    font-size: 300%;
-    }
+    font-size: 5.5rem;
+    font-weight: 300;
+  }
 
-    &--details {
+  &--details {
     display: flex;
     flex-direction: column;
     list-style: none;
     margin-left: 3%;
     flex: 0 0 95%;
 
-        &__address {
-        display: flex;
-        align-items: center;
-        font-size: 220%;
-        font-weight: 400;
-        margin-right: 2%;
-        }
+    &__address {
+      display: flex;
+      align-items: center;
+      font-weight: 300;
+      padding: 1rem 0rem;
+    }
 
-        &__address-icon {
-        margin-right: 4%;
-        font-size: 200%;
-        }
+    &__address-icon {
+      display: flex;
+      flex: 0 0 1%;
+      margin-right: 2rem;
+      font-size: 5rem;
+    }
 
-        &__date {
-        display: flex;
-        align-items: center;
-        padding: 0.8rem 0;
-        font-weight: 400;
-        flex: 0 0 100%;
-        font-size: 200%;
-        }
+    &__address-text {
+      display: flex;
+      flex: 1;
+      font-size: 4rem;
+    }
 
-        &__date-icon {
-        margin-right: 4%;
-        font-size: 110%;
-        }
-
-        &__media {
-        display: flex;
-        align-items: center;
-        padding-bottom: 0.8rem;
-        font-size: 220%;
-        font-weight: 400;
-        }
-
-        &__media-icon {
-        font-size: 120%;
-        margin-right: 4%;
-        }
-
-        &__media-icon:last-child {
-        margin: 0 4%;
-        }
+    &__date-icon {
+      margin-right: 4%;
+      font-size: 5rem;
     }
   }
+
+  &--info {
+    display: flex;
+    align-items: center;
+    padding-bottom: 1rem;
+  }
+
+  &--details__date0 {
+    flex: 1;
+  }
+
+  &--details__date {
+    display: flex;
+    align-items: center;
+    padding: 0.8rem 0;
+    font-weight: 400;
+    font-size: 3rem;
+  }
+
+  &--details__media {
+    display: flex;
+    align-items: center;
+    font-size: 3rem;
+    font-weight: 400;
+    flex: 0 0 60%;
+  }
+
+  &--details__media-icon {
+    margin-right: 2rem;
+    font-size: 5rem;
+  }
+}

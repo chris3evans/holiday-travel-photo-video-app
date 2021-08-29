@@ -28,10 +28,10 @@ export const sortByPhotos = function (stateData) {
   // Sorts objects in decending number of photos
   const sort = function (a, b) {
     if (a.totalPhotos < b.totalPhotos) {
-      return -1;
+      return 1;
     }
     if (a.totalPhotos > b.totalPhotos) {
-      return 1;
+      return -1;
     }
     return 0;
   };

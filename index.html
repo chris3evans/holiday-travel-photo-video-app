@@ -31,7 +31,9 @@
           <form class="new--form">
             <div class="form--field">
               <div class="field--label">
-                <label class="field--label field--label__label">Country:</label>
+                <label for="country" class="field--label field--label__label"
+                  >Country:</label
+                >
               </div>
               <div class="field--input">
                 <input
@@ -47,7 +49,7 @@
 
             <div class="form--field">
               <div class="field--label">
-                <label class="field--label field--label__label"
+                <label for="name-tag" class="field--label field--label__label"
                   >Name-Tag:</label
                 >
               </div>
@@ -64,7 +66,7 @@
 
             <div class="form--field">
               <div class="field--label">
-                <label class="field--label field--label__label"
+                <label for="location" class="field--label field--label__label"
                   >Location:</label
                 >
               </div>
@@ -181,24 +183,11 @@
                 <option id="frequency" value="frequency" selected>
                   Frequency
                 </option>
-                <option id="recency" value="recency">Recency</option>
+
                 <option id="photos" value="photos">Most Photos</option>
-                <option id="videos" value="videos">Most Videos</option>
               </select>
             </form>
 
-            <!--<form class="search--bar">
-              <input
-                class="search--bar__field"
-                type="text"
-                name="search"
-                id="search"
-                placeholder="Search for country"
-              />
-              <button type="submit" class="search--bar__btn">
-                <i class="ion-ios-search search--bar__btn-icon"></i>
-              </button>
-            </form>-->
             <form class="search--add">
               <button class="search--add__btn field">Add Media</button>
             </form>
@@ -213,7 +202,7 @@
       <section class="main--interface">
         <div class="results">
           <div class="results--navigation hidden">
-            <i class="ion-ios-arrow-thin-left"></i>
+            <span class="results--navigation__arrow">&larr;</span>
           </div>
 
           <div class="results--container">
@@ -221,7 +210,6 @@
             <div class="results--container__locations hidden"></div>
           </div>
         </div>
-        <!--<div class="world-map"></div>-->
       </section>
     </main>
 
@@ -233,15 +221,9 @@
         <a class="search--logo" href="http://127.0.0.1:5500/index.html">
           <img src="Resources/Images/Logo-Test.jpg" class="search--logo__img" />
         </a>
-        <button class="photos--navigation__add">Add Media</button>
       </div>
       <div class="photos--view"></div>
     </div>
-    <!--<div class="photo__pop-up">
-      <div class="photo__container">
-        <img src="Resources/Test Images/bali_Test.jfif" class="photo__large" />
-      </div>
-    </div>-->
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script type="module" src="Resources/Javascript/model.js"></script>

@@ -43,8 +43,6 @@ export const renderCountryResults = function (countryData) {
              <i class="ion-images country--details__photos"></i>${
                photos.length
              }</li>
-           <li>
-             <i class="ion-film-marker country--details__videos"></i>12</li>
          </ul>
        </div>
        </div>
@@ -80,11 +78,11 @@ export const renderLocationResults = function (targetCountryID, locationData) {
             <p class="location--details__address-text">${location.locationAddress}</p>
           </li>
           <div class="location--info">
-          <li class="location--detais__date0">
+          <li class="location--details__date0">
             <p class="location--details__date"><i class="ion-calendar location--details__date-icon"></i>${location.startDate} &mdash; ${location.endDate}</p>
           </li>
           <li class="location--details__media">
-            <i class="ion-images location--details__media-icon"></i>${location.photos.length}<i class="ion-film-marker location--details__media-icon"></i>6</li>
+            <i class="ion-images location--details__media-icon"></i>${location.photos.length}</li>
         </ul>
       </div>`
     );

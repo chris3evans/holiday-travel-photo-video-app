@@ -10,26 +10,39 @@
     background-color: transparent;
   }
 
-  &--navigation i {
-    margin-left: 7%;
-    font-size: 240%;
-    font-weight: 700;
-    cursor: pointer;
+  &--navigation {
+    margin-bottom: 1rem;
+
+    &__arrow {
+      font-size: 5rem;
+      cursor: pointer;
+      margin-left: 5rem;
+      transition: all 0.2s;
+
+      &:hover {
+        color: $color-white;
+      }
+    }
   }
 }
 
 .entry {
+  padding: 1.5rem;
   background-color: rgb(255, 60, 0);
-  color: $color-black;
-  margin-bottom: 0.3rem;
+  color: $color-white;
+  border: solid $color-white 0.5rem;
+  border-radius: 1rem;
+  margin-bottom: 2rem;
   margin-left: 0.2rem;
   margin-right: 0.2rem;
-  border-radius: 0.5rem;
-  transition: 1s;
+  border-radius: 1rem;
+  transform: scale(0.98) translateY(0.5rem);
+  transition: all 0.3s;
 
   &:hover {
-    background-color: rgb(255, 0, 93);
+    transform: scale(1) translateY(0rem);
   }
+
   &:first-child {
     margin-top: 0.1rem;
   }

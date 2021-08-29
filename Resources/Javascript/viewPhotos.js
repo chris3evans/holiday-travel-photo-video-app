@@ -31,7 +31,7 @@ export const renderPhotoCollection = function (
   const collectionMarkup = `
     <div class="collection" id=${targetCollectionID}>
       <div class="collection--date">
-        <p><u>${selectedLocation.startDate} &mdash; ${selectedLocation.endDate}</u></p>
+        <p>${selectedLocation.startDate} &mdash; ${selectedLocation.endDate}</p>
       </div>
       <div class="collection--photos">
         <div class="collection--photo__add">
